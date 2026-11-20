@@ -1,0 +1,11 @@
+[Unit]
+Description=Run Market Dispatch hourly with catch-up on boot
+
+[Timer]
+OnBootSec=5min
+OnUnitActiveSec=1h
+Persistent=true
+Unit=market-dispatch.service
+
+[Install]
+WantedBy=timers.target

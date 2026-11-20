@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Market Dispatch · 历史归档</title>
+<style>
+  :root {
+    --bg: #F6F1E9; --paper: #FFFDF9; --tint: #EFE8DC;
+    --ink: #1B1917; --ink-2: #44403C; --ink-3: #78716C;
+    --rule: #DFD7C8; --rule-strong: #1B1917;
+    --accent: #990F3D; --accent-soft: #F9EBF0;
+    --gold: #9A5B06;
+    --serif: Georgia, "Songti SC", "STSong", "Noto Serif CJK SC", "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Segoe UI", sans-serif;
+    --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  }
+  [data-theme="dark"] {
+    --bg: #121316; --paper: #191B20; --tint: #23262E;
+    --ink: #EDE8DF; --ink-2: #BEB7AC; --ink-3: #857F76;
+    --rule: #2D313B; --rule-strong: #C9C0AE;
+    --accent: #E26B8D; --accent-soft: #2D1D24;
+    --gold: #E3AA4F;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: var(--sans); background: var(--bg); color: var(--ink); line-height: 1.6; transition: background .2s, color .2s; }
+  .container { max-width: 1060px; margin: 0 auto; padding: 0 20px 48px; }
+
+  .topbar { border-bottom: 1px solid var(--rule); background: var(--paper); }
+  .topbar-inner { max-width: 1060px; margin: 0 auto; padding: 8px 20px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-size: 13px; }
+  .edition-tabs { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+  .edition-label { color: var(--ink-3); font-size: 12px; margin-right: 6px; }
+  .ed-tab { display: inline-flex; align-items: center; gap: 6px; padding: 4px 11px; border-radius: 3px; text-decoration: none; color: var(--ink-2); font-family: var(--mono); font-size: 12.5px; font-variant-numeric: tabular-nums; }
+  .ed-tab:hover { background: var(--tint); color: var(--ink); }
+  .live-dot { width: 6px; height: 6px; border-radius: 50%; background: #22C55E; display: inline-block; }
+  .ed-tab .cnt { font-size: 11px; opacity: .72; }
+  .topbar-right { display: flex; align-items: center; gap: 12px; }
+  .archive-active { color: var(--paper); background: var(--accent); font-weight: 600; font-size: 12.5px; padding: 4px 10px; border-radius: 3px; }
+  .theme-btn { background: transparent; border: 1px solid var(--rule); color: var(--ink-2); padding: 4px 10px; border-radius: 3px; font-size: 12.5px; cursor: pointer; }
+  .theme-btn:hover { background: var(--tint); color: var(--ink); }
+
+  .masthead { padding: 24px 0 0; text-align: center; }
+  .masthead-kicker { font-family: var(--mono); font-size: 11px; letter-spacing: .24em; color: var(--ink-3); margin-bottom: 6px; }
+  .masthead h1 { font-family: var(--serif); font-size: clamp(30px, 4vw, 42px); letter-spacing: .02em; }
+  .dateline { margin-top: 14px; border-top: 2px solid var(--rule-strong); border-bottom: 1px solid var(--rule-strong); padding: 8px 4px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; font-size: 12.5px; color: var(--ink-2); }
+  .mono { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+
+  .month-nav {
+    margin-top: 18px; display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
+    font-size: 12.5px;
+  }
+  .month-nav span { color: var(--ink-3); margin-right: 4px; }
+  .m-btn {
+    border: 1px solid var(--rule); background: var(--paper); color: var(--ink-2);
+    padding: 3px 11px; border-radius: 3px; cursor: pointer; font-family: var(--mono); font-size: 12px;
+  }
+  .m-btn:hover { background: var(--tint); color: var(--ink); }
+  .m-btn.active { background: var(--ink); border-color: var(--ink); color: var(--paper); font-weight: 600; }
+
+  .month-sec { margin-top: 22px; background: var(--paper); border: 1px solid var(--rule); border-top: 2.5px solid var(--rule-strong); }
+  .month-head {
+    padding: 11px 20px; border-bottom: 1px solid var(--rule);
+    display: flex; justify-content: space-between; align-items: baseline;
+  }
+  .month-head h2 { font-family: var(--serif); font-size: 17px; }
+  .month-head span { font-family: var(--mono); font-size: 12px; color: var(--ink-3); }
+
+  table.arch { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  table.arch th {
+    text-align: left; padding: 8px 14px; font-size: 11.5px; font-weight: 600;
+    color: var(--ink-3); background: var(--tint); border-bottom: 1px solid var(--rule);
+    font-family: var(--mono);
+  }
+  table.arch th.num, table.arch td.num { text-align: right; font-family: var(--mono); font-variant-numeric: tabular-nums; }
+  table.arch td { padding: 10px 14px; border-bottom: 1px solid var(--rule); }
+  table.arch tr:last-child td { border-bottom: none; }
+  table.arch tbody tr:hover { background: var(--tint); }
+  table.arch a.day-link { color: var(--ink); font-weight: 600; text-decoration: none; font-family: var(--mono); }
+  table.arch a.day-link:hover { color: var(--accent); text-decoration: underline; }
+  .wk { color: var(--ink-3); font-family: var(--sans); font-weight: 400; font-size: 12px; margin-left: 8px; }
+  .star-n { color: var(--gold); font-weight: 600; }
+  .tot-n { font-weight: 700; color: var(--ink); }
+  .ellip-row td { color: var(--ink-3); font-size: 12.5px; padding: 9px 14px; }
+
+  footer { margin-top: 36px; padding-top: 16px; border-top: 2px solid var(--rule-strong); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; font-size: 12px; color: var(--ink-3); }
+  footer a { color: var(--ink-2); text-decoration: none; }
+  footer a:hover { color: var(--accent); text-decoration: underline; }
+
+  @media (max-width: 720px) {
+    .hide-sm { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="topbar">
+  <div class="topbar-inner">
+    <div class="edition-tabs">
+      <span class="edition-label">近 3 天</span>
+      <a class="ed-tab" href="index.html"><span class="live-dot"></span>今日 11-20 <span class="cnt">41</span></a>
+      <a class="ed-tab" href="daily-2026-11-19.html">昨日 11-19 <span class="cnt">40</span></a>
+      <a class="ed-tab" href="daily-2026-11-18.html">前日 11-18 <span class="cnt">37</span></a>
+    </div>
+    <div class="topbar-right">
+      <span class="archive-active">历史归档</span>
+      <button class="theme-btn" id="themeBtn" type="button">🌙 夜间版</button>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <header class="masthead">
+    <div class="masthead-kicker">BLOOMBERG · REUTERS · WSJ · ARCHIVE</div>
+    <h1>Market Dispatch</h1>
+    <div class="dateline">
+      <span>超过 <b>3 天</b>的日报自动归档至此，文件全量保留不删除</span>
+      <span>已归档 <b class="mono">68</b> 期 · Git 历史即全量快照</span>
+    </div>
+  </header>
+
+  <div class="month-nav" id="monthNav">
+    <span>按月筛选：</span>
+    <button class="m-btn active" data-month="all" type="button">全部月份</button>
+    <button class="m-btn" data-month="2026-11" type="button">2026-11</button>
+    <button class="m-btn" data-month="2026-10" type="button">2026-10</button>
+    <button class="m-btn" data-month="2026-09" type="button">2026-09</button>
+  </div>
+
+  <section class="month-sec" data-month="2026-11">
+    <div class="month-head">
+      <h2>2026 年 11 月</h2>
+      <span>已归档 17 期（11-18 ~ 11-20 在顶部近 3 天）</span>
+    </div>
+    <table class="arch">
+      <thead>
+        <tr>
+          <th>日期</th>
+          <th class="num hide-sm">📈 市场</th>
+          <th class="num hide-sm">💻 科技</th>
+          <th class="num hide-sm">🌍 世界</th>
+          <th class="num hide-sm">🇺🇸 美国</th>
+          <th class="num hide-sm">🇨🇳 中国</th>
+          <th class="num">★ 要闻</th>
+          <th class="num">总计</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a class="day-link" href="daily-2026-11-19.html">2026-11-17</a><span class="wk">星期二</span></td>
+          <td class="num hide-sm">13</td><td class="num hide-sm">10</td><td class="num hide-sm">8</td><td class="num hide-sm">7</td><td class="num hide-sm">6</td>
+          <td class="num star-n">3</td><td class="num tot-n">44</td>
+        </tr>
+        <tr>
+          <td><a class="day-link" href="daily-2026-11-19.html">2026-11-16</a><span class="wk">星期一</span></td>
+          <td class="num hide-sm">11</td><td class="num hide-sm">7</td><td class="num hide-sm">7</td><td class="num hide-sm">5</td><td class="num hide-sm">5</td>
+          <td class="num star-n">2</td><td class="num tot-n">35</td>
+        </tr>
+        <tr>
+          <td><a class="day-link" href="daily-2026-11-19.html">2026-11-15</a><span class="wk">星期日</span></td>
+          <td class="num hide-sm">8</td><td class="num hide-sm">6</td><td class="num hide-sm">6</td><td class="num hide-sm">4</td><td class="num hide-sm">5</td>
+          <td class="num star-n">1</td><td class="num tot-n">29</td>
+        </tr>
+        <tr class="ellip-row"><td colspan="8">…… 当月其余 14 期省略（原型样例）</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="month-sec" data-month="2026-10">
+    <div class="month-head">
+      <h2>2026 年 10 月</h2>
+      <span>共 31 期</span>
+    </div>
+    <table class="arch">
+      <thead>
+        <tr>
+          <th>日期</th>
+          <th class="num hide-sm">📈 市场</th>
+          <th class="num hide-sm">💻 科技</th>
+          <th class="num hide-sm">🌍 世界</th>
+          <th class="num hide-sm">🇺🇸 美国</th>
+          <th class="num hide-sm">🇨🇳 中国</th>
+          <th class="num">★ 要闻</th>
+          <th class="num">总计</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a class="day-link" href="daily-2026-11-19.html">2026-10-31</a><span class="wk">星期六</span></td>
+          <td class="num hide-sm">9</td><td class="num hide-sm">7</td><td class="num hide-sm">7</td><td class="num hide-sm">5</td><td class="num hide-sm">4</td>
+          <td class="num star-n">2</td><td class="num tot-n">32</td>
+        </tr>
+        <tr>
+          <td><a class="day-link" href="daily-2026-11-19.html">2026-10-30</a><span class="wk">星期五</span></td>
+          <td class="num hide-sm">13</td><td class="num hide-sm">9</td><td class="num hide-sm">9</td><td class="num hide-sm">8</td><td class="num hide-sm">6</td>
+          <td class="num star-n">4</td><td class="num tot-n">45</td>
+        </tr>
+        <tr class="ellip-row"><td colspan="8">…… 当月其余 29 期省略（原型样例）</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="month-sec" data-month="2026-09">
+    <div class="month-head">
+      <h2>2026 年 9 月</h2>
+      <span>共 20 期</span>
+    </div>
+    <table class="arch">
+      <thead>
+        <tr>
+          <th>日期</th>
+          <th class="num hide-sm">📈 市场</th>
+          <th class="num hide-sm">💻 科技</th>
+          <th class="num hide-sm">🌍 世界</th>
+          <th class="num hide-sm">🇺🇸 美国</th>
+          <th class="num hide-sm">🇨🇳 中国</th>
+          <th class="num">★ 要闻</th>
+          <th class="num">总计</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a class="day-link" href="daily-2026-11-19.html">2026-09-30</a><span class="wk">星期三</span></td>
+          <td class="num hide-sm">11</td><td class="num hide-sm">8</td><td class="num hide-sm">8</td><td class="num hide-sm">6</td><td class="num hide-sm">5</td>
+          <td class="num star-n">3</td><td class="num tot-n">38</td>
+        </tr>
+        <tr class="ellip-row"><td colspan="8">…… 当月其余 19 期省略（原型样例）</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <footer>
+    <div>Market Dispatch（market-dispatch）· 归档索引按月自动刷新 · 仅供个人学习研究</div>
+    <div><a href="index.html">← 返回今日日报</a></div>
+  </footer>
+</div>
+
+<script>
+(function(){
+  const root = document.documentElement, btn = document.getElementById('themeBtn');
+  function set(t){ root.setAttribute('data-theme', t); btn.textContent = t === 'dark' ? '☀️ 日间版' : '🌙 夜间版'; try{localStorage.setItem('md_theme', t);}catch(e){} }
+  try{ if(localStorage.getItem('md_theme') === 'dark') set('dark'); }catch(e){}
+  btn.addEventListener('click', () => set(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'));
+
+  document.querySelectorAll('#monthNav .m-btn').forEach(b => {
+    b.addEventListener('click', () => {
+      document.querySelectorAll('#monthNav .m-btn').forEach(x => x.classList.remove('active'));
+      b.classList.add('active');
+      const m = b.dataset.month;
+      document.querySelectorAll('section.month-sec').forEach(sec => {
+        sec.style.display = (m === 'all' || sec.dataset.month === m) ? '' : 'none';
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>

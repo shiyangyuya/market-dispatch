@@ -1,0 +1,21 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Local config with potential credentials (keep config.example.yaml tracked)
+config/config.yaml
+
+# Runtime outputs on main branch (published artifacts live on generated branch)
+/data/
+/daily/
+/archive/
+/index.html
+/_site/
+/logs/
+*.tmp
+.DS_Store

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.personal.market-dispatch</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>/Users/yangyu/Desktop/personal/finance-news-daily/run.sh</string>
+  </array>
+  <key>WorkingDirectory</key>
+  <string>/Users/yangyu/Desktop/personal/finance-news-daily</string>
+  <key>RunAtLoad</key>
+  <true/>
+  <key>StartInterval</key>
+  <integer>3600</integer>
+  <key>StandardOutPath</key>
+  <string>/Users/yangyu/Desktop/personal/finance-news-daily/logs/scheduler.out.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/yangyu/Desktop/personal/finance-news-daily/logs/scheduler.err.log</string>
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>PATH</key>
+    <string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string>
+  </dict>
+</dict>
+</plist>

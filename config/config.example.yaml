@@ -1,0 +1,194 @@
+# Market Dispatch 配置文件模板
+# 本地运行请复制为 config/config.yaml；敏感字段亦可通过环境变量注入：
+#   MD_LLM_API_KEY / MD_TRANSLATOR_ENGINE / MD_MYSQL_PASSWORD / MD_STORAGE_ENGINE
+
+storage:
+  engine: sqlite              # sqlite | mysql
+  sqlite_path: data/news.db
+
+mysql:
+  host: 127.0.0.1
+  port: 3306
+  user: root
+  password: ""                # 建议通过环境变量 MD_MYSQL_PASSWORD 注入
+  database: market_dispatch
+
+translator:
+  engine: google              # google | llm
+  timeout_sec: 10
+  pacing_ms: 150
+  max_summary_chars: 1500
+  llm:
+    api_base: ""              # 示例: https://open.bigmodel.cn/api/paas/v4
+    model: ""                 # 示例: glm-4-flash
+    api_key: ""               # 建议通过环境变量 MD_LLM_API_KEY 注入
+
+sources:
+  timeout_sec: 15
+  bloomberg:
+    enabled: true
+    base_url: https://www.bloomberg.com/feeds
+    lookback_hours: 24
+    feeds:
+      markets: markets
+      economics: markets
+      technology: tech
+      politics: world
+  wsj:
+    enabled: true
+    base_url: https://feeds.content.dowjones.io/public/rss
+    lookback_hours: 24
+    feeds:
+      RSSMarketsMain: markets
+      RSSWSJD: tech
+      RSSWorldNews: world
+  reuters:
+    enabled: true
+    url: https://news.google.com/rss/search?q=site:reuters.com%20when:24h&hl=en-US&gl=US&ceid=US:en
+    lookback_hours: 24
+    meta_fetch_limit: 20
+    meta_rate_limit_sec: 1.0
+    meta_timeout_sec: 5
+
+retention_days: 3             # daily/ 保留最近 3 天（含当天），超期归档至 archive/
+
+# 分类覆盖优先级链：china > us > 频道映射/关键词(tech/markets) > world 兜底
+# 英文关键词采用词边界匹配，避免子串误判（如 ai 不会误命中 said）
+keywords:
+  china:
+    - china
+    - chinese
+    - beijing
+    - shanghai
+    - shenzhen
+    - xi jinping
+    - yuan
+    - renminbi
+    - pboc
+    - taiwan
+    - hong kong
+    - ccp
+    - alibaba
+    - tencent
+    - byd
+    - huawei
+    - deepseek
+    - tiktok
+    - south china sea
+  us:
+    # 聚焦美国国内政治/政策/政府/司法；Fed、Wall Street、美股等财经词归 markets
+    - trump
+    - biden
+    - white house
+    - congress
+    - congressional
+    - senate
+    - senator
+    - house of representatives
+    - supreme court
+    - pentagon
+    - capitol hill
+    - republican
+    - republicans
+    - democrat
+    - democrats
+    - gop
+    - department of justice
+    - doj
+    - fbi
+    - state department
+    - u.s. election
+    - us election
+    - midterm
+    - governor
+    - oval office
+  tech:
+    - ai
+    - artificial intelligence
+    - chip
+    - chips
+    - semiconductor
+    - semiconductors
+    - nvidia
+    - openai
+    - anthropic
+    - apple
+    - microsoft
+    - google
+    - alphabet
+    - meta
+    - amazon
+    - tesla
+    - tsmc
+    - foundry
+    - cloud computing
+    - data center
+    - data-center
+    - cybersecurity
+    - software
+    - startup
+    - quantum
+    - robotics
+    - silicon valley
+  markets:
+    - fed
+    - federal reserve
+    - inflation
+    - cpi
+    - pce
+    - stocks
+    - stock market
+    - equities
+    - equity
+    - wall street
+    - s&p 500
+    - nasdaq
+    - dow jones
+    - treasury
+    - treasuries
+    - yields
+    - bond
+    - bonds
+    - interest rate
+    - rate cut
+    - rate hike
+    - oil
+    - crude
+    - brent
+    - gold
+    - commodities
+    - dollar
+    - forex
+    - earnings
+    - ipo
+    - merger
+    - acquisition
+    - hedge fund
+    - private equity
+    - central bank
+    - ecb
+    - boj
+    - bank of japan
+    - gdp
+    - recession
+    - payrolls
+    - bitcoin
+    - crypto
+
+importance:
+  title_regex: '(?i)(?<!-)\b(breaking|exclusive|urgent|just in)\b'
+  cross_source_jaccard: 0.55
+  gn_jaccard: 0.50
+  score_threshold: 2
+  gn_timeout_sec: 10
+  gn_top_feeds:
+    - https://news.google.com/rss?hl=en-US&gl=US&ceid=US:en
+    - https://news.google.com/rss/topics/CAAqKggKIiRDQkFTRlFvSUwyMHZNRGx6TVdZU0JXVnVMVlZUR2dKVlV5Z0FQAQ?hl=en-US&gl=US&ceid=US:en
+
+paths:
+  daily: daily
+  archive: archive
+  logs: logs
+  templates: templates
+
+timezone: Asia/Shanghai

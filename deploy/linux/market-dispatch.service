@@ -1,0 +1,11 @@
+[Unit]
+Description=Market Dispatch Financial News Aggregator
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=%h/market-dispatch
+ExecStart=/bin/bash %h/market-dispatch/run.sh
+StandardOutput=append:%h/market-dispatch/logs/scheduler.out.log
+StandardError=append:%h/market-dispatch/logs/scheduler.err.log

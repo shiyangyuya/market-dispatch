@@ -1,0 +1,1431 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Market Dispatch · 2026-11-20（今日）</title>
+<style>
+  :root {
+    --bg: #F6F1E9;
+    --paper: #FFFDF9;
+    --tint: #EFE8DC;
+    --tint-hover: #E7DEC9;
+    --ink: #1B1917;
+    --ink-2: #44403C;
+    --ink-3: #78716C;
+    --rule: #DFD7C8;
+    --rule-strong: #1B1917;
+    --accent: #990F3D;
+    --accent-soft: #F9EBF0;
+    --gold: #9A5B06;
+    --gold-bg: #FCF6E8;
+    --gold-border: #D9A441;
+    --ok: #166534;
+    --ok-bg: #EAF5EE;
+    --err: #B91C1C;
+    --err-bg: #FDECEC;
+    --bbg-bg: #141414; --bbg-fg: #FFFFFF;
+    --rtr-bg: #C74F00; --rtr-fg: #FFFFFF;
+    --wsj-bg: #0A5894; --wsj-fg: #FFFFFF;
+    --serif: Georgia, "Songti SC", "STSong", "Noto Serif CJK SC", "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Segoe UI", sans-serif;
+    --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  }
+
+  [data-theme="dark"] {
+    --bg: #121316;
+    --paper: #191B20;
+    --tint: #23262E;
+    --tint-hover: #2C303A;
+    --ink: #EDE8DF;
+    --ink-2: #BEB7AC;
+    --ink-3: #857F76;
+    --rule: #2D313B;
+    --rule-strong: #C9C0AE;
+    --accent: #E26B8D;
+    --accent-soft: #2D1D24;
+    --gold: #E3AA4F;
+    --gold-bg: #241E14;
+    --gold-border: #8B6523;
+    --ok: #4ADE80;
+    --ok-bg: #14281D;
+    --err: #F87171;
+    --err-bg: #2D1719;
+    --bbg-bg: #363A45; --bbg-fg: #F5F5F5;
+    --rtr-bg: #C74F00; --rtr-fg: #FFFFFF;
+    --wsj-bg: #1B6FB0; --wsj-fg: #FFFFFF;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    transition: background .2s ease, color .2s ease;
+  }
+
+  .container {
+    max-width: 1060px;
+    margin: 0 auto;
+    padding: 0 20px 48px;
+  }
+
+  /* ===== Top Edition Bar (近3天切换 + 归档 + 夜间模式) ===== */
+  .topbar {
+    border-bottom: 1px solid var(--rule);
+    background: var(--paper);
+    transition: background .2s ease;
+  }
+  .topbar-inner {
+    max-width: 1060px;
+    margin: 0 auto;
+    padding: 8px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    font-size: 13px;
+  }
+  .edition-tabs {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-wrap: wrap;
+  }
+  .edition-label {
+    color: var(--ink-3);
+    font-size: 12px;
+    margin-right: 6px;
+    letter-spacing: .04em;
+  }
+  .ed-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 11px;
+    border-radius: 3px;
+    text-decoration: none;
+    color: var(--ink-2);
+    border: 1px solid transparent;
+    font-family: var(--mono);
+    font-size: 12.5px;
+    font-variant-numeric: tabular-nums;
+    transition: all .15s;
+  }
+  .ed-tab:hover { background: var(--tint); color: var(--ink); }
+  .ed-tab.active {
+    background: var(--ink);
+    color: var(--paper);
+    font-weight: 600;
+  }
+  .ed-tab .cnt {
+    font-size: 11px;
+    opacity: .72;
+  }
+  .live-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #22C55E;
+    display: inline-block;
+    box-shadow: 0 0 0 2px rgba(34,197,94,.25);
+  }
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .archive-link {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 13px;
+    padding: 4px 8px;
+    border-radius: 3px;
+  }
+  .archive-link:hover { background: var(--accent-soft); }
+  .theme-btn {
+    background: transparent;
+    border: 1px solid var(--rule);
+    color: var(--ink-2);
+    padding: 4px 10px;
+    border-radius: 3px;
+    font-size: 12.5px;
+    cursor: pointer;
+    font-family: var(--sans);
+  }
+  .theme-btn:hover { background: var(--tint); color: var(--ink); }
+
+  /* ===== Broadsheet Masthead (报头) ===== */
+  .masthead {
+    padding: 26px 0 0;
+    text-align: center;
+  }
+  .masthead-kicker {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .24em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 6px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-size: clamp(32px, 4.4vw, 46px);
+    font-weight: 700;
+    letter-spacing: .02em;
+    color: var(--ink);
+    line-height: 1.12;
+  }
+  .dateline {
+    margin-top: 16px;
+    border-top: 2px solid var(--rule-strong);
+    border-bottom: 1px solid var(--rule-strong);
+    padding: 8px 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 12.5px;
+    color: var(--ink-2);
+  }
+  .dateline-left, .dateline-right {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .dateline b { color: var(--ink); font-weight: 600; }
+  .dateline .mono { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+  .batch-toggle {
+    background: var(--err-bg);
+    color: var(--err);
+    border: 1px solid rgba(185,28,28,.22);
+    padding: 2px 9px;
+    border-radius: 3px;
+    font-size: 12px;
+    cursor: pointer;
+    font-family: var(--sans);
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .batch-toggle:hover { filter: brightness(.96); }
+  .batch-drawer {
+    display: none;
+    background: var(--paper);
+    border-bottom: 1px solid var(--rule);
+    padding: 12px 16px;
+    text-align: left;
+    font-size: 12px;
+    color: var(--ink-2);
+  }
+  .batch-drawer.open { display: block; }
+  .batch-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 10px;
+    margin-top: 6px;
+    font-family: var(--mono);
+    font-variant-numeric: tabular-nums;
+  }
+  .b-chip {
+    padding: 2px 7px;
+    border-radius: 2px;
+    background: var(--ok-bg);
+    color: var(--ok);
+  }
+  .b-chip.bad {
+    background: var(--err-bg);
+    color: var(--err);
+    font-weight: 600;
+  }
+
+  /* ===== Front-Page Lead Briefing (今日要闻头条) ===== */
+  .lead-section {
+    margin-top: 22px;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-top: 3px solid var(--accent);
+    padding: 16px 20px 18px;
+  }
+  .lead-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 14px;
+  }
+  .lead-header h2 {
+    font-family: var(--serif);
+    font-size: 16px;
+    color: var(--accent);
+    letter-spacing: .04em;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .lead-header .sub {
+    font-size: 12px;
+    color: var(--ink-3);
+  }
+  .lead-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+  }
+  .lead-card {
+    padding: 2px 18px;
+    border-right: 1px solid var(--rule);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 8px;
+  }
+  .lead-card:first-child { padding-left: 0; }
+  .lead-card:last-child { padding-right: 0; border-right: none; }
+  .lead-meta {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    font-size: 11.5px;
+  }
+  .lead-cat {
+    color: var(--ink-3);
+    font-weight: 600;
+  }
+  .lead-reason {
+    color: var(--gold);
+    background: var(--gold-bg);
+    border: 1px solid var(--gold-border);
+    padding: 0 6px;
+    border-radius: 2px;
+    font-size: 11px;
+  }
+  .lead-title-zh {
+    display: block;
+    font-size: 15.5px;
+    font-weight: 700;
+    line-height: 1.42;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .lead-title-zh:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+  .lead-title-en {
+    font-family: var(--serif);
+    font-size: 12.5px;
+    line-height: 1.38;
+    color: var(--ink-3);
+    margin-top: 4px;
+  }
+  .lead-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 11.5px;
+    color: var(--ink-3);
+    padding-top: 6px;
+    border-top: 1px dashed var(--rule);
+    font-family: var(--mono);
+    font-variant-numeric: tabular-nums;
+  }
+  .lead-foot a {
+    color: var(--accent);
+    text-decoration: none;
+    font-family: var(--sans);
+    font-weight: 500;
+  }
+  .lead-foot a:hover { text-decoration: underline; }
+
+  /* ===== Sticky Controls Toolbar (栏目 + 来源 + 视图切换) ===== */
+  .controls-wrap {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    margin-top: 20px;
+    background: var(--bg);
+    padding: 10px 0 8px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .cat-bar {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    scrollbar-width: none;
+  }
+  .cat-bar::-webkit-scrollbar { display: none; }
+  .cat-btn {
+    border: none;
+    background: transparent;
+    color: var(--ink-2);
+    font-family: var(--sans);
+    font-size: 13.5px;
+    font-weight: 600;
+    padding: 5px 11px;
+    border-radius: 3px;
+    cursor: pointer;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: all .15s;
+  }
+  .cat-btn:hover { background: var(--tint); color: var(--ink); }
+  .cat-btn.active {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .cat-btn .n {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    font-weight: 500;
+    opacity: .72;
+  }
+
+  .filter-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-top: 8px;
+    font-size: 12.5px;
+  }
+  .filter-group {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .fg-label {
+    color: var(--ink-3);
+    font-size: 12px;
+    margin-right: 2px;
+  }
+  .pill-btn {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    color: var(--ink-2);
+    padding: 3px 10px;
+    border-radius: 3px;
+    font-size: 12.5px;
+    cursor: pointer;
+    font-family: var(--sans);
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: all .15s;
+  }
+  .pill-btn:hover { border-color: var(--ink-3); color: var(--ink); }
+  .pill-btn.active {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--paper);
+  }
+  .pill-btn.star-only.active {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: #fff;
+  }
+  .src-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .dot-bbg { background: var(--bbg-bg); }
+  .dot-rtr { background: var(--rtr-bg); }
+  .dot-wsj { background: var(--wsj-bg); }
+  [data-theme="dark"] .dot-bbg { background: #E5E7EB; }
+
+  .seg-switch {
+    display: inline-flex;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    overflow: hidden;
+    background: var(--paper);
+  }
+  .seg-switch button {
+    border: none;
+    background: transparent;
+    color: var(--ink-2);
+    padding: 3px 9px;
+    font-size: 12px;
+    cursor: pointer;
+    font-family: var(--sans);
+  }
+  .seg-switch button.active {
+    background: var(--ink);
+    color: var(--paper);
+    font-weight: 600;
+  }
+  .status-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--ink-3);
+    font-size: 12px;
+    font-family: var(--mono);
+  }
+  .reset-link {
+    background: none;
+    border: none;
+    color: var(--accent);
+    cursor: pointer;
+    font-size: 12px;
+    font-family: var(--sans);
+    text-decoration: underline;
+    display: none;
+  }
+  .reset-link.show { display: inline; }
+
+  /* ===== Editorial Sections (五栏主体) ===== */
+  .sections-list {
+    margin-top: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+  section.cat-sec {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-top: 2.5px solid var(--rule-strong);
+  }
+  .sec-head {
+    padding: 12px 22px;
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    user-select: none;
+  }
+  .sec-head:hover { background: var(--tint); }
+  .sec-title-wrap {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+  .sec-head h3 {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: .03em;
+  }
+  .sec-en {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+  }
+  .sec-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    color: var(--ink-3);
+    font-family: var(--mono);
+  }
+  .sec-body.collapsed { display: none; }
+
+  /* ===== Article Row (高信息密度报刊条目) ===== */
+  article.item {
+    padding: 15px 22px;
+    border-bottom: 1px solid var(--rule);
+    transition: background .12s;
+  }
+  article.item:last-child { border-bottom: none; }
+  article.item:hover { background: rgba(153, 15, 61, .02); }
+  article.item.star {
+    background: var(--gold-bg);
+    border-left: 3.5px solid var(--gold-border);
+    padding-left: 18.5px;
+  }
+  article.item:target {
+    outline: 2px solid var(--accent);
+    outline-offset: -2px;
+  }
+
+  .item-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 6px;
+  }
+  .meta-left {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    flex-wrap: wrap;
+  }
+  .badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .03em;
+    padding: 1px 7px;
+    border-radius: 2px;
+    line-height: 1.5;
+  }
+  .badge.bbg { background: var(--bbg-bg); color: var(--bbg-fg); }
+  .badge.rtr { background: var(--rtr-bg); color: var(--rtr-fg); }
+  .badge.wsj { background: var(--wsj-bg); color: var(--wsj-fg); }
+
+  .star-pill {
+    font-size: 11.5px;
+    font-weight: 700;
+    color: var(--gold);
+  }
+  .why-pill {
+    font-size: 11px;
+    color: var(--gold);
+    border: 1px solid var(--gold-border);
+    padding: 0 6px;
+    border-radius: 2px;
+  }
+  .tag-warn {
+    font-size: 11px;
+    background: var(--err-bg);
+    color: var(--err);
+    padding: 0 6px;
+    border-radius: 2px;
+    font-weight: 600;
+  }
+  .tag-muted {
+    font-size: 11px;
+    background: var(--tint);
+    color: var(--ink-3);
+    padding: 0 6px;
+    border-radius: 2px;
+  }
+
+  /* 双时间展示：发布时间 + 抓取时间 */
+  .time-pair {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--mono);
+    font-size: 11.5px;
+    font-variant-numeric: tabular-nums;
+    color: var(--ink-3);
+    white-space: nowrap;
+  }
+  .time-pair .t-pub {
+    color: var(--ink-2);
+  }
+  .time-pair .t-pub b {
+    color: var(--ink);
+    font-weight: 600;
+  }
+  .time-pair .t-sep {
+    opacity: .45;
+  }
+  .time-pair .t-crt {
+    color: var(--ink-3);
+  }
+
+  .title-zh {
+    display: inline-block;
+    font-size: 16.5px;
+    font-weight: 700;
+    line-height: 1.42;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .title-zh:hover {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .title-zh .ext {
+    font-size: 12.5px;
+    color: var(--ink-3);
+    margin-left: 4px;
+    font-weight: 400;
+  }
+  .title-en {
+    display: block;
+    margin-top: 3px;
+    font-family: var(--serif);
+    font-size: 13.5px;
+    line-height: 1.4;
+    color: var(--ink-3);
+    text-decoration: none;
+  }
+  .title-en:hover { color: var(--ink); text-decoration: underline; }
+  .item.untranslated .title-en {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-top: 0;
+  }
+
+  .sum-zh {
+    margin-top: 6px;
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--ink-2);
+    max-width: 82ch;
+  }
+  details.en-sum {
+    margin-top: 6px;
+    max-width: 82ch;
+  }
+  details.en-sum summary {
+    font-size: 12px;
+    color: var(--ink-3);
+    cursor: pointer;
+    user-select: none;
+    list-style: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+  details.en-sum summary::-webkit-details-marker { display: none; }
+  details.en-sum summary::before { content: "▸"; font-size: 11px; transition: transform .15s; }
+  details.en-sum[open] summary::before { transform: rotate(90deg); }
+  details.en-sum summary:hover { color: var(--ink); }
+  details.en-sum p {
+    margin-top: 5px;
+    padding-left: 10px;
+    border-left: 2px solid var(--rule);
+    font-family: var(--serif);
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--ink-3);
+  }
+
+  /* 仅中文模式隐藏英文副标题（未翻译条目除外） */
+  body.zh-only .title-en,
+  body.zh-only .lead-title-en { display: none; }
+  body.zh-only .item.untranslated .title-en { display: block; }
+
+  .sec-more {
+    padding: 10px 22px;
+    font-size: 12.5px;
+    color: var(--ink-3);
+    background: var(--tint);
+    border-top: 1px solid var(--rule);
+  }
+
+  .empty-state {
+    display: none;
+    text-align: center;
+    padding: 48px 20px;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    color: var(--ink-3);
+    font-size: 14px;
+  }
+  .empty-state.show { display: block; }
+
+  /* ===== Footer (报尾) ===== */
+  footer {
+    margin-top: 36px;
+    padding-top: 16px;
+    border-top: 2px solid var(--rule-strong);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 12px;
+    color: var(--ink-3);
+  }
+  footer a { color: var(--ink-2); text-decoration: none; }
+  footer a:hover { color: var(--accent); text-decoration: underline; }
+
+  /* ===== Responsive ===== */
+  @media (max-width: 820px) {
+    .lead-grid { grid-template-columns: 1fr; }
+    .lead-card {
+      padding: 12px 0;
+      border-right: none;
+      border-bottom: 1px solid var(--rule);
+    }
+    .lead-card:first-child { padding-top: 0; }
+    .lead-card:last-child { padding-bottom: 0; border-bottom: none; }
+    article.item { padding: 14px 16px; }
+    .sec-head { padding: 11px 16px; }
+    .time-pair { font-size: 11px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== Top Edition Bar：近 3 天一键切换 + 归档 + 暗色模式 ===== -->
+<nav class="topbar" aria-label="版面切换">
+  <div class="topbar-inner">
+    <div class="edition-tabs">
+      <span class="edition-label">近 3 天</span>
+      <a class="ed-tab active" href="index.html">
+        <span class="live-dot" title="今日滚动更新中"></span>今日 11-20 <span class="cnt">41</span>
+      </a>
+      <a class="ed-tab" href="daily-2026-11-19.html">
+        昨日 11-19 <span class="cnt">40</span>
+      </a>
+      <a class="ed-tab" href="daily-2026-11-18.html">
+        前日 11-18 <span class="cnt">37</span>
+      </a>
+    </div>
+    <div class="topbar-right">
+      <a class="archive-link" href="archive.html">历史归档 →</a>
+      <button class="theme-btn" id="themeBtn" type="button">🌙 夜间版</button>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+  <!-- ===== Broadsheet Masthead ===== -->
+  <header class="masthead">
+    <div class="masthead-kicker">BLOOMBERG · REUTERS · WSJ</div>
+    <h1>Market Dispatch</h1>
+    <div class="dateline">
+      <div class="dateline-left">
+        <span><b>2026 年 11 月 20 日</b> 星期五</span>
+        <span>时区 <span class="mono">Asia/Shanghai</span></span>
+        <span>按新闻发布时间归天</span>
+      </div>
+      <div class="dateline-right">
+        <span>最近更新 <b class="mono">18:02</b></span>
+        <span>今日 <b class="mono">41</b> 条 · 要闻 <b class="mono">3</b> 条</span>
+        <button class="batch-toggle" id="batchToggle" type="button" aria-expanded="false">
+          今日 18 批 · 1 次单源失败 ▾
+        </button>
+      </div>
+    </div>
+    <div class="batch-drawer" id="batchDrawer">
+      <div><b>当日抓取批次记录</b>（每小时自动运行，24h 回看防遗漏；单源异常不影响其他来源）：</div>
+      <div class="batch-grid">
+        <span class="b-chip">00:05 ✓ +3</span>
+        <span class="b-chip">02:02 ✓ +2</span>
+        <span class="b-chip">04:01 ✓ +4</span>
+        <span class="b-chip">06:03 ✓ +3</span>
+        <span class="b-chip">08:02 ✓ +5</span>
+        <span class="b-chip">10:01 ✓ +4</span>
+        <span class="b-chip">12:04 ✓ +3</span>
+        <span class="b-chip">14:02 ✓ +5</span>
+        <span class="b-chip bad">15:03 路透✗（429限流）</span>
+        <span class="b-chip">16:02 ✓ +6</span>
+        <span class="b-chip">17:01 ✓ +3</span>
+        <span class="b-chip">18:02 ✓ +3</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== Front-Page Lead Briefing：今日要闻头条 ===== -->
+  <section class="lead-section" id="leadSection" aria-label="今日要闻头条">
+    <div class="lead-header">
+      <h2>★ 今日要闻头条</h2>
+      <span class="sub">三信号自动研判（标题特征词 / 跨源同事件 / GN 头条）· 点击定位详情</span>
+    </div>
+    <div class="lead-grid">
+      <div class="lead-card">
+        <div>
+          <div class="lead-meta">
+            <span class="badge bbg">彭博</span>
+            <span class="lead-cat">市场与经济</span>
+            <span class="lead-reason">跨源报道 · GN头条</span>
+          </div>
+          <a class="lead-title-zh" href="#item-101">美联储官员暗示随着通胀降温放缓降息步伐</a>
+          <div class="lead-title-en">Fed Officials Signal Slower Pace of Rate Cuts as Inflation Cools</div>
+        </div>
+        <div class="lead-foot">
+          <span>发布 14:26 · 抓取 15:02</span>
+          <a href="https://www.bloomberg.com/news/articles/2026-11-20/fed-officials-signal-slower-pace-of-rate-cuts" target="_blank" rel="noopener">原文 ↗</a>
+        </div>
+      </div>
+
+      <div class="lead-card">
+        <div>
+          <div class="lead-meta">
+            <span class="badge wsj">WSJ</span>
+            <span class="lead-cat">科技</span>
+            <span class="lead-reason">跨源报道 · GN头条</span>
+          </div>
+          <a class="lead-title-zh" href="#item-201">英伟达股价因数据中心需求井喷而大涨</a>
+          <div class="lead-title-en">Nvidia Shares Jump on Blowout Data-Center Demand</div>
+        </div>
+        <div class="lead-foot">
+          <span>发布 15:12 · 抓取 16:02</span>
+          <a href="https://www.wsj.com/articles/nvidia-shares-jump-on-blowout-data-center-demand" target="_blank" rel="noopener">原文 ↗</a>
+        </div>
+      </div>
+
+      <div class="lead-card">
+        <div>
+          <div class="lead-meta">
+            <span class="badge rtr">路透</span>
+            <span class="lead-cat">中国相关</span>
+            <span class="lead-reason">标题特征词 · 独家</span>
+          </div>
+          <a class="lead-title-zh" href="#item-501">独家：中国芯片制造商加速扩建成熟制程晶圆产能应对出口限制</a>
+          <div class="lead-title-en">Exclusive: Chinese Chipmakers Accelerate Mature-Node Capacity Expansion Amid Curbs</div>
+        </div>
+        <div class="lead-foot">
+          <span>发布 13:48 · 抓取 14:02</span>
+          <a href="https://news.google.com/rss/articles/example-reuters-501" target="_blank" rel="noopener">原文 ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Sticky Reading Controls ===== -->
+  <div class="controls-wrap">
+    <div class="cat-bar" id="catBar" role="tablist">
+      <button class="cat-btn active" data-cat="all" type="button">全部栏目 <span class="n">14</span></button>
+      <button class="cat-btn" data-cat="markets" type="button">📈 市场与经济 <span class="n">4</span></button>
+      <button class="cat-btn" data-cat="tech" type="button">💻 科技 <span class="n">3</span></button>
+      <button class="cat-btn" data-cat="world" type="button">🌍 政治与世界 <span class="n">2</span></button>
+      <button class="cat-btn" data-cat="us" type="button">🇺🇸 美国相关 <span class="n">2</span></button>
+      <button class="cat-btn" data-cat="china" type="button">🇨🇳 中国相关 <span class="n">3</span></button>
+    </div>
+
+    <div class="filter-bar">
+      <div class="filter-group">
+        <span class="fg-label">来源</span>
+        <button class="pill-btn active" data-src="all" type="button">全部</button>
+        <button class="pill-btn" data-src="bloomberg" type="button"><span class="src-dot dot-bbg"></span>彭博</button>
+        <button class="pill-btn" data-src="reuters" type="button"><span class="src-dot dot-rtr"></span>路透</button>
+        <button class="pill-btn" data-src="wsj" type="button"><span class="src-dot dot-wsj"></span>WSJ</button>
+
+        <span class="fg-label" style="margin-left:6px">视图</span>
+        <button class="pill-btn star-only" id="starOnlyBtn" type="button">★ 仅看要闻</button>
+        <div class="seg-switch" role="group" aria-label="语言显示">
+          <button class="active" data-lang="both" type="button">中英</button>
+          <button data-lang="zh" type="button">仅中文</button>
+        </div>
+        <button class="pill-btn" id="toggleEnSumBtn" type="button">展开英文摘要</button>
+      </div>
+
+      <div class="status-right">
+        <span id="visibleCount">显示 14 / 14 条（原型样例）</span>
+        <button class="reset-link" id="resetBtn" type="button">重置筛选</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Main Five-Category Editorial Sections ===== -->
+  <main class="sections-list" id="sectionsList">
+
+    <!-- 1. 市场与经济 -->
+    <section class="cat-sec" data-cat="markets">
+      <div class="sec-head">
+        <div class="sec-title-wrap">
+          <h3>📈 市场与经济</h3>
+          <span class="sec-en">MARKETS &amp; ECONOMY</span>
+        </div>
+        <div class="sec-meta">
+          <span class="sec-count">4 条样例 / 今日 12 条</span>
+          <span class="sec-arrow">▾</span>
+        </div>
+      </div>
+      <div class="sec-body">
+
+        <article id="item-101" class="item star" data-source="bloomberg" data-star="1">
+          <div class="item-meta">
+            <div class="meta-left">
+              <span class="badge bbg">彭博</span>
+              <span class="star-pill">★ 要闻</span>
+              <span class="why-pill">跨源报道 · GN头条</span>
+            </div>
+            <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+              <span class="t-pub">发布 <b>14:26</b></span>
+              <span class="t-sep">·</span>
+              <span class="t-crt">抓取 15:02</span>
+            </div>
+          </div>
+          <a class="title-zh" href="https://www.bloomberg.com/news/articles/2026-11-20/fed-officials-signal-slower-pace-of-rate-cuts" target="_blank" rel="noopener">美联储官员暗示随着通胀降温放缓降息步伐<span class="ext">↗</span></a>
+          <a class="title-en" href="https://www.bloomberg.com/news/articles/2026-11-20/fed-officials-signal-slower-pace-of-rate-cuts" target="_blank" rel="noopener">Fed Officials Signal Slower Pace of Rate Cuts as Inflation Cools</a>
+          <p class="sum-zh">几位美联储官员周四表示，随着价格压力缓解，支持在 12 月会议上小幅降息 25 个基点，但强调后续宽松路径仍高度取决于就业与核心通胀数据。</p>
+          <details class="en-sum">
+            <summary>英文原摘要</summary>
+            <p>Several Federal Reserve officials said Thursday they would support a modest quarter-point rate cut at the December meeting as price pressures ease, while stressing the future path remains data-dependent.</p>
+          </details>
+        </article>
+
+        <article class="item" data-source="wsj" data-star="0">
+          <div class="item-meta">
+            <div class="meta-left">
+              <span class="badge wsj">WSJ</span>
+            </div>
+            <div class="time-pair">
+              <span class="t-pub">发布 <b>13:05</b></span>
+              <span class="t-sep">·</span>
+              <span class="t-crt">抓取 14:02</span>
+            </div>
+          </div>
+          <a class="title-zh" href="https://www.wsj.com/articles/oil-prices-steady-as-traders-weigh-supply-risks" target="_blank" rel="noopener">油价维持震荡，交易员权衡中东供应风险与需求预期<span class="ext">↗</span></a>
+          <a class="title-en" href="https://www.wsj.com/articles/oil-prices-steady-as-traders-weigh-supply-risks" target="_blank" rel="noopener">Oil Prices Steady as Traders Weigh Supply Risks Against Weakening Demand</a>
+          <p class="sum-zh">布伦特原油期货盘中基本持平，市场在地缘供应中断风险与欧美冬季成品油需求走弱的预期之间寻找方向。</p>
+          <details class="en-sum">
+            <summary>英文原摘要</summary>
+            <p>Brent crude futures were little changed as traders balanced geopolitical supply disruption risks against softer winter demand forecasts.</p>
+          </details>
+        </article>
+
+        <article class="item untranslated" data-source="reuters" data-star="0">
+          <div class="item-meta">
+            <div class="meta-left">
+              <span class="badge rtr">路透</span>
+              <span class="tag-warn">未翻译</span>
+            </div>
+            <div class="time-pair">
+              <span class="t-pub">发布 <b>11:40</b></span>
+              <span class="t-sep">·</span>
+              <span class="t-crt">抓取 12:04</span>
+            </div>
+          </div>
+          <a class="title-en" href="https://news.google.com/rss/articles/example-reuters-103" target="_blank" rel="noopener">Global Government Bonds Rally as Growth Fears Resurface Across Europe ↗</a>
+          <details class="en-sum" open>
+            <summary>英文原摘要（翻译失败自动展开原文）</summary>
+            <p>Government bonds rallied across major developed markets as investors rotated into safe-haven assets following weaker-than-expected European industrial output readings.</p>
+          </details>
+        </article>
+
+        <article class="item" data-source="bloomberg" data-star="0">
+          <div class="item-meta">
+            <div class="meta-left">
+              <span class="badge bbg">彭博</span>
+            </div>
+            <div class="time-pair">
+              <span class="t-pub">发布 <b>09:18</b></span>
+              <span class="t-sep">·</span>
+              <span class="t-crt">抓取 10:01</span>
+            </div>
+          </div>
+          <a class="title-zh" href="https://www.bloomberg.com/news/articles/2026-11-20/treasury-yields-slip" target="_blank" rel="noopener">10 年期美债收益率回落至 4.18%，海外主权资金买盘升温<span class="ext">↗</span></a>
+          <a class="title-en" href="https://www.bloomberg.com/news/articles/2026-11-20/treasury-yields-slip" target="_blank" rel="noopener">10-Year Treasury Yields Slip to 4.18% as Overseas Demand Picks Up</a>
+          <p class="sum-zh">美债市场在连续两周抛售后企稳，亚洲时段机构买盘推动长端收益率小幅下行，市场静待周五个人消费支出物价指数。</p>
+          <details class="en-sum">
+            <summary>英文原摘要</summary>
+            <p>US Treasuries stabilized after a two-week selloff, with Asian institutional demand pushing long-end yields lower ahead of Friday's PCE inflation print.</p>
+          </details>
+        </article>
+
+        <div class="sec-more">…… 其余 8 条已省略（正式版按 published_at 倒序全量渲染）</div>
+      </div>
+    </section>
+
+    <!-- 2. 科技 -->
+    <section class="cat-sec" data-cat="tech">
+      <div class="sec-head">
+        <div class="sec-title-wrap">
+          <h3>💻 科技</h3>
+          <span class="sec-en">TECHNOLOGY &amp; AI</span>
+        </div>
+        <div class="sec-meta">
+          <span class="sec-count">3 条样例 / 今日 8 条</span>
+          <span class="sec-arrow">▾</span>
+        </div>
+      </div>
+      <div class="sec-body">
+
+        <article id="item-201" class="item star" data-source="wsj" data-star="1">
+          <div class="item-meta">
+            <div class="meta-left">
+              <span class="badge wsj">WSJ</span>
+              <span class="star-pill">★ 要闻</span>
+              <span class="why-pill">跨源报道 · GN头条</span>
+            </div>
+            <div class="time-pair">
+              <span class="t-pub">发布 <b>15:12</b></span>
+              <span class="t-sep">·</span>
+              <span class="t-crt">抓取 16:02</span>
+            </div>
+          </div>
+          <a class="title-zh" href="https://www.wsj.com/articles/nvidia-shares-jump-on-blowout-data-center-demand" target="_blank" rel="noopener">英伟达股价因数据中心需求井喷而大涨<span class="ext">↗</span></a>
+          <a class="title-en" href="https://www.wsj.com/articles/nvidia-shares-jump-on-blowout-data-center-demand" target="_blank" rel="noopener">Nvidia Shares Jump on Blowout Data-Center Demand</a>
+          <p class="sum-zh">英伟达盘前大涨 6%，此前公司业绩指引显示 AI 数据中心算力芯片订单持续超出市场预期，多家华尔街投行随之上调目标价。</p>
+          <details class="en-sum">
+            <summary>英文原摘要</summary>
+            <p>Nvidia shares surged after the company guided to data-center chip demand well above expectations, prompting several Wall Street banks to raise price targets.</p>
+          </details>
+        </article>
+
+        <article class="item" data-source="reuters" data-star="0">
+          <div class="item-meta">
+            <div class="meta-left">
+              <span class="badge rtr">路透</span>
+              <span class="tag-muted">仅标题</span>
+            </div>
+            <div class="time-pair">
+              <span class="t-pub">发布 <b>12:34</b></span>
+              <span class="t-sep">·</span>
+              <span class="t-crt">抓取 13:01</span>
+            </div>
+          </div>
+          <a class="title-zh" href="https://news.google.com/rss/articles/example-reuters-202" target="_blank" rel="noopener">OpenAI 洽谈新一轮企业级云基础设施长期合作协议<span class="ext">↗</span></a>
+          <a class="title-en" href="https://news.google.com/rss/articles/example-reuters-202" target="_blank" rel="noopener">OpenAI in Talks Over Multi-Year Enterprise Cloud Infrastructure Deal</a>
+        </article>
+
+        <article class="item" data-source="bloomberg" data-star="0">
+          <div class="item-meta">
+            <div class="meta-left">
+              <span class="badge bbg">彭博</span>
+            </div>
+            <div class="time-pair">
+              <span class="t-pub">发布 <b>08:15</b></span>
+              <span class="t-sep">·</span>
+              <span class="t-crt">抓取 08:31</span>
+            </div>
+          </div>
+          <a class="title-zh" href="https://www.bloomberg.com/news/articles/2026-11-20/tsmc-arizona-yield" target="_blank" rel="noopener">台积电亚利桑那新厂良率追平台湾本土产线，苹果与 AMD 追加订单<span class="ext">↗</span></a>
+          <a class="title-en" href="https://www.bloomberg.com/news/articles/2026-11-20/tsmc-arizona-yield" target="_blank" rel="noopener">TSMC Arizona Plant Yields Match Taiwan Lines as Apple, AMD Add Orders</a>
+          <p class="sum-zh">知情人士称，台积电美国厂先进制程试产良率已达到预期里程碑，缓解了市场对其海外扩产侵蚀毛利率的担忧。</p>
+          <details class="en-sum">
+            <summary>英文原摘要</summary>
+            <p>TSMC's Arizona facility has reached yield parity with comparable fabs in Taiwan, easing investor concerns over overseas expansion weighing on gross margins.</p>
+          </details>
+        </article>
+
+        <div class="sec-more">…… 其余 5 条已省略</div>
+      </div>
+    </section>
+
+    <!-- 3. 政治与世界 -->
+    <section class="cat-sec" data-cat="world">
+      <div class="sec-head">
+        <div class="sec-title-wrap">
+          <h3>🌍 政治与世界</h3>
+          <span class="sec-en">WORLD &amp; GEOPOLITICS</span>
+        </div>
+        <div class="sec-meta">
+          <span class="sec-count">2 条样例 / 今日 8 条</span>
+          <span class="sec-arrow">▾</span>
+        </div>
+      </div>
+      <div class="sec-body">
+
+        <article class="item" data-source="wsj" data-star="0">
+          <div class="item-meta">
+            <div class="meta-left">
+              <span class="badge wsj">WSJ</span>
+            </div>
+            <div class="time-pair">
+              <span class="t-pub">发布 <b>16:08</b></span>
+              <span class="t-sep">·</span>
+              <span class="t-crt">抓取 17:01</span>
+            </div>
+          </div>
+          <a class="title-zh" href="https://www.wsj.com/articles/eu-energy-grid-investment" target="_blank" rel="noopener">欧盟计划投入 600 亿欧元升级跨境电网以平抑工业电价<span class="ext">↗</span></a>
+          <a class="title-en" href="https://www.wsj.com/articles/eu-energy-grid-investment" target="_blank" rel="noopener">EU Plans €60 Billion Cross-Border Grid Overhaul to Curb Industrial Power Costs</a>
+          <p class="sum-zh">欧盟委员会拟通过联合融资工具加快可再生能源并网与储能建设，回应德国及法国制造业对能源竞争力的持续施压。</p>
+          <details class="en-sum">
+            <summary>英文原摘要</summary>
+            <p>The European Commission aims to accelerate grid interconnections and storage via joint financing as German and French manufacturers press for relief from elevated power costs.</p>
+          </details>
+        </article>
+
+        <article class="item" data-source="reuters" data-star="0">
+          <div class="item-meta">
+            <div class="meta-left">
+              <span class="badge rtr">路透</span>
+            </div>
+            <div class="time-pair">
+              <span class="t-pub">发布 <b>10:52</b></span>
+              <span class="t-sep">·</span>
+              <span class="t-crt">抓取 12:04</span>
+            </div>
+          </div>
+          <a class="title-zh" href="https://news.google.com/rss/articles/example-reuters-302" target="_blank" rel="noopener">日本央行审议委员称若春季薪资谈判强劲，不排除进一步调整利率<span class="ext">↗</span></a>
+          <a class="title-en" href="https://news.google.com/rss/articles/example-reuters-302" target="_blank" rel="noopener">BOJ Board Member Says Further Rate Moves Possible if Spring Wage Talks Stay Strong</a>
+          <p class="sum-zh">受该表态提振，日元兑美元盘中一度走强 0.4%，东京债市短端收益率小幅走高。</p>
+          <details class="en-sum">
+            <summary>英文原摘要</summary>
+            <p>The yen strengthened 0.4% against the dollar after a Bank of Japan policymaker signaled openness to additional policy tightening if wage momentum holds.</p>
+          </details>
+        </article>
+
+        <div class="sec-more">…… 其余 6 条已省略</div>
+      </div>
+    </section>
+
+    <!-- 4. 美国相关 -->
+    <section class="cat-sec" data-cat="us">
+      <div class="sec-head">
+        <div class="sec-title-wrap">
+          <h3>🇺🇸 美国相关</h3>
+          <span class="sec-en">US POLITICS &amp; POLICY</span>
+        </div>
+        <div class="sec-meta">
+          <span class="sec-count">2 条样例 / 今日 7 条</span>
+          <span class="sec-arrow">▾</span>
+        </div>
+      </div>
+      <div class="sec-body">
+
+        <article class="item" data-source="bloomberg" data-star="0">
+          <div class="item-meta">
+            <div class="meta-left">
+              <span class="badge bbg">彭博</span>
+            </div>
+            <div class="time-pair">
+              <span class="t-pub">发布 <b>17:22</b></span>
+              <span class="t-sep">·</span>
+              <span class="t-crt">抓取 18:02</span>
+            </div>
+          </div>
+          <a class="title-zh" href="https://www.bloomberg.com/news/articles/2026-11-20/senate-spending-bill" target="_blank" rel="noopener">美国参议院两党就临时拨款法案达成框架协议，避免政府停摆<span class="ext">↗</span></a>
+          <a class="title-en" href="https://www.bloomberg.com/news/articles/2026-11-20/senate-spending-bill" target="_blank" rel="noopener">Senate Reaches Bipartisan Stopgap Spending Framework to Avert Shutdown</a>
+          <p class="sum-zh">参议院多数党与少数党领袖同意将联邦机构资金延长至明年 2 月，为年度国防与基建预算谈判争取时间。</p>
+          <details class="en-sum">
+            <summary>英文原摘要</summary>
+            <p>Senate leaders agreed on a short-term funding extension through February, buying lawmakers additional time to negotiate full-year defense and infrastructure appropriations.</p>
+          </details>
+        </article>
+
+        <article class="item" data-source="wsj" data-star="0">
+          <div class="item-meta">
+            <div class="meta-left">
+              <span class="badge wsj">WSJ</span>
+            </div>
+            <div class="time-pair">
+              <span class="t-pub">发布 <b>07:45</b></span>
+              <span class="t-sep">·</span>
+              <span class="t-crt">抓取 08:02</span>
+            </div>
+          </div>
+          <a class="title-zh" href="https://www.wsj.com/articles/white-house-ai-regulation" target="_blank" rel="noopener">白宫拟发布新版联邦采购 AI 安全合规指引，聚焦金融与医疗场景<span class="ext">↗</span></a>
+          <a class="title-en" href="https://www.wsj.com/articles/white-house-ai-regulation" target="_blank" rel="noopener">White House Prepares Revised Federal AI Procurement Guidelines</a>
+          <p class="sum-zh">新指引计划简化低风险商业模型的评估流程，同时要求涉及关键基础设施的供应商提供可审计测试报告。</p>
+          <details class="en-sum">
+            <summary>英文原摘要</summary>
+            <p>The updated framework would streamline reviews for low-risk commercial models while mandating auditable safety evaluations for critical infrastructure vendors.</p>
+          </details>
+        </article>
+
+        <div class="sec-more">…… 其余 5 条已省略</div>
+      </div>
+    </section>
+
+    <!-- 5. 中国相关 -->
+    <section class="cat-sec" data-cat="china">
+      <div class="sec-head">
+        <div class="sec-title-wrap">
+          <h3>🇨🇳 中国相关</h3>
+          <span class="sec-en">CHINA &amp; GREATER CHINA</span>
+        </div>
+        <div class="sec-meta">
+          <span class="sec-count">3 条样例 / 今日 6 条</span>
+          <span class="sec-arrow">▾</span>
+        </div>
+      </div>
+      <div class="sec-body">
+
+        <article id="item-501" class="item star" data-source="reuters" data-star="1">
+          <div class="item-meta">
+            <div class="meta-left">
+              <span class="badge rtr">路透</span>
+              <span class="star-pill">★ 要闻</span>
+              <span class="why-pill">标题特征词 · 独家</span>
+            </div>
+            <div class="time-pair">
+              <span class="t-pub">发布 <b>13:48</b></span>
+              <span class="t-sep">·</span>
+              <span class="t-crt">抓取 14:02</span>
+            </div>
+          </div>
+          <a class="title-zh" href="https://news.google.com/rss/articles/example-reuters-501" target="_blank" rel="noopener">独家：中国芯片制造商加速扩建成熟制程晶圆产能应对出口限制<span class="ext">↗</span></a>
+          <a class="title-en" href="https://news.google.com/rss/articles/example-reuters-501" target="_blank" rel="noopener">Exclusive: Chinese Chipmakers Accelerate Mature-Node Capacity Expansion Amid Curbs</a>
+          <p class="sum-zh">据行业追踪数据，中国本土代工厂今年资本开支重点向 28 纳米及以上车规与工控芯片倾斜，预计明年全球份额将进一步提升。</p>
+          <details class="en-sum">
+            <summary>英文原摘要</summary>
+            <p>Chinese foundries are channeling capital expenditure heavily into 28nm and older automotive and industrial chips, poised to expand global market share next year.</p>
+          </details>
+        </article>
+
+        <article class="item" data-source="bloomberg" data-star="0">
+          <div class="item-meta">
+            <div class="meta-left">
+              <span class="badge bbg">彭博</span>
+            </div>
+            <div class="time-pair">
+              <span class="t-pub">发布 <b>11:10</b></span>
+              <span class="t-sep">·</span>
+              <span class="t-crt">抓取 12:04</span>
+            </div>
+          </div>
+          <a class="title-zh" href="https://www.bloomberg.com/news/articles/2026-11-20/us-china-trade-talks" target="_blank" rel="noopener">中美经贸工作组举行新一轮磋商，聚焦农产品与关税豁免清单<span class="ext">↗</span></a>
+          <a class="title-en" href="https://www.bloomberg.com/news/articles/2026-11-20/us-china-trade-talks" target="_blank" rel="noopener">US and China Trade Officials Hold New Round of Talks on Tariffs and Agriculture</a>
+          <p class="sum-zh">注：美中双关键词同时命中时，按优先级链（china &gt; us）自动归入中国相关栏目。</p>
+          <details class="en-sum">
+            <summary>英文原摘要</summary>
+            <p>Economic working groups from Washington and Beijing met to discuss agricultural purchases and potential tariff exclusion extensions.</p>
+          </details>
+        </article>
+
+        <article class="item" data-source="wsj" data-star="0">
+          <div class="item-meta">
+            <div class="meta-left">
+              <span class="badge wsj">WSJ</span>
+            </div>
+            <div class="time-pair">
+              <span class="t-pub">发布 <b>06:30</b></span>
+              <span class="t-sep">·</span>
+              <span class="t-crt">抓取 08:02</span>
+            </div>
+          </div>
+          <a class="title-zh" href="https://www.wsj.com/articles/china-ev-exports-europe" target="_blank" rel="noopener">中国车企加快欧洲本地组装布局以对冲进口关税压力<span class="ext">↗</span></a>
+          <a class="title-en" href="https://www.wsj.com/articles/china-ev-exports-europe" target="_blank" rel="noopener">Chinese Automakers Speed Up European Assembly Plans to Offset Import Duties</a>
+          <p class="sum-zh">多家头部新能源车企正评估在东欧与南欧设立 CKD 组装线，带动配套动力电池供应链同步出海。</p>
+          <details class="en-sum">
+            <summary>英文原摘要</summary>
+            <p>Leading Chinese EV makers are evaluating local assembly lines across Eastern and Southern Europe, bringing battery suppliers along with them.</p>
+          </details>
+        </article>
+
+        <div class="sec-more">…… 其余 3 条已省略</div>
+      </div>
+    </section>
+
+    <div class="empty-state" id="emptyState">
+      当前筛选条件下暂无匹配新闻，请尝试切换栏目、来源或关闭「仅看要闻」。
+    </div>
+
+  </main>
+
+  <footer>
+    <div>Market Dispatch（market-dispatch）· 仅采集公开 RSS 元数据，不保存正文 · 仅供个人学习研究</div>
+    <div><a href="daily-2026-11-19.html">← 昨日日报</a> · <a href="archive.html">历史归档</a></div>
+  </footer>
+
+</div>
+
+<script>
+(function () {
+  // ===== 暗色模式（跨页面持久化） =====
+  const root = document.documentElement;
+  const themeBtn = document.getElementById('themeBtn');
+  function applyTheme(t) {
+    root.setAttribute('data-theme', t);
+    themeBtn.textContent = t === 'dark' ? '☀️ 日间版' : '🌙 夜间版';
+    try { localStorage.setItem('md_theme', t); } catch (e) {}
+  }
+  const savedTheme = (() => { try { return localStorage.getItem('md_theme'); } catch (e) { return null; } })();
+  if (savedTheme === 'dark') applyTheme('dark');
+  themeBtn.addEventListener('click', () => {
+    applyTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+  });
+
+  // ===== 批次详情抽屉 =====
+  const batchToggle = document.getElementById('batchToggle');
+  const batchDrawer = document.getElementById('batchDrawer');
+  batchToggle.addEventListener('click', () => {
+    const open = batchDrawer.classList.toggle('open');
+    batchToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+
+  // ===== 栏目折叠 =====
+  document.querySelectorAll('.sec-head').forEach(head => {
+    head.addEventListener('click', () => {
+      const body = head.nextElementSibling;
+      const arrow = head.querySelector('.sec-arrow');
+      const collapsed = body.classList.toggle('collapsed');
+      arrow.textContent = collapsed ? '▸' : '▾';
+    });
+  });
+
+  // ===== 筛选与视图状态 =====
+  const state = { cat: 'all', src: 'all', starOnly: false, enExpanded: false };
+  const items = Array.from(document.querySelectorAll('article.item'));
+  const sections = Array.from(document.querySelectorAll('section.cat-sec'));
+  const visibleCountEl = document.getElementById('visibleCount');
+  const emptyState = document.getElementById('emptyState');
+  const resetBtn = document.getElementById('resetBtn');
+  const leadSection = document.getElementById('leadSection');
+
+  function applyFilters() {
+    let shown = 0;
+    sections.forEach(sec => {
+      const secCat = sec.dataset.cat;
+      const catMatch = state.cat === 'all' || state.cat === secCat;
+      let secShown = 0;
+      sec.querySelectorAll('article.item').forEach(item => {
+        const srcMatch = state.src === 'all' || item.dataset.source === state.src;
+        const starMatch = !state.starOnly || item.dataset.star === '1';
+        const visible = catMatch && srcMatch && starMatch;
+        item.style.display = visible ? '' : 'none';
+        if (visible) { secShown++; shown++; }
+      });
+      sec.style.display = (catMatch && secShown > 0) ? '' : 'none';
+      const more = sec.querySelector('.sec-more');
+      if (more) more.style.display = (state.src === 'all' && !state.starOnly) ? '' : 'none';
+    });
+
+    const isFiltered = state.cat !== 'all' || state.src !== 'all' || state.starOnly;
+    leadSection.style.display = isFiltered ? 'none' : '';
+    emptyState.classList.toggle('show', shown === 0);
+    resetBtn.classList.toggle('show', isFiltered);
+    visibleCountEl.textContent = `显示 ${shown} / ${items.length} 条（原型样例）`;
+  }
+
+  document.querySelectorAll('#catBar .cat-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('#catBar .cat-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      state.cat = btn.dataset.cat;
+      applyFilters();
+    });
+  });
+
+  document.querySelectorAll('[data-src]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('[data-src]').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      state.src = btn.dataset.src;
+      applyFilters();
+    });
+  });
+
+  const starOnlyBtn = document.getElementById('starOnlyBtn');
+  starOnlyBtn.addEventListener('click', () => {
+    state.starOnly = !state.starOnly;
+    starOnlyBtn.classList.toggle('active', state.starOnly);
+    applyFilters();
+  });
+
+  document.querySelectorAll('.seg-switch button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.seg-switch button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.body.classList.toggle('zh-only', btn.dataset.lang === 'zh');
+    });
+  });
+
+  const toggleEnSumBtn = document.getElementById('toggleEnSumBtn');
+  toggleEnSumBtn.addEventListener('click', () => {
+    state.enExpanded = !state.enExpanded;
+    toggleEnSumBtn.classList.toggle('active', state.enExpanded);
+    toggleEnSumBtn.textContent = state.enExpanded ? '收起英文摘要' : '展开英文摘要';
+    document.querySelectorAll('details.en-sum').forEach(d => {
+      if (d.closest('.untranslated')) return;
+      d.open = state.enExpanded;
+    });
+  });
+
+  resetBtn.addEventListener('click', () => {
+    state.cat = 'all'; state.src = 'all'; state.starOnly = false;
+    document.querySelectorAll('#catBar .cat-btn').forEach(b => b.classList.toggle('active', b.dataset.cat === 'all'));
+    document.querySelectorAll('[data-src]').forEach(b => b.classList.toggle('active', b.dataset.src === 'all'));
+    starOnlyBtn.classList.remove('active');
+    applyFilters();
+  });
+})();
+</script>
+</body>
+</html>

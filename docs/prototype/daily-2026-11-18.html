@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Market Dispatch · 2026-11-18（前日）</title>
+<style>
+  :root {
+    --bg: #F6F1E9; --paper: #FFFDF9; --tint: #EFE8DC;
+    --ink: #1B1917; --ink-2: #44403C; --ink-3: #78716C;
+    --rule: #DFD7C8; --rule-strong: #1B1917;
+    --accent: #990F3D; --accent-soft: #F9EBF0;
+    --gold: #9A5B06; --gold-bg: #FCF6E8; --gold-border: #D9A441;
+    --bbg-bg: #141414; --bbg-fg: #FFFFFF;
+    --rtr-bg: #C74F00; --rtr-fg: #FFFFFF;
+    --wsj-bg: #0A5894; --wsj-fg: #FFFFFF;
+    --serif: Georgia, "Songti SC", "STSong", "Noto Serif CJK SC", "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Segoe UI", sans-serif;
+    --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  }
+  [data-theme="dark"] {
+    --bg: #121316; --paper: #191B20; --tint: #23262E;
+    --ink: #EDE8DF; --ink-2: #BEB7AC; --ink-3: #857F76;
+    --rule: #2D313B; --rule-strong: #C9C0AE;
+    --accent: #E26B8D; --accent-soft: #2D1D24;
+    --gold: #E3AA4F; --gold-bg: #241E14; --gold-border: #8B6523;
+    --bbg-bg: #363A45; --bbg-fg: #F5F5F5;
+    --rtr-bg: #C74F00; --rtr-fg: #FFFFFF;
+    --wsj-bg: #1B6FB0; --wsj-fg: #FFFFFF;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: var(--sans); background: var(--bg); color: var(--ink); line-height: 1.6; transition: background .2s, color .2s; }
+  .container { max-width: 1060px; margin: 0 auto; padding: 0 20px 48px; }
+  .topbar { border-bottom: 1px solid var(--rule); background: var(--paper); }
+  .topbar-inner { max-width: 1060px; margin: 0 auto; padding: 8px 20px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-size: 13px; }
+  .edition-tabs { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+  .edition-label { color: var(--ink-3); font-size: 12px; margin-right: 6px; }
+  .ed-tab { display: inline-flex; align-items: center; gap: 6px; padding: 4px 11px; border-radius: 3px; text-decoration: none; color: var(--ink-2); font-family: var(--mono); font-size: 12.5px; font-variant-numeric: tabular-nums; }
+  .ed-tab:hover { background: var(--tint); color: var(--ink); }
+  .ed-tab.active { background: var(--ink); color: var(--paper); font-weight: 600; }
+  .ed-tab .cnt { font-size: 11px; opacity: .72; }
+  .live-dot { width: 6px; height: 6px; border-radius: 50%; background: #22C55E; display: inline-block; }
+  .topbar-right { display: flex; align-items: center; gap: 12px; }
+  .archive-link { color: var(--accent); text-decoration: none; font-weight: 600; font-size: 13px; padding: 4px 8px; border-radius: 3px; }
+  .archive-link:hover { background: var(--accent-soft); }
+  .theme-btn { background: transparent; border: 1px solid var(--rule); color: var(--ink-2); padding: 4px 10px; border-radius: 3px; font-size: 12.5px; cursor: pointer; }
+  .history-banner { margin-top: 16px; padding: 9px 16px; background: var(--tint); border: 1px solid var(--rule); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; font-size: 12.5px; color: var(--ink-2); }
+  .history-banner a { color: var(--accent); font-weight: 600; text-decoration: none; }
+  .masthead { padding: 20px 0 0; text-align: center; }
+  .masthead-kicker { font-family: var(--mono); font-size: 11px; letter-spacing: .24em; color: var(--ink-3); margin-bottom: 6px; }
+  .masthead h1 { font-family: var(--serif); font-size: clamp(30px, 4vw, 42px); letter-spacing: .02em; }
+  .dateline { margin-top: 14px; border-top: 2px solid var(--rule-strong); border-bottom: 1px solid var(--rule-strong); padding: 8px 4px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; font-size: 12.5px; color: var(--ink-2); }
+  .mono { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+  section.cat-sec { margin-top: 22px; background: var(--paper); border: 1px solid var(--rule); border-top: 2.5px solid var(--rule-strong); }
+  .sec-head { padding: 12px 22px; border-bottom: 1px solid var(--rule); display: flex; justify-content: space-between; }
+  .sec-head h3 { font-family: var(--serif); font-size: 18px; }
+  article.item { padding: 15px 22px; border-bottom: 1px solid var(--rule); }
+  article.item:last-child { border-bottom: none; }
+  .item-meta { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 6px; }
+  .badge { font-size: 11px; font-weight: 700; padding: 1px 7px; border-radius: 2px; background: var(--rtr-bg); color: var(--rtr-fg); }
+  .time-pair { font-family: var(--mono); font-size: 11.5px; color: var(--ink-3); display: inline-flex; gap: 7px; }
+  .time-pair b { color: var(--ink); }
+  .title-zh { display: inline-block; font-size: 16.5px; font-weight: 700; color: var(--ink); text-decoration: none; }
+  .title-zh:hover { color: var(--accent); text-decoration: underline; }
+  .title-en { display: block; margin-top: 3px; font-family: var(--serif); font-size: 13.5px; color: var(--ink-3); text-decoration: none; }
+  .sum-zh { margin-top: 6px; font-size: 14px; color: var(--ink-2); max-width: 82ch; }
+  footer { margin-top: 36px; padding-top: 16px; border-top: 2px solid var(--rule-strong); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; font-size: 12px; color: var(--ink-3); }
+  footer a { color: var(--ink-2); text-decoration: none; }
+  footer a:hover { color: var(--accent); text-decoration: underline; }
+</style>
+</head>
+<body>
+<nav class="topbar">
+  <div class="topbar-inner">
+    <div class="edition-tabs">
+      <span class="edition-label">近 3 天</span>
+      <a class="ed-tab" href="index.html"><span class="live-dot"></span>今日 11-20 <span class="cnt">41</span></a>
+      <a class="ed-tab" href="daily-2026-11-19.html">昨日 11-19 <span class="cnt">40</span></a>
+      <a class="ed-tab active" href="daily-2026-11-18.html">前日 11-18 <span class="cnt">37</span></a>
+    </div>
+    <div class="topbar-right">
+      <a class="archive-link" href="archive.html">历史归档 →</a>
+      <button class="theme-btn" id="themeBtn" type="button">🌙 夜间版</button>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="history-banner">
+    <span>您正在浏览 <b>2026-11-18（前日）</b>版面 · 明日零点后将自动归档至历史归档区</span>
+    <a href="index.html">返回今日实时版 →</a>
+  </div>
+
+  <header class="masthead">
+    <div class="masthead-kicker">BLOOMBERG · REUTERS · WSJ</div>
+    <h1>Market Dispatch</h1>
+    <div class="dateline">
+      <span><b>2026 年 11 月 18 日</b> 星期三</span>
+      <span>共 <b class="mono">37</b> 条 · ⭐ 要闻 <b class="mono">4</b> 条</span>
+    </div>
+  </header>
+
+  <section class="cat-sec">
+    <div class="sec-head">
+      <h3>🌍 政治与世界</h3>
+      <span class="mono" style="font-size:12px;color:var(--ink-3)">原型切换示意</span>
+    </div>
+    <article class="item">
+      <div class="item-meta">
+        <span class="badge">路透</span>
+        <div class="time-pair"><span>发布 <b>19:04</b></span><span>·</span><span>抓取 20:01</span></div>
+      </div>
+      <a class="title-zh" href="https://news.google.com/rss/articles/example-1118" target="_blank" rel="noopener">二十国集团财长会公报重申维护全球供应链韧性与多边贸易稳定 ↗</a>
+      <a class="title-en" href="https://news.google.com/rss/articles/example-1118" target="_blank" rel="noopener">G20 Finance Chiefs Reaffirm Commitment to Supply-Chain Resilience</a>
+      <p class="sum-zh">各国代表就跨境支付互联互通及主权债务重组框架进展达成多项技术共识。</p>
+    </article>
+  </section>
+
+  <footer>
+    <div>Market Dispatch · 前日版面原型样例（超过 3 天后自动移入 archive/）</div>
+    <div><a href="archive.html">← 更早历史归档</a> · <a href="daily-2026-11-19.html">昨日 11-19 →</a></div>
+  </footer>
+</div>
+
+<script>
+(function(){
+  const root = document.documentElement, btn = document.getElementById('themeBtn');
+  function set(t){ root.setAttribute('data-theme', t); btn.textContent = t === 'dark' ? '☀️ 日间版' : '🌙 夜间版'; try{localStorage.setItem('md_theme', t);}catch(e){} }
+  try{ if(localStorage.getItem('md_theme') === 'dark') set('dark'); }catch(e){}
+  btn.addEventListener('click', () => set(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'));
+})();
+</script>
+</body>
+</html>
