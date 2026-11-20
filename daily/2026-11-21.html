@@ -1,0 +1,1959 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Market Dispatch · 2026-11-21（今日）</title>
+<style>
+  :root {
+    --bg: #F6F1E9;
+    --paper: #FFFDF9;
+    --tint: #EFE8DC;
+    --tint-hover: #E7DEC9;
+    --ink: #1B1917;
+    --ink-2: #44403C;
+    --ink-3: #78716C;
+    --rule: #DFD7C8;
+    --rule-strong: #1B1917;
+    --accent: #990F3D;
+    --accent-soft: #F9EBF0;
+    --gold: #9A5B06;
+    --gold-bg: #FCF6E8;
+    --gold-border: #D9A441;
+    --ok: #166534;
+    --ok-bg: #EAF5EE;
+    --err: #B91C1C;
+    --err-bg: #FDECEC;
+    --bbg-bg: #141414; --bbg-fg: #FFFFFF;
+    --rtr-bg: #C74F00; --rtr-fg: #FFFFFF;
+    --wsj-bg: #0A5894; --wsj-fg: #FFFFFF;
+    --serif: Georgia, "Songti SC", "STSong", "Noto Serif CJK SC", "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Segoe UI", sans-serif;
+    --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  }
+
+  [data-theme="dark"] {
+    --bg: #121316;
+    --paper: #191B20;
+    --tint: #23262E;
+    --tint-hover: #2C303A;
+    --ink: #EDE8DF;
+    --ink-2: #BEB7AC;
+    --ink-3: #857F76;
+    --rule: #2D313B;
+    --rule-strong: #C9C0AE;
+    --accent: #E26B8D;
+    --accent-soft: #2D1D24;
+    --gold: #E3AA4F;
+    --gold-bg: #241E14;
+    --gold-border: #8B6523;
+    --ok: #4ADE80;
+    --ok-bg: #14281D;
+    --err: #F87171;
+    --err-bg: #2D1719;
+    --bbg-bg: #363A45; --bbg-fg: #F5F5F5;
+    --rtr-bg: #C74F00; --rtr-fg: #FFFFFF;
+    --wsj-bg: #1B6FB0; --wsj-fg: #FFFFFF;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    transition: background .2s ease, color .2s ease;
+  }
+
+  .container { max-width: 1060px; margin: 0 auto; padding: 0 20px 48px; }
+
+  /* ===== Top Edition Bar ===== */
+  .topbar { border-bottom: 1px solid var(--rule); background: var(--paper); transition: background .2s ease; }
+  .topbar-inner {
+    max-width: 1060px; margin: 0 auto; padding: 8px 20px;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 12px; flex-wrap: wrap; font-size: 13px;
+  }
+  .edition-tabs { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+  .edition-label { color: var(--ink-3); font-size: 12px; margin-right: 6px; letter-spacing: .04em; }
+  .ed-tab {
+    display: inline-flex; align-items: center; gap: 6px; padding: 4px 11px;
+    border-radius: 3px; text-decoration: none; color: var(--ink-2);
+    border: 1px solid transparent; font-family: var(--mono);
+    font-size: 12.5px; font-variant-numeric: tabular-nums; transition: all .15s;
+  }
+  .ed-tab:hover { background: var(--tint); color: var(--ink); }
+  .ed-tab.active { background: var(--ink); color: var(--paper); font-weight: 600; }
+  .ed-tab .cnt { font-size: 11px; opacity: .72; }
+  .live-dot {
+    width: 6px; height: 6px; border-radius: 50%; background: #22C55E;
+    display: inline-block; box-shadow: 0 0 0 2px rgba(34,197,94,.25);
+  }
+  .topbar-right { display: flex; align-items: center; gap: 12px; }
+  .archive-link {
+    color: var(--accent); text-decoration: none; font-weight: 600;
+    font-size: 13px; padding: 4px 8px; border-radius: 3px;
+  }
+  .archive-link:hover { background: var(--accent-soft); }
+  .theme-btn {
+    background: transparent; border: 1px solid var(--rule); color: var(--ink-2);
+    padding: 4px 10px; border-radius: 3px; font-size: 12.5px; cursor: pointer; font-family: var(--sans);
+  }
+  .theme-btn:hover { background: var(--tint); color: var(--ink); }
+
+  /* ===== History / Archive Banner ===== */
+  .history-banner {
+    margin-top: 16px; padding: 9px 16px; background: var(--tint); border: 1px solid var(--rule);
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+    font-size: 12.5px; color: var(--ink-2);
+  }
+  .history-banner a { color: var(--accent); font-weight: 600; text-decoration: none; }
+  .history-banner a:hover { text-decoration: underline; }
+
+  /* ===== Broadsheet Masthead ===== */
+  .masthead { padding: 26px 0 0; text-align: center; }
+  .masthead-kicker {
+    font-family: var(--mono); font-size: 11px; letter-spacing: .24em;
+    text-transform: uppercase; color: var(--ink-3); margin-bottom: 6px;
+  }
+  .masthead h1 {
+    font-family: var(--serif); font-size: clamp(32px, 4.4vw, 46px);
+    font-weight: 700; letter-spacing: .02em; color: var(--ink); line-height: 1.12;
+  }
+  .dateline {
+    margin-top: 16px; border-top: 2px solid var(--rule-strong); border-bottom: 1px solid var(--rule-strong);
+    padding: 8px 4px; display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 10px; font-size: 12.5px; color: var(--ink-2);
+  }
+  .dateline-left, .dateline-right { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+  .dateline b { color: var(--ink); font-weight: 600; }
+  .mono { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+  .batch-toggle {
+    border: 1px solid transparent; padding: 2px 9px; border-radius: 3px;
+    font-size: 12px; cursor: pointer; font-family: var(--sans);
+    display: inline-flex; align-items: center; gap: 5px;
+  }
+  .batch-toggle.ok { background: var(--ok-bg); color: var(--ok); border-color: rgba(22,101,52,.22); }
+  .batch-toggle.bad { background: var(--err-bg); color: var(--err); border-color: rgba(185,28,28,.22); }
+  .batch-toggle:hover { filter: brightness(.96); }
+  .batch-drawer {
+    display: none; background: var(--paper); border-bottom: 1px solid var(--rule);
+    padding: 12px 16px; text-align: left; font-size: 12px; color: var(--ink-2);
+  }
+  .batch-drawer.open { display: block; }
+  .batch-grid {
+    display: flex; flex-wrap: wrap; gap: 6px 10px; margin-top: 6px;
+    font-family: var(--mono); font-variant-numeric: tabular-nums;
+  }
+  .b-chip { padding: 2px 7px; border-radius: 2px; background: var(--ok-bg); color: var(--ok); }
+  .b-chip.bad { background: var(--err-bg); color: var(--err); font-weight: 600; }
+
+  /* ===== Front-Page Lead Briefing ===== */
+  .lead-section {
+    margin-top: 22px; background: var(--paper); border: 1px solid var(--rule);
+    border-top: 3px solid var(--accent); padding: 16px 20px 18px;
+  }
+  .lead-header {
+    display: flex; align-items: baseline; justify-content: space-between;
+    gap: 12px; padding-bottom: 10px; border-bottom: 1px solid var(--rule); margin-bottom: 14px;
+    flex-wrap: wrap;
+  }
+  .lead-header h2 {
+    font-family: var(--serif); font-size: 16px; color: var(--accent);
+    letter-spacing: .04em; display: flex; align-items: center; gap: 6px;
+  }
+  .lead-header .sub { font-size: 12px; color: var(--ink-3); }
+  .lead-grid {
+    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px 20px;
+  }
+  .lead-card {
+    padding: 10px 12px; border: 1px solid var(--rule); background: var(--bg);
+    display: flex; flex-direction: column; justify-content: space-between; gap: 8px;
+  }
+  .lead-meta { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; font-size: 11.5px; }
+  .lead-cat { color: var(--ink-3); font-weight: 600; }
+  .lead-reason {
+    color: var(--gold); background: var(--gold-bg); border: 1px solid var(--gold-border);
+    padding: 0 6px; border-radius: 2px; font-size: 11px;
+  }
+  .lead-title-zh {
+    display: block; font-size: 15px; font-weight: 700; line-height: 1.42;
+    color: var(--ink); text-decoration: none;
+  }
+  .lead-title-zh:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+  .lead-title-en {
+    font-family: var(--serif); font-size: 12.5px; line-height: 1.38;
+    color: var(--ink-3); margin-top: 4px;
+  }
+  .lead-foot {
+    display: flex; align-items: center; justify-content: space-between; font-size: 11.5px;
+    color: var(--ink-3); padding-top: 6px; border-top: 1px dashed var(--rule);
+    font-family: var(--mono); font-variant-numeric: tabular-nums;
+  }
+  .lead-foot a { color: var(--accent); text-decoration: none; font-family: var(--sans); font-weight: 500; }
+  .lead-foot a:hover { text-decoration: underline; }
+
+  /* ===== Sticky Reading Controls ===== */
+  .controls-wrap {
+    position: sticky; top: 0; z-index: 40; margin-top: 20px;
+    background: var(--bg); padding: 10px 0 8px; border-bottom: 1px solid var(--rule);
+  }
+  .cat-bar {
+    display: flex; align-items: center; gap: 4px; overflow-x: auto;
+    padding-bottom: 8px; border-bottom: 1px solid var(--rule); scrollbar-width: none;
+  }
+  .cat-bar::-webkit-scrollbar { display: none; }
+  .cat-btn {
+    border: none; background: transparent; color: var(--ink-2); font-family: var(--sans);
+    font-size: 13.5px; font-weight: 600; padding: 5px 11px; border-radius: 3px;
+    cursor: pointer; white-space: nowrap; display: inline-flex; align-items: center; gap: 5px;
+    transition: all .15s;
+  }
+  .cat-btn:hover { background: var(--tint); color: var(--ink); }
+  .cat-btn.active { background: var(--ink); color: var(--paper); }
+  .cat-btn .n { font-family: var(--mono); font-size: 11.5px; font-weight: 500; opacity: .72; }
+
+  .filter-bar {
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 10px; padding-top: 8px; font-size: 12.5px;
+  }
+  .filter-group { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+  .fg-label { color: var(--ink-3); font-size: 12px; margin-right: 2px; }
+  .pill-btn {
+    background: var(--paper); border: 1px solid var(--rule); color: var(--ink-2);
+    padding: 3px 10px; border-radius: 3px; font-size: 12.5px; cursor: pointer;
+    font-family: var(--sans); display: inline-flex; align-items: center; gap: 5px; transition: all .15s;
+  }
+  .pill-btn:hover { border-color: var(--ink-3); color: var(--ink); }
+  .pill-btn.active { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+  .pill-btn.star-only.active { background: var(--gold); border-color: var(--gold); color: #fff; }
+  .src-dot { width: 7px; height: 7px; border-radius: 50%; display: inline-block; }
+  .dot-bbg { background: var(--bbg-bg); }
+  .dot-rtr { background: var(--rtr-bg); }
+  .dot-wsj { background: var(--wsj-bg); }
+  [data-theme="dark"] .dot-bbg { background: #E5E7EB; }
+
+  .seg-switch {
+    display: inline-flex; border: 1px solid var(--rule); border-radius: 3px;
+    overflow: hidden; background: var(--paper);
+  }
+  .seg-switch button {
+    border: none; background: transparent; color: var(--ink-2);
+    padding: 3px 9px; font-size: 12px; cursor: pointer; font-family: var(--sans);
+  }
+  .seg-switch button.active { background: var(--ink); color: var(--paper); font-weight: 600; }
+  .status-right { display: flex; align-items: center; gap: 10px; color: var(--ink-3); font-size: 12px; font-family: var(--mono); }
+  .reset-link {
+    background: none; border: none; color: var(--accent); cursor: pointer;
+    font-size: 12px; font-family: var(--sans); text-decoration: underline; display: none;
+  }
+  .reset-link.show { display: inline; }
+
+  /* ===== Editorial Sections ===== */
+  .sections-list { margin-top: 22px; display: flex; flex-direction: column; gap: 28px; }
+  section.cat-sec { background: var(--paper); border: 1px solid var(--rule); border-top: 2.5px solid var(--rule-strong); }
+  .sec-head {
+    padding: 12px 22px; border-bottom: 1px solid var(--rule);
+    display: flex; align-items: center; justify-content: space-between;
+    cursor: pointer; user-select: none;
+  }
+  .sec-head:hover { background: var(--tint); }
+  .sec-title-wrap { display: flex; align-items: baseline; gap: 10px; }
+  .sec-head h3 { font-family: var(--serif); font-size: 18px; font-weight: 700; color: var(--ink); letter-spacing: .03em; }
+  .sec-en { font-family: var(--mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); }
+  .sec-meta { display: flex; align-items: center; gap: 10px; font-size: 12px; color: var(--ink-3); font-family: var(--mono); }
+  .sec-body.collapsed { display: none; }
+
+  /* ===== Article Row ===== */
+  article.item { padding: 15px 22px; border-bottom: 1px solid var(--rule); transition: background .12s; }
+  article.item:last-child { border-bottom: none; }
+  article.item:hover { background: rgba(153, 15, 61, .02); }
+  article.item.star { background: var(--gold-bg); border-left: 3.5px solid var(--gold-border); padding-left: 18.5px; }
+  article.item:target { outline: 2px solid var(--accent); outline-offset: -2px; }
+
+  .item-meta {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 10px; flex-wrap: wrap; margin-bottom: 6px;
+  }
+  .meta-left { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; }
+  .badge {
+    display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .03em;
+    padding: 1px 7px; border-radius: 2px; line-height: 1.5;
+  }
+  .badge.bbg { background: var(--bbg-bg); color: var(--bbg-fg); }
+  .badge.rtr { background: var(--rtr-bg); color: var(--rtr-fg); }
+  .badge.wsj { background: var(--wsj-bg); color: var(--wsj-fg); }
+
+  .star-pill { font-size: 11.5px; font-weight: 700; color: var(--gold); }
+  .why-pill { font-size: 11px; color: var(--gold); border: 1px solid var(--gold-border); padding: 0 6px; border-radius: 2px; }
+  .tag-warn { font-size: 11px; background: var(--err-bg); color: var(--err); padding: 0 6px; border-radius: 2px; font-weight: 600; }
+  .tag-cross { font-size: 11px; background: var(--accent-soft); color: var(--accent); padding: 0 6px; border-radius: 2px; font-weight: 600; }
+  .tag-muted { font-size: 11px; background: var(--tint); color: var(--ink-3); padding: 0 6px; border-radius: 2px; }
+
+  .time-pair {
+    display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono);
+    font-size: 11.5px; font-variant-numeric: tabular-nums; color: var(--ink-3); white-space: nowrap;
+  }
+  .time-pair .t-pub { color: var(--ink-2); }
+  .time-pair .t-pub b { color: var(--ink); font-weight: 600; }
+  .time-pair .t-sep { opacity: .45; }
+  .time-pair .t-crt { color: var(--ink-3); }
+
+  .title-zh {
+    display: inline-block; font-size: 16.5px; font-weight: 700; line-height: 1.42;
+    color: var(--ink); text-decoration: none;
+  }
+  .title-zh:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+  .title-zh .ext { font-size: 12.5px; color: var(--ink-3); margin-left: 4px; font-weight: 400; }
+  .title-en {
+    display: block; margin-top: 3px; font-family: var(--serif); font-size: 13.5px;
+    line-height: 1.4; color: var(--ink-3); text-decoration: none;
+  }
+  .title-en:hover { color: var(--ink); text-decoration: underline; }
+  .item.untranslated .title-en { font-size: 16px; font-weight: 600; color: var(--ink); margin-top: 0; }
+
+  .sum-zh { margin-top: 6px; font-size: 14px; line-height: 1.65; color: var(--ink-2); max-width: 82ch; }
+  details.en-sum { margin-top: 6px; max-width: 82ch; }
+  details.en-sum summary {
+    font-size: 12px; color: var(--ink-3); cursor: pointer; user-select: none;
+    list-style: none; display: inline-flex; align-items: center; gap: 4px;
+  }
+  details.en-sum summary::-webkit-details-marker { display: none; }
+  details.en-sum summary::before { content: "▸"; font-size: 11px; transition: transform .15s; }
+  details.en-sum[open] summary::before { transform: rotate(90deg); }
+  details.en-sum summary:hover { color: var(--ink); }
+  details.en-sum p {
+    margin-top: 5px; padding-left: 10px; border-left: 2px solid var(--rule);
+    font-family: var(--serif); font-size: 13px; line-height: 1.55; color: var(--ink-3);
+  }
+
+  body.zh-only .title-en,
+  body.zh-only .lead-title-en { display: none; }
+  body.zh-only .item.untranslated .title-en { display: block; }
+
+  .empty-state {
+    display: none; text-align: center; padding: 48px 20px;
+    background: var(--paper); border: 1px solid var(--rule); color: var(--ink-3); font-size: 14px;
+  }
+  .empty-state.show { display: block; }
+
+  /* ===== Footer ===== */
+  footer {
+    margin-top: 36px; padding-top: 16px; border-top: 2px solid var(--rule-strong);
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 10px; font-size: 12px; color: var(--ink-3);
+  }
+  footer a { color: var(--ink-2); text-decoration: none; }
+  footer a:hover { color: var(--accent); text-decoration: underline; }
+
+  @media (max-width: 820px) {
+    .lead-grid { grid-template-columns: 1fr; }
+    article.item { padding: 14px 16px; }
+    .sec-head { padding: 11px 16px; }
+    .time-pair { font-size: 11px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="topbar" aria-label="版面切换">
+  <div class="topbar-inner">
+    <div class="edition-tabs">
+      <span class="edition-label">近 3 天</span>
+      <a class="ed-tab active" href="../index.html">
+<span class="live-dot" title="今日滚动更新中"></span>今日 11-21 <span class="cnt">67</span>
+      </a>
+      <a class="ed-tab" href="../daily/2026-11-20.html">
+昨日 11-20 <span class="cnt">293</span>
+      </a>
+      <a class="ed-tab" href="../daily/2026-11-19.html">
+前日 11-19 <span class="cnt">38</span>
+      </a>
+    </div>
+    <div class="topbar-right">
+      <a class="archive-link" href="../archive/index.html">历史归档 →</a>
+      <button class="theme-btn" id="themeBtn" type="button">🌙 夜间版</button>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+
+  <header class="masthead">
+    <div class="masthead-kicker">BLOOMBERG · REUTERS · WSJ</div>
+    <h1>Market Dispatch</h1>
+    <div class="dateline">
+      <div class="dateline-left">
+        <span><b>2026 年 11 月 21 日</b> 星期六</span>
+        <span>时区 <span class="mono">Asia/Shanghai</span></span>
+        <span>按新闻发布时间归天</span>
+      </div>
+      <div class="dateline-right">
+        <span>最近更新 <b class="mono">03:03</b></span>
+        <span>共 <b class="mono">67</b> 条 · 要闻 <b class="mono">2</b> 条</span>
+        <button class="batch-toggle ok" id="batchToggle" type="button" aria-expanded="false">
+          当日 1 批 · 全部正常 ▾
+        </button>
+      </div>
+    </div>
+    <div class="batch-drawer" id="batchDrawer">
+      <div><b>当日抓取批次记录</b>（每小时自动运行，24h 回看防遗漏；单源异常不影响其他来源）：</div>
+      <div class="batch-grid">
+        <span class="b-chip">03:01 ✓ +157</span>
+      </div>
+    </div>
+  </header>
+
+  <section class="lead-section" id="leadSection" aria-label="今日要闻头条">
+    <div class="lead-header">
+      <h2>★ 今日要闻头条（2）</h2>
+      <span class="sub">三信号自动研判（标题特征词 / 跨源同事件 / GN 头条） · 点击定位详情</span>
+    </div>
+    <div class="lead-grid">
+      <div class="lead-card">
+        <div>
+          <div class="lead-meta">
+            <span class="badge rtr">路透</span>
+            <span class="lead-cat">科技</span>
+<span class="lead-reason">标题特征词</span>          </div>
+          <a class="lead-title-zh" href="#item-291">EXCLUSIVE: Signal restricts screenshots to block AI agents from reading messages</a>
+        </div>
+        <div class="lead-foot">
+          <span>发布 00:20 · 抓取 03:01</span>
+          <a href="https://news.google.com/rss/articles/CBMitAFBVV95cUxQcmswbGtWU0V5UThMT3Rqd3lGVmJqeHE4NEE0S1h5eEpMTUZfRzU4NUxLbjZLU195X29ld20wa2xNVWIxZlREZ1U1OFZIY3VicFA2eEMwQmFTbWJTVk9CaHJFMktMNUU2a3Z6TlBhWmEwVE1TTzVfRkFRY2VLdGZ2cVIxR1NuWUVXaFFxRlZaQnNaM29JZnpuUV9hVEZNY3F1ZEZwaGx4QmlJa2t4MTBZQlJDZ3g?oc=5" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+        </div>
+      </div>
+      <div class="lead-card">
+        <div>
+          <div class="lead-meta">
+            <span class="badge rtr">路透</span>
+            <span class="lead-cat">政治与世界</span>
+<span class="lead-reason">GN头条</span>          </div>
+          <a class="lead-title-zh" href="#item-294">Poland condemns Russian 'provocation' after three airspace violations</a>
+        </div>
+        <div class="lead-foot">
+          <span>发布 00:07 · 抓取 03:01</span>
+          <a href="https://news.google.com/rss/articles/CBMiygFBVV95cUxPejRoNTB3Y2hjdXRxMmNON0lac2xkWldNSmQ5RXFTM0NrMDFJaEE3QWxsOHJoYTgwLTFUN1A5MGRkU0h6ejNsLXdraFB0MjhNTkVROEJjNG5WWm00azhpbUNDN2FRUW1uRXplazJmU08za2gtYlc0bEc5bk9XMEpfbndzU3VVTVB3LUNyR3llYW1rdkI5UmtzeFNsZmhNNllGY3g1WnF5ZDZpLTRGZ0Q5RUstaGJuSnFESFJCZ2d0RG41RDcyZW9QZmV3?oc=5" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="controls-wrap">
+    <div class="cat-bar" id="catBar" role="tablist">
+      <button class="cat-btn active" data-cat="all" type="button">全部栏目 <span class="n">67</span></button>
+      <button class="cat-btn" data-cat="markets" type="button">📈 市场与经济 <span class="n">17</span></button>
+      <button class="cat-btn" data-cat="tech" type="button">💻 科技 <span class="n">24</span></button>
+      <button class="cat-btn" data-cat="world" type="button">🌍 政治与世界 <span class="n">11</span></button>
+      <button class="cat-btn" data-cat="us" type="button">🇺🇸 美国相关 <span class="n">15</span></button>
+      <button class="cat-btn" data-cat="china" type="button">🇨🇳 中国相关 <span class="n">0</span></button>
+    </div>
+
+    <div class="filter-bar">
+      <div class="filter-group">
+        <span class="fg-label">来源</span>
+        <button class="pill-btn active" data-src="all" type="button">全部</button>
+        <button class="pill-btn" data-src="bloomberg" type="button"><span class="src-dot dot-bbg"></span>彭博</button>
+        <button class="pill-btn" data-src="reuters" type="button"><span class="src-dot dot-rtr"></span>路透</button>
+        <button class="pill-btn" data-src="wsj" type="button"><span class="src-dot dot-wsj"></span>WSJ</button>
+
+        <span class="fg-label" style="margin-left:6px">视图</span>
+        <button class="pill-btn star-only" id="starOnlyBtn" type="button">★ 仅看要闻</button>
+        <div class="seg-switch" role="group" aria-label="语言显示">
+          <button class="active" data-lang="both" type="button">中英</button>
+          <button data-lang="zh" type="button">仅中文</button>
+        </div>
+        <button class="pill-btn" id="toggleEnSumBtn" type="button">展开英文摘要</button>
+      </div>
+
+      <div class="status-right">
+        <span id="visibleCount">显示 67 / 67 条</span>
+        <button class="reset-link" id="resetBtn" type="button">重置筛选</button>
+      </div>
+    </div>
+  </div>
+
+  <main class="sections-list" id="sectionsList">
+        <section class="cat-sec" data-cat="markets">
+          <div class="sec-head">
+            <div class="sec-title-wrap">
+              <h3>📈 市场与经济</h3>
+              <span class="sec-en">MARKETS & ECONOMY</span>
+            </div>
+            <div class="sec-meta">
+              <span class="sec-count">17 条</span>
+              <span class="sec-arrow">▾</span>
+            </div>
+          </div>
+          <div class="sec-body">
+            <article id="item-351" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>02:25</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 03:01</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/articles/2026-11-20/fed-s-paulson-argues-for-deliberate-rate-hikes-to-tame-inflation" target="_blank" rel="noopener noreferrer">Fed’s Paulson Argues for Deliberate Rate Hikes to Tame Inflation ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>Federal Reserve Bank of Philadelphia President Anna Paulson said she’d be open to considering back-to-back interest-rate hikes at the central bank’s upcoming policy meetings to help contain inflation, but said officials should move at a “deliberate” pace.</p>
+              </details>
+            </article>
+            <article id="item-335" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>02:12</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 03:01</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/articles/2026-11-20/argentina-hit-hard-by-global-turmoil-as-bonds-slip-into-distress" target="_blank" rel="noopener noreferrer">Argentina Hit Hard by Global Turmoil as Bonds Slip Into Distress ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>A global flight from risk is catching Argentina at a vulnerable moment, deepening a bond selloff fueled by anxiety over next year’s election and pushing its debt into distressed territory for the first time in two years.</p>
+              </details>
+            </article>
+            <article id="item-336" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>02:06</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 03:01</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/articles/2026-11-20/morgan-stanley-sees-aussie-riding-ai-storm-to-outperform-in-2027" target="_blank" rel="noopener noreferrer">Morgan Stanley Sees Aussie Riding AI Storm to Outperform in 2027 ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>The Australian dollar will stand out among developed-market currencies next year as it will reap the benefits of the artificial intelligence buildout, weathering the recent stock selloff, according to Andrew Watrous at Morgan Stanley.</p>
+              </details>
+            </article>
+            <article id="item-337" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>02:00</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 03:01</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/videos/2026-11-20/sec-s-daly-on-a-rapidly-evolving-etf-market-video" target="_blank" rel="noopener noreferrer">SEC’s Daly on a Rapidly Evolving ETF Market ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>Brian Daly, Director of the Division of Investment Management at the SEC, joins Bloomberg's Isabelle Lee at the Bloomberg ETFs in Depth Conference in New York on November 26, 2026. Daly discusses the rapid evolution of the ETF market, the SEC’s approach to novel products and why the agency is taking an iterative approach rather than rewriting the rules. He also addresses prediction markets, tokenization, leverage and the resilience of the ETF market structure as the industry expands. (Source: Bloomberg)</p>
+              </details>
+            </article>
+            <article id="item-340" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>01:48</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 03:01</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/videos/2026-11-20/inflation-lifts-trip-spending-as-consumers-cut-extras-video" target="_blank" rel="noopener noreferrer">BI Survey: Budgetary Constraints for 2027 Travel ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>Jody Lurie, Bloomberg Intelligence Credit Analyst, discussed her recent Bloomberg Survey covering budgetary constraints for 2027 travel. Lurie spoke with Bloomberg's Paul Sweeney and Scarlet Fu.on her recent BI surveys. US vacationers appear poised to spend more in 2027, but inflation is reshaping rather than curbing demand as higher core trip costs squeeze spending on extras, based on Bloomberg Intelligence's seventh US travel survey conducted Oct. 26-Nov. 4. About 71% believe they'll spend more, but only 45% would absorb higher-than-expected costs vs. 50% two years ago, while 53% cite inflation as a reason for bigger budgets. This shift favors midtier hotels and pressures airline and cruise upselling, while generative AI is a nearer-term threat to deal-hunting than booking for Expedia, Booking Holdings and Airbnb. (Source: Bloomberg)</p>
+              </details>
+            </article>
+            <article id="item-341" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>01:42</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 03:01</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/videos/2026-11-20/on-books-what-food-writing-can-teach-us-all-video" target="_blank" rel="noopener noreferrer">On Books: What food writing can teach us all ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>Food writing is often treated as second-rate literature, yet one of its greatest voices captured the human condition better than most novelists. (Source: Bloomberg)</p>
+              </details>
+            </article>
+            <article id="item-343" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>01:28</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 03:01</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/videos/2026-11-20/what-s-in-the-uk-eu-deal-to-deepen-ties-video" target="_blank" rel="noopener noreferrer">What’s in the UK-EU Deal To Deepen Ties ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>The UK and EU struck a deal to reset relations after Brexit, opening opportunities for young people and easing restrictions on food and agriculture. Oliver Crook explains what’s in the deal — and what’s not. (Source: Bloomberg)</p>
+              </details>
+            </article>
+            <article id="item-248" class="item untranslated" data-source="wsj" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge wsj">WSJ</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>01:26</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 03:01</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.wsj.com/business/health-care-roundup-market-talk-37edbe6f?mod=rss_markets_main" target="_blank" rel="noopener noreferrer">Health Care Roundup: Market Talk ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>Find insight on Sanofi, Insmed, Novartis and more in the latest Market Talks covering he health care sector.</p>
+              </details>
+            </article>
+            <article id="item-250" class="item untranslated" data-source="wsj" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge wsj">WSJ</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>01:24</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 03:01</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.wsj.com/business/financial-services-roundup-market-talk-3af0bea5?mod=rss_markets_main" target="_blank" rel="noopener noreferrer">Financial Services Roundup: Market Talk ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>Find insight on PayPal, Assicurazioni Generali and more in the latest Market Talks covering financial services.</p>
+              </details>
+            </article>
+            <article id="item-344" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>01:13</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 03:01</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/newsletters/2026-11-20/a-week-for-big-questions-on-the-ai-buildout" target="_blank" rel="noopener noreferrer">A Week for Big Questions on the AI Buildout ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>Parallels to the subprime boom.</p>
+              </details>
+            </article>
+            <article id="item-348" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>01:00</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 03:01</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/articles/2026-11-20/ai-selloff-boosts-haven-demand-for-yen-franc-as-dollar-slips" target="_blank" rel="noopener noreferrer">AI Selloff Boosts Haven Demand for Yen, Franc as Dollar Slips ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>The Japanese yen and Swiss franc outperformed their major peers as growing doubts about the sustainability of the artificial intelligence boom drove demand for havens and put pressure on the US dollar.</p>
+              </details>
+            </article>
+            <article id="item-243" class="item untranslated" data-source="wsj" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge wsj">WSJ</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>00:59</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 03:01</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.wsj.com/finance/banking/citi-undercounted-35-billion-in-assets-at-u-k-subsidiary-f8328559?mod=rss_markets_main" target="_blank" rel="noopener noreferrer">Citi Undercounted $35 Billion in Assets at U.K. Subsidiary ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>The record-keeping blunder, which was related to risk-weighted assets, is a setback for CEO Jane Fraser’s efforts to strengthen internal controls.</p>
+              </details>
+            </article>
+            <article id="item-349" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>00:57</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 03:01</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/videos/2026-11-20/goldman-sees-inflation-cooling-by-the-end-of-2027-video" target="_blank" rel="noopener noreferrer">Goldman Sees Inflation Cooling by the end of 2027 ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>Goldman Sachs expects inflation to cool to 2.4% by the end of 2027 as tariff, energy and AI-related pressures fade. But Goldman’s Chief US Economist David Mericle says the Fed may still raise rates in December and March, waiting for clearer evidence that inflation is easing. (Source: Bloomberg)</p>
+              </details>
+            </article>
+            <article id="item-350" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>00:56</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 03:01</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/videos/2026-11-20/volatility-surges-over-ai-fears-after-anthropic-ipo-video" target="_blank" rel="noopener noreferrer">Volatility Surges Over AI Fears After Anthropic IPO ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>Volatility across markets surges on worries over AI, geopolitics and rates, and Anthropic plunged toward its IPO price just one day after its market debut. (Source: Bloomberg)</p>
+              </details>
+            </article>
+            <article id="item-352" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>00:41</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 03:01</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/articles/2026-11-20/france-picks-boone-to-run-markets-at-ecb-in-pivotal-crisis-role" target="_blank" rel="noopener noreferrer">France Picks Boone to Run Markets at ECB in Pivotal Crisis Role ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>France nominated one of President Emmanuel Macron’s former ministers for a senior European Central Bank position that may prove key in the event of a bond crisis.</p>
+              </details>
+            </article>
+            <article id="item-353" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>00:32</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 03:01</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/articles/2026-11-20/romania-needs-further-deficit-cuts-to-boost-confidence-imf-says" target="_blank" rel="noopener noreferrer">Romania Needs Further Deficit Cuts to Boost Confidence, IMF Says ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>The International Monetary Fund called on Romania to lower the fiscal deficit further in order to maintain investors’ confidence and said higher interest rates may be needed to contain inflation risks.</p>
+              </details>
+            </article>
+            <article id="item-269" class="item untranslated" data-source="reuters" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge rtr">路透</span>
+<span class="tag-warn">未翻译</span><span class="tag-muted">仅标题</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>00:26</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 03:01</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://news.google.com/rss/articles/CBMihAFBVV95cUxNVEJfUmdFQ0ZvVC1TbUh4dXZxdzlrTVZYenFybjM0RnpESDZ2aFRsMmRsWHpjbEF4cjlCWWJtQnZiWXhINVZhUng3YW9ILWZXejhNY3BJelJKRWw1TDRzaDRtdU92ZlhRUXRMdVpzYXlWaUQ3MUx2aWtEU2VaVlhLOHlqV2Q?oc=5" target="_blank" rel="noopener noreferrer">Bitcoin falls below $60,000 level ↗</a>
+
+
+            </article>
+          </div>
+        </section>
+        <section class="cat-sec" data-cat="tech">
+          <div class="sec-head">
+            <div class="sec-title-wrap">
+              <h3>💻 科技</h3>
+              <span class="sec-en">TECHNOLOGY & AI</span>
+            </div>
+            <div class="sec-meta">
+              <span class="sec-count">24 条</span>
+              <span class="sec-arrow">▾</span>
+            </div>
+          </div>
+          <div class="sec-body">
+            <article id="item-291" class="item star untranslated" data-source="reuters" data-star="1">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge rtr">路透</span>
+                  <span class="star-pill">★ 要闻</span>
+<span class="why-pill">标题特征词</span><span class="tag-warn">未翻译</span><span class="tag-muted">仅标题</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>00:20</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 03:01</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://news.google.com/rss/articles/CBMitAFBVV95cUxQcmswbGtWU0V5UThMT3Rqd3lGVmJqeHE4NEE0S1h5eEpMTUZfRzU4NUxLbjZLU195X29ld20wa2xNVWIxZlREZ1U1OFZIY3VicFA2eEMwQmFTbWJTVk9CaHJFMktMNUU2a3Z6TlBhWmEwVE1TTzVfRkFRY2VLdGZ2cVIxR1NuWUVXaFFxRlZaQnNaM29JZnpuUV9hVEZNY3F1ZEZwaGx4QmlJa2t4MTBZQlJDZ3g?oc=5" target="_blank" rel="noopener noreferrer">EXCLUSIVE: Signal restricts screenshots to block AI agents from reading messages ↗</a>
+
+
+            </article>
+            <article id="item-362" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>02:48</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 03:01</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/articles/2026-11-20/cloud-infrastructure-firm-cloudferro-is-said-to-weigh-warsaw-ipo" target="_blank" rel="noopener noreferrer">Cloud Infrastructure Firm CloudFerro Is Said to Weigh Warsaw IPO ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>Polish cloud infrastructure provider CloudFerro SA is considering an initial public offering in Warsaw as soon as next year, according to people familiar with the matter.</p>
+              </details>
+            </article>
+            <article id="item-363" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>02:42</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 03:01</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/videos/2026-11-20/anthropic-falls-after-blockbuster-debut-as-tech-sell-off-video" target="_blank" rel="noopener noreferrer">Anthropic Falls After Blockbuster Debut as Tech Sells Off ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>Anthropic shares erased much of their first-day surge as the record-breaking listing faces its first test from public investors. Bloomberg's Shirin Ghaffary discusses what's ahead for the company with Ed Ludlow on "Bloomberg Tech." (Source: Bloomberg)</p>
+              </details>
+            </article>
+            <article id="item-364" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>02:41</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 03:01</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/videos/2026-11-20/altruist-s-wenk-on-ai-next-era-of-financial-advice-video" target="_blank" rel="noopener noreferrer">Altruist’s Wenk on AI and the Next Era of Financial Advice ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>Altruist CEO Jason Wenk joins Bloomberg's Katie Greifeld for a wide ranging conversation on what joining Vanguard could mean for Altruist, his push to make financial advice more accessible and how technology and AI could reshape the economics of wealth management. He also addresses the future of the RIA custody market and Altruist’s plans to expand its product offering. Wenk spoke at the Bloomberg ETFs in Depth conference in New York on November 19, 2026. (Source: Bloomberg)</p>
+              </details>
+            </article>
+            <article id="item-365" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>02:39</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 03:01</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/videos/2026-11-20/gta-vi-earns-near-perfect-reviews-in-record-launch-video" target="_blank" rel="noopener noreferrer">GTA VI Earns Near-Perfect Reviews in Record Launch ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>Grand Theft Auto VI has finally arrived — and Bloomberg’s Jason Schreier calls it a “masterpiece” after spending more than 45 hours with the game. He discusses the extraordinary detail and scale of Rockstar’s latest blockbuster, the record demand surrounding its launch and how GTA VI earned a 99 score on Metacritic, making it the highest-rated game ever on the review aggregator. He joins Ed Ludlow on "Bloomberg Tech." (Source: Bloomberg)</p>
+              </details>
+            </article>
+            <article id="item-254" class="item untranslated" data-source="wsj" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge wsj">WSJ</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>02:39</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 03:01</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.wsj.com/tech/personal-tech/watch-how-the-office-became-the-worst-place-to-actually-do-work-a47ac2df?mod=rss_Technology" target="_blank" rel="noopener noreferrer">Watch How the Office Became the Worst Place to Actually Do Work ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>Open-plan workplaces were created to enable collaboration and communication. Now, the design has left many longing for the return of the cubicle.</p>
+              </details>
+            </article>
+            <article id="item-366" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>02:36</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 03:01</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/videos/2026-11-20/bloomberg-tech-11-20-2026-video" target="_blank" rel="noopener noreferrer">Anthropic Slides as AI Selloff Deepens ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>Bloomberg’s Ed Ludlow takes a look at Anthropic shares falling after its blockbuster stock market debut, as part of a wider global tech selloff hitting the AI trade. And: Grand Theft Auto 6 has finally arrived with record-breaking demand. (Source: Bloomberg)</p>
+              </details>
+            </article>
+            <article id="item-367" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>02:36</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 03:01</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/videos/2026-11-20/anthropic-investor-sees-huge-runway-beyond-coding-video" target="_blank" rel="noopener noreferrer">Anthropic Investor Sees Huge Runway Beyond Coding ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>Anthropic shares are retreating after their blockbuster debut, but T. Rowe Price’s Emma Norchet says the volatility doesn’t change the firm’s long-term outlook. One of Anthropic’s largest private investors, T. Rowe also participated in the IPO. Norchet discusses the company’s improving compute economics and the growth opportunity beyond coding, from knowledge work and cybersecurity to biology and robotics. She joins Ed Ludlow on "Bloomberg Tech." (Source: Bloomberg)</p>
+              </details>
+            </article>
+            <article id="item-368" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>02:24</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 03:01</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/videos/2026-11-20/big-take-can-anthropic-weather-a-shifting-ai-landscape-video" target="_blank" rel="noopener noreferrer">Big Take: Can Anthropic Weather a Shifting AI Landscape? ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>Volatility surged a day after the market debut of Anthropic. Worries over AI, geopolitics and rates are all weighing on investors’ appetite for risk. Ed Ludlow and Bailey Lipschultz join Sarah Holder on the Big Take podcast to explain. (Source: Bloomberg)</p>
+              </details>
+            </article>
+            <article id="item-369" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>02:20</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 03:01</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/articles/2026-11-20/nvidia-employees-complained-about-huang-s-behavior-years-ago" target="_blank" rel="noopener noreferrer">Nvidia Employees Complained About Huang’s Behavior Years Ago ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>About two decades ago, two Nvidia Corp. employees complained about how then-Chief Executive Officer Jensen Huang treated his staff, including allegations that he threatened them and made sexually explicit remarks, according to allegations contained in a California lawsuit filed in 2007.</p>
+              </details>
+            </article>
+            <article id="item-371" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>02:05</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 03:01</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/articles/2026-11-20/microsoft-to-pay-top-cloud-workers-more-crack-down-on-others" target="_blank" rel="noopener noreferrer">Microsoft to Pay Top Cloud Workers More, Crack Down on Others ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>Microsoft Corp. is making pay more performance-based in its crucial cloud division, the latest tech industry attempt to push employees to work even harder.</p>
+              </details>
+            </article>
+            <article id="item-372" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>02:04</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 03:01</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/videos/2026-11-20/open-interest-11-20-2026-video" target="_blank" rel="noopener noreferrer">Anthropic Slips as AI Selloff Spreads ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>Get a jump start on the US trading day with Dani Burger on "Bloomberg Open Interest." Anthropic gives back its debut-day surge, while the selloff spreads from chips to metals and markets around the world. But there are still winners. Anthropic investor and General Catalyst’s Madhu Namburi joins us on what comes next for AI. Plus, Goldman’s David Mericle on why inflation could fall “substantially” by the end of 2027 and Proofpoint CEO Sumit Dhawan joins us on why AI may be making tech outages harder to avoid. (Source: Bloomberg)</p>
+              </details>
+            </article>
+            <article id="item-374" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>01:59</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 03:01</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/articles/2026-11-20/musk-ally-akis-joins-board-of-doge-alumni-firm-after-new-round" target="_blank" rel="noopener noreferrer">Musk Ally Akis Joins Board of DOGE Alumni Firm After New Round ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>Elon Musk ally Baris Akis is joining the board of Special, a company led by two former staffers from the Department of Government Efficiency, Musk’s controversial government cost-cutting project.</p>
+              </details>
+            </article>
+            <article id="item-375" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>01:55</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 03:01</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/articles/2026-11-20/youtube-finalizing-multibillion-dollar-schools-settlement-over-addiction-claims" target="_blank" rel="noopener noreferrer">YouTube Finalizing Multibillion-Dollar Schools Settlement Over Addiction Claims ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>Google’s YouTube is finalizing a multibillion-dollar settlement payout to school districts across the US that have accused the company of designing an addictive video platform that has damaged the mental health of students, people familiar with the matter said.</p>
+              </details>
+            </article>
+            <article id="item-376" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>01:55</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 03:01</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/videos/2026-11-20/apple-working-on-own-ai-agent-to-rival-anthropic-video" target="_blank" rel="noopener noreferrer">Apple Working on Own AI Agent to Rival OpenAI and Anthropic ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>Anurag Rana, Senior Tech Analyst for Bloomberg Intelligence, discussed the latest from Apple with Bloomberg's Paul Sweeney. Apple Inc. is developing its own autonomous artificial intelligence agent that can get things done on behalf of users, looking to enter a fast-growing market already being pursued by OpenAI, Anthropic PBC, Meta Platforms Inc. and others. The company outlined the plans in job listings added to its website this week. In one, Apple said it’s seeking a senior engineering manager for a proactive, agentic AI assistant. The system will write code, browse the web, control apps and navigate devices on a user’s behalf, according to the post. (Source: Bloomberg)</p>
+              </details>
+            </article>
+            <article id="item-260" class="item untranslated" data-source="wsj" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge wsj">WSJ</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>01:55</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 03:01</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.wsj.com/health/wellness/a-new-documentary-shows-the-dangers-of-looksmaxxing-38dedbe9?mod=rss_Technology" target="_blank" rel="noopener noreferrer">A New Documentary Shows the Dangers of ‘Looksmaxxing’ ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>A three-part Hulu series centers on Tony Huge, who was “looksmaxxing” before the term existed. Plus, measles is back and a longer life isn’t always better.</p>
+              </details>
+            </article>
+            <article id="item-377" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>01:53</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 03:01</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/videos/2026-11-20/jpmorgan-visa-warn-of-cyberattack-on-outside-vendor-video" target="_blank" rel="noopener noreferrer">JPMorgan, Visa Warn of Cyberattack That Hit Outside Vendor ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>Devon Ackerman, LevelBlue, Global Leader for Digital Forensics and Incident Response, joined Bloomberg's Paul Sweeney and Scarlet Fu to discuss the recent onslaught of outages and cyber attacks. JPMorgan Chase & Co., Visa Inc. and Mastercard Inc. said some customer information was accessed in a cyberattack on a vendor. JPMorgan said it believes, based on an investigation so far, that hackers accessed marketing data held by an outside firm, which may include customer names and email addresses. The bank said the issue isn’t related to an outage it faced earlier this week. (Source: Bloomberg)</p>
+              </details>
+            </article>
+            <article id="item-379" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>01:44</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 03:01</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/articles/2026-11-20/europe-retail-traders-bid-seven-times-anthropic-s-ipo-allocation" target="_blank" rel="noopener noreferrer">Europe Retail Traders Bid Seven Times Anthropic’s IPO Allocation ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>Retail investors in continental Europe submitted orders for about seven times more stock than they were ultimately allocated in Anthropic PBC’s initial public offering, according to people familiar with the matter, who asked not to be identified as the information is confidential.</p>
+              </details>
+            </article>
+            <article id="item-288" class="item untranslated" data-source="reuters" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge rtr">路透</span>
+<span class="tag-warn">未翻译</span><span class="tag-muted">仅标题</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>01:42</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 03:01</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://news.google.com/rss/articles/CBMivAFBVV95cUxOY0VmbDFSZy1pMm1jZlE3SG1PMDdjcHdmZnp3WWFQbTBSSHBndDktSEhpRFB4MkRYZUhTQXFhNm9YY0pwNlczMkxtOF9ZMVA2R1VHN2k1MmE3VkN6d292amFiX1JKUUxVcmN4NmxFTGYwbkhlakpkeTZ4eE5yRkxxTTlubE9PUU1jWmtrZVF6RjhiMWhhYmp2Q29Ucy1aMm13T0F0WTMwSGRBZWdQV3pyRjlZRm9pUEVnV0EzQQ?oc=5" target="_blank" rel="noopener noreferrer">S&P 500, Dow on track for correction as Anthropic retreat weighs on AI stocks ↗</a>
+
+
+            </article>
+            <article id="item-255" class="item untranslated" data-source="wsj" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge wsj">WSJ</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>01:28</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 03:01</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.wsj.com/tech/ai/anthropic-mathematician-says-claude-has-solved-the-most-famous-problem-in-math-9361920b?mod=rss_Technology" target="_blank" rel="noopener noreferrer">Anthropic Mathematician Says AI Has Solved the Most Famous Problem in Math ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>For 167 years, the Riemann hypothesis eluded mathematicians. One day after the company’s IPO, an Anthropic employee says Claude helped discover a proof.</p>
+              </details>
+            </article>
+            <article id="item-380" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>01:19</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 03:01</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/articles/2026-11-20/kkr-in-talks-to-buy-edgecore-at-valuation-of-at-least-8-billion" target="_blank" rel="noopener noreferrer">KKR in Talks to Buy EdgeCore at Valuation of at Least $8 Billion ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>KKR & Co.’s Helix Digital Infrastructure, the company it launched this year to invest in data centers and other AI-related businesses, is in negotiations to buy a majority stake in EdgeCore Digital Infrastructure, according to people familiar with the matter.</p>
+              </details>
+            </article>
+            <article id="item-283" class="item untranslated" data-source="reuters" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge rtr">路透</span>
+<span class="tag-warn">未翻译</span><span class="tag-muted">仅标题</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>01:18</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 03:01</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://news.google.com/rss/articles/CBMiqgFBVV95cUxPNWtIWXhnWHpsWWZSZ2dFVFRFSXBHaUxOWlp1VnFSZEoycGRtMDE1NVhuM2NEa2ZUTHlLN0lFbG5aX295SThLcFVXMEV3VmJidHF2amdDelVYWWprLXRsNWpodU9LcERma2xnc2pWaTZGbmNHZnYwREdjQnBOcGR0S0JSdnZTaC1aYmtBWXdRXzJiVDhHbFBEZ3lDdWhzS3Q3dnFMY3d3cjZIdw?oc=5" target="_blank" rel="noopener noreferrer">Anthropic's post-debut stumble delivers reality check for AI trade ↗</a>
+
+
+            </article>
+            <article id="item-324" class="item untranslated" data-source="reuters" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge rtr">路透</span>
+<span class="tag-warn">未翻译</span><span class="tag-muted">仅标题</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>01:10</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 03:01</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://news.google.com/rss/articles/CBMivAFBVV95cUxQSVpRUnlwbWF4cmpjRkg1N1ZnRU9Dc1ZIRFFQU3pyMHNac0tJSXlINUg5YUdLRl9mMUEzQTRkZTdQWHJwRkhJbmYyWV9VYkt4dDVTSGRib3VzbVVENWd1WWllZkhzR2E5SGhrNm5xOUM1QzBfdFFqZlNvNmJDUHFNeU1IdnRMclVkRmdsNTRxTWVZY0hQYWJHN05EZ2xxZTFORDZ0V1g2eWZEWnBGRnVEVVNROURGMVFCTzkwbA?oc=5" target="_blank" rel="noopener noreferrer">Anthropic's IPO bank closed position meant to stabilize stock, removing source of support ↗</a>
+
+
+            </article>
+            <article id="item-256" class="item untranslated" data-source="wsj" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge wsj">WSJ</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>00:55</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 03:01</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.wsj.com/tech/personal-tech/the-drama-over-drone-delivery-e113b400?mod=rss_Technology" target="_blank" rel="noopener noreferrer">The Drama Over Drone Delivery ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>Plus, data centers take to the sea, new high-tech public bathrooms and why ‘healthspan’ is becoming more important than lifespan.</p>
+              </details>
+            </article>
+          </div>
+        </section>
+        <section class="cat-sec" data-cat="world">
+          <div class="sec-head">
+            <div class="sec-title-wrap">
+              <h3>🌍 政治与世界</h3>
+              <span class="sec-en">WORLD & GEOPOLITICS</span>
+            </div>
+            <div class="sec-meta">
+              <span class="sec-count">11 条</span>
+              <span class="sec-arrow">▾</span>
+            </div>
+          </div>
+          <div class="sec-body">
+            <article id="item-294" class="item star untranslated" data-source="reuters" data-star="1">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge rtr">路透</span>
+                  <span class="star-pill">★ 要闻</span>
+<span class="why-pill">GN头条</span><span class="tag-warn">未翻译</span><span class="tag-muted">仅标题</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>00:07</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 03:01</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://news.google.com/rss/articles/CBMiygFBVV95cUxPejRoNTB3Y2hjdXRxMmNON0lac2xkWldNSmQ5RXFTM0NrMDFJaEE3QWxsOHJoYTgwLTFUN1A5MGRkU0h6ejNsLXdraFB0MjhNTkVROEJjNG5WWm00azhpbUNDN2FRUW1uRXplazJmU08za2gtYlc0bEc5bk9XMEpfbndzU3VVTVB3LUNyR3llYW1rdkI5UmtzeFNsZmhNNllGY3g1WnF5ZDZpLTRGZ0Q5RUstaGJuSnFESFJCZ2d0RG41RDcyZW9QZmV3?oc=5" target="_blank" rel="noopener noreferrer">Poland condemns Russian 'provocation' after three airspace violations ↗</a>
+
+
+            </article>
+            <article id="item-261" class="item untranslated" data-source="wsj" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge wsj">WSJ</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>02:57</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 03:01</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.wsj.com/world/india/indian-man-sentenced-to-almost-20-years-in-murder-for-hire-plot-on-u-s-soil-cdeaf72a?mod=rss_worldnews" target="_blank" rel="noopener noreferrer">Indian Man Sentenced to Almost 20 Years in Murder-for-Hire Plot on U.S. Soil ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>Prosecutors said Nikhil Gupta was part of a plot that targeted a number of Sikhs living outside India over their political beliefs.</p>
+              </details>
+            </article>
+            <article id="item-290" class="item untranslated" data-source="reuters" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge rtr">路透</span>
+<span class="tag-warn">未翻译</span><span class="tag-muted">仅标题</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>02:35</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 03:01</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://news.google.com/rss/articles/CBMiqwFBVV95cUxORVlPYjE2cEpJQjlLNzNNcjVjRnI3LUxkcnE5UVJBak9QOTlPUXR2S1htU3BEUWxfM0RfUmo2QVVfX0g3cXpzTjdUSFNRMERVR0FKUVJ4T21TYUhUU2d3bE9tV2hpaGo1bUxqc25WR0VYWFl0Z0UxZDBiMGM3RUdYODlURmFxYnVvcm9KTXVhZWdObGl0bTZfNENXTTlhdG9ibzVNX1hCOFpkQ1k?oc=5" target="_blank" rel="noopener noreferrer">UK finds fix for fridge and freezer vulnerability after European hacks ↗</a>
+
+
+            </article>
+            <article id="item-274" class="item untranslated" data-source="reuters" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge rtr">路透</span>
+<span class="tag-warn">未翻译</span><span class="tag-muted">仅标题</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>02:11</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 03:01</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://news.google.com/rss/articles/CBMivwFBVV95cUxQRzZOQTlKQWt4VWhLc0JPVzRZTFE0YW85V0w4QUhPWWktYk0xVEZ3c0tzTXRxVjB3QjNDbFRNY2djaUp2aWdSX2hTbld5MGxJQmh2bklTNF8zbUFLS0dET3JzUUU5NjdhYnRxNURCNjI0RE9tQ2huMmV6eVRjb2tEYUd4Zm5iem9jR1Y2bElTU1B2aS02TmRJNWdjdzhEeDZVLXFoUk51MkRzMkFET2lQa1FkdThwY0RkZVRjemlRMA?oc=5" target="_blank" rel="noopener noreferrer">Two Danes suspected of being hired by Russia to kill Ukrainian rapper ↗</a>
+
+
+            </article>
+            <article id="item-387" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>01:22</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 03:01</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/articles/2026-11-20/burnham-s-brush-with-europe-shows-how-hard-rejoining-would-be" target="_blank" rel="noopener noreferrer">Burnham’s Brush With Europe Shows How Hard Rejoining Would Be ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>Andy Burnham experienced his first encounter with the harsh realities of talks with the European Union after last-minute wrangling over the final details of a youth visa program threatened to overshadow his landmark Brussels summit.</p>
+              </details>
+            </article>
+            <article id="item-382" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>01:02</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 03:01</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/articles/2026-11-20/indian-man-sentenced-to-19-years-for-plot-to-kill-sikh-activist" target="_blank" rel="noopener noreferrer">Indian Man Gets 19 Years for Plot to Kill Sikh Activist ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>An Indian man was sentenced to more than 19 years in prison after admitting to his role in a foiled 2023 plot to kill a Sikh activist in New York.</p>
+              </details>
+            </article>
+            <article id="item-300" class="item untranslated" data-source="reuters" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge rtr">路透</span>
+<span class="tag-warn">未翻译</span><span class="tag-muted">仅标题</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>00:36</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 03:01</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://news.google.com/rss/articles/CBMimwFBVV95cUxOazVmQWNON0pUR1lkMG9ESFlrYjhtOUtQRGNJREZ0cWpPNWIxYTNYaWxjQUN4cUxHU3BVX05BTUc0SlBsblFmQmJ5YjJiOUhHV1RuQTk0OGNLWTFoaWhudm9XS193THFlcU9xbHZqS2w0TGlyOEpRU2Y2dXhDcmFLZXhncDNHa1ctVGFoRFhRcXZROVpYdzZrTWdYbw?oc=5" target="_blank" rel="noopener noreferrer">Myanmar calls UN court's Rohingya genocide ruling a 'great disappointment' ↗</a>
+
+
+            </article>
+            <article id="item-277" class="item untranslated" data-source="reuters" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge rtr">路透</span>
+<span class="tag-warn">未翻译</span><span class="tag-muted">仅标题</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>00:35</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 03:01</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://news.google.com/rss/articles/CBMipwFBVV95cUxNQUE1UEFGeklRZGtscWJhNkdxRWpyWHkwQ29IcVQ1Umc2VHlkWlJGZzZPTC00SFl2a3J0SXY3TGo0X0t2a3A5ckMzbmtZXy1mYzdoa0F5Vmo1TGFaU1RIbEZHak5iTi1oRXhWWF9CbWZ2QWFLRG1HSG5Rc1dSbHZlaGNNSDlvZ2RiekJzbnpqMC1aektLZU1MSHBWN25PYURzUGduTjhURQ?oc=5" target="_blank" rel="noopener noreferrer">Saudi-led forces strike Yemen port as Houthis warn airlines off the kingdom ↗</a>
+
+
+            </article>
+            <article id="item-272" class="item untranslated" data-source="reuters" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge rtr">路透</span>
+<span class="tag-warn">未翻译</span><span class="tag-muted">仅标题</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>00:30</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 03:01</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://news.google.com/rss/articles/CBMiswFBVV95cUxNT203dWpPR19PY3FGeGlGWkNqRklXMDA0cEtFTXBoY21LbVhhaEVNNzVXWTJfOUhUOURwUVVtQXBVazBOdjRjNmVnRktLOGxHam9tZ3ZneGp3bXNfQ2lHOU0yY0I2WF9qdnJxSkNrVm1Pc0REblNaMXJxRHZqRnpDcmY5MEhOdkNaeUZMUVFQYUxDUXRKbmhmckRvQnBHZUlXclh6ZEJJSUJQYll3SUNfdGJ5WQ?oc=5" target="_blank" rel="noopener noreferrer">Student protests held across Europe with demands from school funding to climate ↗</a>
+
+
+            </article>
+            <article id="item-390" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>00:29</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 03:01</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/articles/2026-11-20/estonia-to-close-russian-border-as-moscow-threatens-response" target="_blank" rel="noopener noreferrer">Estonia to Close Russian Border as Moscow Threatens Response ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>Estonia is set to close its border with Russia next month despite warnings that the move would trigger a response from Moscow.</p>
+              </details>
+            </article>
+            <article id="item-284" class="item untranslated" data-source="reuters" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge rtr">路透</span>
+<span class="tag-warn">未翻译</span><span class="tag-muted">仅标题</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>00:09</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 03:01</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://news.google.com/rss/articles/CBMiqgFBVV95cUxOYmk0cW5ick4ySXNTUG00Mk1HTEtuckdLR3pqMDJKY0RJYlpUaFJpakJFUFFldWdfZkg2LWdzMHljeGlVMFFzdjJvajlaT0VRY3F5VzVqYTVpaHJZcXpKcTQ2cGo0dExPNkhXbGZlY2w2Ry1yamRiLXk5VWxWSENuYS01djR4U2RlRWpTUzdrdDVoUEJDZFEtODlHNGNmU1Bnb3JQY3VMVTFudw?oc=5" target="_blank" rel="noopener noreferrer">Italian workers and students protest over wages and public services ↗</a>
+
+
+            </article>
+          </div>
+        </section>
+        <section class="cat-sec" data-cat="us">
+          <div class="sec-head">
+            <div class="sec-title-wrap">
+              <h3>🇺🇸 美国相关</h3>
+              <span class="sec-en">US POLITICS & POLICY</span>
+            </div>
+            <div class="sec-meta">
+              <span class="sec-count">15 条</span>
+              <span class="sec-arrow">▾</span>
+            </div>
+          </div>
+          <div class="sec-body">
+            <article id="item-381" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>02:43</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 03:01</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/articles/2026-11-20/trump-plays-down-tensions-with-vance-over-iran-war-critique" target="_blank" rel="noopener noreferrer">Trump Plays Down Tensions With Vance Over Iran War Critique ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>President Donald Trump denied a report that he voiced unhappiness with Vice President JD Vance for blaming the Republicans’ midterm wipeout on the war with Iran.</p>
+              </details>
+            </article>
+            <article id="item-383" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>02:38</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 03:01</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/articles/2026-11-20/trump-says-huang-should-return-as-nvidia-ceo-after-big-apology" target="_blank" rel="noopener noreferrer">Trump Says Huang Should Return as Nvidia CEO After ‘Big Apology’ ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>President Donald Trump called for Jensen Huang to make a big apology and return as CEO of Nvidia Corp., even as the prospect remains highly unlikely.</p>
+              </details>
+            </article>
+            <article id="item-334" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>02:25</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 03:01</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/videos/2026-11-20/fed-s-cook-sees-growing-urgency-to-tackle-inflation-video" target="_blank" rel="noopener noreferrer">Fed’s Cook Sees Growing Urgency to Tackle Inflation ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>Federal Reserve Governor Lisa Cook sees an urgent need for the US central bank to raise interest rates to bring down inflation. Cook said Friday at a conference at Chile’s central bank in Santiago, “Inflation has been above target for more than five and a half years, and every additional day poses greater risk that price- and wage-setters will adjust their inflation expectations upward.” (Source: Bloomberg)</p>
+              </details>
+            </article>
+            <article id="item-386" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>02:03</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 03:01</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/articles/2026-11-20/trump-says-us-close-to-mexico-trade-deal-less-so-with-canada" target="_blank" rel="noopener noreferrer">Trump Says US Close to Mexico Trade Deal, Less So With Canada ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>President Donald Trump said the US is closing in on a trade deal with Mexico, while indicating that separate negotiations with Canada are not as far along.</p>
+              </details>
+            </article>
+            <article id="item-373" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>02:03</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 03:01</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/videos/2026-11-20/trump-wants-tax-on-us-companies-for-foreign-data-centers-video" target="_blank" rel="noopener noreferrer">Trump Vows to Tax US Companies Building Data Centers Abroad ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>President Donald Trump said Friday that he wants to tax companies that build data centers outside the United States. Trump spoke during a press conference at the White House. (Source: Bloomberg)</p>
+              </details>
+            </article>
+            <article id="item-279" class="item untranslated" data-source="reuters" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge rtr">路透</span>
+<span class="tag-warn">未翻译</span><span class="tag-muted">仅标题</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>02:01</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 03:01</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://news.google.com/rss/articles/CBMiuwFBVV95cUxPUDZZTmpNTGpqLUMwR0JBZUJuaVBuMDAwYVpVanpkNTJDSGpNMEkxdXlSX1JkSDJpaG1SNUlmMnJZTHZ2Y192UmFKSjlGazN5UE9hZEJfcmFwdzVGWFE0QWk3OXBGWEpudkV5bTdiLVEwWjJicDFrTHJWVGVQT2RNMlBYZ3pMMmhQTHhKRnJ1QktWbGhVWWxRb0paRGZvdVNDdlRJNEd1N1lEbG9LOU1mTURPZE9CZlVvUk5j?oc=5" target="_blank" rel="noopener noreferrer">Congress struggles to avert US shutdown as Iran war divides lawmakers ↗</a>
+
+
+            </article>
+            <article id="item-338" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>01:54</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 03:01</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/videos/2026-11-20/robinhood-s-quirk-on-etfs-next-generation-of-investors-video" target="_blank" rel="noopener noreferrer">Robinhood’s Quirk on ETFs and the Next Generation of Investors ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>Robinhood Markets Chief Brokerage Officer Steve Quirk joins Bloomberg's Katie Greifeld and Eric Balchunas for a special edition of ETF IQ live on stage at the Bloomberg ETFs in Depth Conference in New York on November 26, 2026. Quirk discusses how younger investors are trading through volatile markets, Robinhood’s push toward 24/7 access and tokenization, and the firm’s evolving role in prediction markets. He also details Robinhood’s involvement in Trump Accounts and what the program could mean for a new generation of investors. (Source: Bloomberg)</p>
+              </details>
+            </article>
+            <article id="item-339" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>01:48</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 03:01</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/videos/2026-11-20/ai-is-coming-for-white-house-economists-says-sahm-video" target="_blank" rel="noopener noreferrer">AI Is Coming for Economists in the White House, Says Claudia Sahm ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>Claudia Sahm, Chief Economist at New Century Advisors, joined Bloomberg's Paul Sweeney and Scarlet Fu to discuss her latest column, "AI Is Coming for the Economists in the White House." The AI debate, which economists have been having for years in various contexts, has come for the profession itself. Jason Furman, chair of the Council of Economic Advisers under President Barack Obama and now a professor at Harvard, recently said that if he were running the CEA today, he would “somewhat regretfully and sadly” use current AI systems instead of hiring 20 actual human economists. The chair’s job, he added, is safe. (Source: Bloomberg)</p>
+              </details>
+            </article>
+            <article id="item-268" class="item untranslated" data-source="reuters" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge rtr">路透</span>
+<span class="tag-warn">未翻译</span><span class="tag-muted">仅标题</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>01:47</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 03:01</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://news.google.com/rss/articles/CBMiqgFBVV95cUxPajdFUmpSOXN6d045Q1JacldoemRSTldiRTFnRWtITzRtdHZsZ0FROGM5V0RZLUVPS25MUUhFdU10WmdDLXNHeXZfRTJxNXRGNVdaQVVnT0Z2X1c4cy1KYVo2NURYZ0JLMmt2VW1iU0F5RlVWV0M0RTZISVlrRUVEY2s4LTNrUU80TnNVS1FCWWplWk1DRUJEUlNfWnpxOE5OelluZ2FZeVZwQQ?oc=5" target="_blank" rel="noopener noreferrer">Second judge blocks Trump's triumphal arch, calling it a 'rushed job' ↗</a>
+
+
+            </article>
+            <article id="item-385" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>01:43</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 03:01</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/articles/2026-11-20/trump-threatens-to-tax-companies-building-data-centers-abroad" target="_blank" rel="noopener noreferrer">Trump Threatens to Tax Firms Building Data Centers Abroad ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>US President Donald Trump vowed to tax American companies that build data centers in other countries, though he didn’t detail exactly how such a threat would be carried out and what legal authority the government might have to impose one.</p>
+              </details>
+            </article>
+            <article id="item-265" class="item untranslated" data-source="wsj" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge wsj">WSJ</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>01:12</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 03:01</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.wsj.com/opinion/ukraines-long-russian-war-6c14160f?mod=rss_worldnews" target="_blank" rel="noopener noreferrer">Opinion | Ukraine’s Long Russian War ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>Why is Trump unwilling to take tangible steps to end a war that has lasted longer than World War I?</p>
+              </details>
+            </article>
+            <article id="item-259" class="item untranslated" data-source="wsj" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge wsj">WSJ</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>01:08</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 03:01</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.wsj.com/economy/american-state-capitalism-helped-produce-the-nvidia-scandal-56ce6dee?mod=rss_Technology" target="_blank" rel="noopener noreferrer">American State Capitalism Helped Produce the Nvidia Scandal ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>Under Trump, government and corporate interests have become more tightly intertwined. The Nvidia backlash may halt that.</p>
+              </details>
+            </article>
+            <article id="item-347" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>01:02</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 03:01</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/videos/2026-11-20/donald-trump-s-tariffs-can-t-kill-globalization-video" target="_blank" rel="noopener noreferrer">Donald Trump's Tariffs Can't Kill Globalization ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>Donald Trump’s tariffs can’t kill globalization, author Parag Khanna tells Mishal Husain. He explains how nations targeted by the White House have found ways to survive the disruption. (Source: Bloomberg)</p>
+              </details>
+            </article>
+            <article id="item-389" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>00:35</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 03:01</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/articles/2026-11-20/trump-officials-met-privately-with-hedge-funds-on-mega-rail-deal" target="_blank" rel="noopener noreferrer">Trump Officials Met Privately With Hedge Funds on Mega Rail Deal ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>In a highly unusual gathering, White House officials met privately this week with a group of hedge fund investors betting on whether the $72 billion tie-up between Union Pacific Corp. and Norfolk Southern Corp. will win approval from the Trump administration, according to people familiar with the matter.</p>
+              </details>
+            </article>
+            <article id="item-370" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>00:23</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 03:01</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/articles/2026-11-20/bessent-says-an-anthropic-founder-to-donate-will-trump-accounts" target="_blank" rel="noopener noreferrer">Anthropic Founder to Donate to Trump Accounts Following IPO, Bessent Says ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>Tom Brown, a co-founder and chief compute officer of Anthropic PBC, plans to announce a donation to Trump accounts, according to a person briefed on the matter.</p>
+              </details>
+            </article>
+          </div>
+        </section>
+      <div class="empty-state" id="emptyState">
+        当前筛选条件下暂无匹配新闻，请尝试切换栏目、来源或关闭「仅看要闻」。
+      </div>
+  </main>
+
+  <footer>
+    <div>Market Dispatch（market-dispatch）· 仅采集公开 RSS 元数据，不保存正文 · 仅供个人学习研究</div>
+    <div>
+<a href="../daily/2026-11-20.html">← 11-20</a>    </div>
+  </footer>
+
+</div>
+
+<script>
+(function () {
+  const root = document.documentElement;
+  const themeBtn = document.getElementById('themeBtn');
+  function applyTheme(t) {
+    root.setAttribute('data-theme', t);
+    themeBtn.textContent = t === 'dark' ? '☀️ 日间版' : '🌙 夜间版';
+    try { localStorage.setItem('md_theme', t); } catch (e) {}
+  }
+  const savedTheme = (() => { try { return localStorage.getItem('md_theme'); } catch (e) { return null; } })();
+  if (savedTheme === 'dark') applyTheme('dark');
+  themeBtn.addEventListener('click', () => {
+    applyTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+  });
+
+  const batchToggle = document.getElementById('batchToggle');
+  const batchDrawer = document.getElementById('batchDrawer');
+  if (batchToggle && batchDrawer) {
+    batchToggle.addEventListener('click', () => {
+      const open = batchDrawer.classList.toggle('open');
+      batchToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+
+  document.querySelectorAll('.sec-head').forEach(head => {
+    head.addEventListener('click', () => {
+      const body = head.nextElementSibling;
+      const arrow = head.querySelector('.sec-arrow');
+      const collapsed = body.classList.toggle('collapsed');
+      if (arrow) arrow.textContent = collapsed ? '▸' : '▾';
+    });
+  });
+
+  const state = { cat: 'all', src: 'all', starOnly: false, enExpanded: false };
+  const items = Array.from(document.querySelectorAll('article.item'));
+  const sections = Array.from(document.querySelectorAll('section.cat-sec'));
+  const visibleCountEl = document.getElementById('visibleCount');
+  const emptyState = document.getElementById('emptyState');
+  const resetBtn = document.getElementById('resetBtn');
+  const leadSection = document.getElementById('leadSection');
+
+  function applyFilters() {
+    let shown = 0;
+    sections.forEach(sec => {
+      const secCat = sec.dataset.cat;
+      const catMatch = state.cat === 'all' || state.cat === secCat;
+      let secShown = 0;
+      sec.querySelectorAll('article.item').forEach(item => {
+        const srcMatch = state.src === 'all' || item.dataset.source === state.src;
+        const starMatch = !state.starOnly || item.dataset.star === '1';
+        const visible = catMatch && srcMatch && starMatch;
+        item.style.display = visible ? '' : 'none';
+        if (visible) { secShown++; shown++; }
+      });
+      sec.style.display = (catMatch && secShown > 0) ? '' : 'none';
+    });
+
+    const isFiltered = state.cat !== 'all' || state.src !== 'all' || state.starOnly;
+    if (leadSection) leadSection.style.display = isFiltered ? 'none' : '';
+    if (emptyState) emptyState.classList.toggle('show', items.length > 0 && shown === 0);
+    if (resetBtn) resetBtn.classList.toggle('show', isFiltered);
+    if (visibleCountEl) visibleCountEl.textContent = `显示 ${shown} / ${items.length} 条`;
+  }
+
+  document.querySelectorAll('#catBar .cat-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('#catBar .cat-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      state.cat = btn.dataset.cat;
+      applyFilters();
+    });
+  });
+
+  document.querySelectorAll('[data-src]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('[data-src]').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      state.src = btn.dataset.src;
+      applyFilters();
+    });
+  });
+
+  const starOnlyBtn = document.getElementById('starOnlyBtn');
+  if (starOnlyBtn) {
+    starOnlyBtn.addEventListener('click', () => {
+      state.starOnly = !state.starOnly;
+      starOnlyBtn.classList.toggle('active', state.starOnly);
+      applyFilters();
+    });
+  }
+
+  document.querySelectorAll('.seg-switch button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.seg-switch button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.body.classList.toggle('zh-only', btn.dataset.lang === 'zh');
+    });
+  });
+
+  const toggleEnSumBtn = document.getElementById('toggleEnSumBtn');
+  if (toggleEnSumBtn) {
+    toggleEnSumBtn.addEventListener('click', () => {
+      state.enExpanded = !state.enExpanded;
+      toggleEnSumBtn.classList.toggle('active', state.enExpanded);
+      toggleEnSumBtn.textContent = state.enExpanded ? '收起英文摘要' : '展开英文摘要';
+      document.querySelectorAll('details.en-sum').forEach(d => {
+        if (d.closest('.untranslated')) return;
+        d.open = state.enExpanded;
+      });
+    });
+  }
+
+  if (resetBtn) {
+    resetBtn.addEventListener('click', () => {
+      state.cat = 'all'; state.src = 'all'; state.starOnly = false;
+      document.querySelectorAll('#catBar .cat-btn').forEach(b => b.classList.toggle('active', b.dataset.cat === 'all'));
+      document.querySelectorAll('[data-src]').forEach(b => b.classList.toggle('active', b.dataset.src === 'all'));
+      if (starOnlyBtn) starOnlyBtn.classList.remove('active');
+      applyFilters();
+    });
+  }
+})();
+</script>
+</body>
+</html>
