@@ -223,6 +223,10 @@ class SQLiteDatabase(BaseDatabase):
                 self.conn.execute(stmt)
 
     def close(self) -> None:
+        try:
+            self.conn.execute("PRAGMA wal_checkpoint(TRUNCATE)")
+        except sqlite3.Error:
+            pass
         self.conn.close()
 
     def exists_by_guid(self, guid: str) -> bool:
