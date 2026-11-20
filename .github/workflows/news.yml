@@ -43,7 +43,8 @@ jobs:
             [ -d _site/daily ] && cp -r _site/daily/. daily/ || true
             [ -d _site/archive ] && cp -r _site/archive/. archive/ || true
           else
-            git worktree add --orphan -b generated _site
+            git worktree add --detach _site
+            (cd _site && git checkout --orphan generated && git rm -rf --quiet .)
           fi
 
       - name: 初始化数据库并执行抓取渲染流水线
