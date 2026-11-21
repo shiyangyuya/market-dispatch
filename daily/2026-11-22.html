@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Market Dispatch · 2026-11-22（今日）</title>
+<style>
+  :root {
+    --bg: #F6F1E9;
+    --paper: #FFFDF9;
+    --tint: #EFE8DC;
+    --tint-hover: #E7DEC9;
+    --ink: #1B1917;
+    --ink-2: #44403C;
+    --ink-3: #78716C;
+    --rule: #DFD7C8;
+    --rule-strong: #1B1917;
+    --accent: #990F3D;
+    --accent-soft: #F9EBF0;
+    --gold: #9A5B06;
+    --gold-bg: #FCF6E8;
+    --gold-border: #D9A441;
+    --ok: #166534;
+    --ok-bg: #EAF5EE;
+    --err: #B91C1C;
+    --err-bg: #FDECEC;
+    --bbg-bg: #141414; --bbg-fg: #FFFFFF;
+    --rtr-bg: #C74F00; --rtr-fg: #FFFFFF;
+    --wsj-bg: #0A5894; --wsj-fg: #FFFFFF;
+    --serif: Georgia, "Songti SC", "STSong", "Noto Serif CJK SC", "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Segoe UI", sans-serif;
+    --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  }
+
+  [data-theme="dark"] {
+    --bg: #121316;
+    --paper: #191B20;
+    --tint: #23262E;
+    --tint-hover: #2C303A;
+    --ink: #EDE8DF;
+    --ink-2: #BEB7AC;
+    --ink-3: #857F76;
+    --rule: #2D313B;
+    --rule-strong: #C9C0AE;
+    --accent: #E26B8D;
+    --accent-soft: #2D1D24;
+    --gold: #E3AA4F;
+    --gold-bg: #241E14;
+    --gold-border: #8B6523;
+    --ok: #4ADE80;
+    --ok-bg: #14281D;
+    --err: #F87171;
+    --err-bg: #2D1719;
+    --bbg-bg: #363A45; --bbg-fg: #F5F5F5;
+    --rtr-bg: #C74F00; --rtr-fg: #FFFFFF;
+    --wsj-bg: #1B6FB0; --wsj-fg: #FFFFFF;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    transition: background .2s ease, color .2s ease;
+  }
+
+  .container { max-width: 1060px; margin: 0 auto; padding: 0 20px 48px; }
+
+  /* ===== Top Edition Bar ===== */
+  .topbar { border-bottom: 1px solid var(--rule); background: var(--paper); transition: background .2s ease; }
+  .topbar-inner {
+    max-width: 1060px; margin: 0 auto; padding: 8px 20px;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 12px; flex-wrap: wrap; font-size: 13px;
+  }
+  .edition-tabs { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+  .edition-label { color: var(--ink-3); font-size: 12px; margin-right: 6px; letter-spacing: .04em; }
+  .ed-tab {
+    display: inline-flex; align-items: center; gap: 6px; padding: 4px 11px;
+    border-radius: 3px; text-decoration: none; color: var(--ink-2);
+    border: 1px solid transparent; font-family: var(--mono);
+    font-size: 12.5px; font-variant-numeric: tabular-nums; transition: all .15s;
+  }
+  .ed-tab:hover { background: var(--tint); color: var(--ink); }
+  .ed-tab.active { background: var(--ink); color: var(--paper); font-weight: 600; }
+  .ed-tab .cnt { font-size: 11px; opacity: .72; }
+  .live-dot {
+    width: 6px; height: 6px; border-radius: 50%; background: #22C55E;
+    display: inline-block; box-shadow: 0 0 0 2px rgba(34,197,94,.25);
+  }
+  .topbar-right { display: flex; align-items: center; gap: 12px; }
+  .archive-link {
+    color: var(--accent); text-decoration: none; font-weight: 600;
+    font-size: 13px; padding: 4px 8px; border-radius: 3px;
+  }
+  .archive-link:hover { background: var(--accent-soft); }
+  .theme-btn {
+    background: transparent; border: 1px solid var(--rule); color: var(--ink-2);
+    padding: 4px 10px; border-radius: 3px; font-size: 12.5px; cursor: pointer; font-family: var(--sans);
+  }
+  .theme-btn:hover { background: var(--tint); color: var(--ink); }
+
+  /* ===== History / Archive Banner ===== */
+  .history-banner {
+    margin-top: 16px; padding: 9px 16px; background: var(--tint); border: 1px solid var(--rule);
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+    font-size: 12.5px; color: var(--ink-2);
+  }
+  .history-banner a { color: var(--accent); font-weight: 600; text-decoration: none; }
+  .history-banner a:hover { text-decoration: underline; }
+
+  /* ===== Broadsheet Masthead ===== */
+  .masthead { padding: 26px 0 0; text-align: center; }
+  .masthead-kicker {
+    font-family: var(--mono); font-size: 11px; letter-spacing: .24em;
+    text-transform: uppercase; color: var(--ink-3); margin-bottom: 6px;
+  }
+  .masthead h1 {
+    font-family: var(--serif); font-size: clamp(32px, 4.4vw, 46px);
+    font-weight: 700; letter-spacing: .02em; color: var(--ink); line-height: 1.12;
+  }
+  .dateline {
+    margin-top: 16px; border-top: 2px solid var(--rule-strong); border-bottom: 1px solid var(--rule-strong);
+    padding: 8px 4px; display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 10px; font-size: 12.5px; color: var(--ink-2);
+  }
+  .dateline-left, .dateline-right { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+  .dateline b { color: var(--ink); font-weight: 600; }
+  .mono { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+  .batch-toggle {
+    border: 1px solid transparent; padding: 2px 9px; border-radius: 3px;
+    font-size: 12px; cursor: pointer; font-family: var(--sans);
+    display: inline-flex; align-items: center; gap: 5px;
+  }
+  .batch-toggle.ok { background: var(--ok-bg); color: var(--ok); border-color: rgba(22,101,52,.22); }
+  .batch-toggle.bad { background: var(--err-bg); color: var(--err); border-color: rgba(185,28,28,.22); }
+  .batch-toggle:hover { filter: brightness(.96); }
+  .batch-drawer {
+    display: none; background: var(--paper); border-bottom: 1px solid var(--rule);
+    padding: 12px 16px; text-align: left; font-size: 12px; color: var(--ink-2);
+  }
+  .batch-drawer.open { display: block; }
+  .batch-grid {
+    display: flex; flex-wrap: wrap; gap: 6px 10px; margin-top: 6px;
+    font-family: var(--mono); font-variant-numeric: tabular-nums;
+  }
+  .b-chip { padding: 2px 7px; border-radius: 2px; background: var(--ok-bg); color: var(--ok); }
+  .b-chip.bad { background: var(--err-bg); color: var(--err); font-weight: 600; }
+
+  /* ===== Front-Page Lead Briefing ===== */
+  .lead-section {
+    margin-top: 22px; background: var(--paper); border: 1px solid var(--rule);
+    border-top: 3px solid var(--accent); padding: 16px 20px 18px;
+  }
+  .lead-header {
+    display: flex; align-items: baseline; justify-content: space-between;
+    gap: 12px; padding-bottom: 10px; border-bottom: 1px solid var(--rule); margin-bottom: 14px;
+    flex-wrap: wrap;
+  }
+  .lead-header h2 {
+    font-family: var(--serif); font-size: 16px; color: var(--accent);
+    letter-spacing: .04em; display: flex; align-items: center; gap: 6px;
+  }
+  .lead-header .sub { font-size: 12px; color: var(--ink-3); }
+  .lead-grid {
+    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px 20px;
+  }
+  .lead-card {
+    padding: 10px 12px; border: 1px solid var(--rule); background: var(--bg);
+    display: flex; flex-direction: column; justify-content: space-between; gap: 8px;
+  }
+  .lead-meta { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; font-size: 11.5px; }
+  .lead-cat { color: var(--ink-3); font-weight: 600; }
+  .lead-reason {
+    color: var(--gold); background: var(--gold-bg); border: 1px solid var(--gold-border);
+    padding: 0 6px; border-radius: 2px; font-size: 11px;
+  }
+  .lead-title-zh {
+    display: block; font-size: 15px; font-weight: 700; line-height: 1.42;
+    color: var(--ink); text-decoration: none;
+  }
+  .lead-title-zh:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+  .lead-title-en {
+    font-family: var(--serif); font-size: 12.5px; line-height: 1.38;
+    color: var(--ink-3); margin-top: 4px;
+  }
+  .lead-foot {
+    display: flex; align-items: center; justify-content: space-between; font-size: 11.5px;
+    color: var(--ink-3); padding-top: 6px; border-top: 1px dashed var(--rule);
+    font-family: var(--mono); font-variant-numeric: tabular-nums;
+  }
+  .lead-foot a { color: var(--accent); text-decoration: none; font-family: var(--sans); font-weight: 500; }
+  .lead-foot a:hover { text-decoration: underline; }
+
+  /* ===== Sticky Reading Controls ===== */
+  .controls-wrap {
+    position: sticky; top: 0; z-index: 40; margin-top: 20px;
+    background: var(--bg); padding: 10px 0 8px; border-bottom: 1px solid var(--rule);
+  }
+  .cat-bar {
+    display: flex; align-items: center; gap: 4px; overflow-x: auto;
+    padding-bottom: 8px; border-bottom: 1px solid var(--rule); scrollbar-width: none;
+  }
+  .cat-bar::-webkit-scrollbar { display: none; }
+  .cat-btn {
+    border: none; background: transparent; color: var(--ink-2); font-family: var(--sans);
+    font-size: 13.5px; font-weight: 600; padding: 5px 11px; border-radius: 3px;
+    cursor: pointer; white-space: nowrap; display: inline-flex; align-items: center; gap: 5px;
+    transition: all .15s;
+  }
+  .cat-btn:hover { background: var(--tint); color: var(--ink); }
+  .cat-btn.active { background: var(--ink); color: var(--paper); }
+  .cat-btn .n { font-family: var(--mono); font-size: 11.5px; font-weight: 500; opacity: .72; }
+
+  .filter-bar {
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 10px; padding-top: 8px; font-size: 12.5px;
+  }
+  .filter-group { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+  .fg-label { color: var(--ink-3); font-size: 12px; margin-right: 2px; }
+  .pill-btn {
+    background: var(--paper); border: 1px solid var(--rule); color: var(--ink-2);
+    padding: 3px 10px; border-radius: 3px; font-size: 12.5px; cursor: pointer;
+    font-family: var(--sans); display: inline-flex; align-items: center; gap: 5px; transition: all .15s;
+  }
+  .pill-btn:hover { border-color: var(--ink-3); color: var(--ink); }
+  .pill-btn.active { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+  .pill-btn.star-only.active { background: var(--gold); border-color: var(--gold); color: #fff; }
+  .src-dot { width: 7px; height: 7px; border-radius: 50%; display: inline-block; }
+  .dot-bbg { background: var(--bbg-bg); }
+  .dot-rtr { background: var(--rtr-bg); }
+  .dot-wsj { background: var(--wsj-bg); }
+  [data-theme="dark"] .dot-bbg { background: #E5E7EB; }
+
+  .seg-switch {
+    display: inline-flex; border: 1px solid var(--rule); border-radius: 3px;
+    overflow: hidden; background: var(--paper);
+  }
+  .seg-switch button {
+    border: none; background: transparent; color: var(--ink-2);
+    padding: 3px 9px; font-size: 12px; cursor: pointer; font-family: var(--sans);
+  }
+  .seg-switch button.active { background: var(--ink); color: var(--paper); font-weight: 600; }
+  .status-right { display: flex; align-items: center; gap: 10px; color: var(--ink-3); font-size: 12px; font-family: var(--mono); }
+  .reset-link {
+    background: none; border: none; color: var(--accent); cursor: pointer;
+    font-size: 12px; font-family: var(--sans); text-decoration: underline; display: none;
+  }
+  .reset-link.show { display: inline; }
+
+  /* ===== Editorial Sections ===== */
+  .sections-list { margin-top: 22px; display: flex; flex-direction: column; gap: 28px; }
+  section.cat-sec { background: var(--paper); border: 1px solid var(--rule); border-top: 2.5px solid var(--rule-strong); }
+  .sec-head {
+    padding: 12px 22px; border-bottom: 1px solid var(--rule);
+    display: flex; align-items: center; justify-content: space-between;
+    cursor: pointer; user-select: none;
+  }
+  .sec-head:hover { background: var(--tint); }
+  .sec-title-wrap { display: flex; align-items: baseline; gap: 10px; }
+  .sec-head h3 { font-family: var(--serif); font-size: 18px; font-weight: 700; color: var(--ink); letter-spacing: .03em; }
+  .sec-en { font-family: var(--mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); }
+  .sec-meta { display: flex; align-items: center; gap: 10px; font-size: 12px; color: var(--ink-3); font-family: var(--mono); }
+  .sec-body.collapsed { display: none; }
+
+  /* ===== Article Row ===== */
+  article.item { padding: 15px 22px; border-bottom: 1px solid var(--rule); transition: background .12s; }
+  article.item:last-child { border-bottom: none; }
+  article.item:hover { background: rgba(153, 15, 61, .02); }
+  article.item.star { background: var(--gold-bg); border-left: 3.5px solid var(--gold-border); padding-left: 18.5px; }
+  article.item:target { outline: 2px solid var(--accent); outline-offset: -2px; }
+
+  .item-meta {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 10px; flex-wrap: wrap; margin-bottom: 6px;
+  }
+  .meta-left { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; }
+  .badge {
+    display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .03em;
+    padding: 1px 7px; border-radius: 2px; line-height: 1.5;
+  }
+  .badge.bbg { background: var(--bbg-bg); color: var(--bbg-fg); }
+  .badge.rtr { background: var(--rtr-bg); color: var(--rtr-fg); }
+  .badge.wsj { background: var(--wsj-bg); color: var(--wsj-fg); }
+
+  .star-pill { font-size: 11.5px; font-weight: 700; color: var(--gold); }
+  .why-pill { font-size: 11px; color: var(--gold); border: 1px solid var(--gold-border); padding: 0 6px; border-radius: 2px; }
+  .tag-warn { font-size: 11px; background: var(--err-bg); color: var(--err); padding: 0 6px; border-radius: 2px; font-weight: 600; }
+  .tag-cross { font-size: 11px; background: var(--accent-soft); color: var(--accent); padding: 0 6px; border-radius: 2px; font-weight: 600; }
+  .tag-muted { font-size: 11px; background: var(--tint); color: var(--ink-3); padding: 0 6px; border-radius: 2px; }
+
+  .time-pair {
+    display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono);
+    font-size: 11.5px; font-variant-numeric: tabular-nums; color: var(--ink-3); white-space: nowrap;
+  }
+  .time-pair .t-pub { color: var(--ink-2); }
+  .time-pair .t-pub b { color: var(--ink); font-weight: 600; }
+  .time-pair .t-sep { opacity: .45; }
+  .time-pair .t-crt { color: var(--ink-3); }
+
+  .title-zh {
+    display: inline-block; font-size: 16.5px; font-weight: 700; line-height: 1.42;
+    color: var(--ink); text-decoration: none;
+  }
+  .title-zh:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+  .title-zh .ext { font-size: 12.5px; color: var(--ink-3); margin-left: 4px; font-weight: 400; }
+  .title-en {
+    display: block; margin-top: 3px; font-family: var(--serif); font-size: 13.5px;
+    line-height: 1.4; color: var(--ink-3); text-decoration: none;
+  }
+  .title-en:hover { color: var(--ink); text-decoration: underline; }
+  .item.untranslated .title-en { font-size: 16px; font-weight: 600; color: var(--ink); margin-top: 0; }
+
+  .sum-zh { margin-top: 6px; font-size: 14px; line-height: 1.65; color: var(--ink-2); max-width: 82ch; }
+  details.en-sum { margin-top: 6px; max-width: 82ch; }
+  details.en-sum summary {
+    font-size: 12px; color: var(--ink-3); cursor: pointer; user-select: none;
+    list-style: none; display: inline-flex; align-items: center; gap: 4px;
+  }
+  details.en-sum summary::-webkit-details-marker { display: none; }
+  details.en-sum summary::before { content: "▸"; font-size: 11px; transition: transform .15s; }
+  details.en-sum[open] summary::before { transform: rotate(90deg); }
+  details.en-sum summary:hover { color: var(--ink); }
+  details.en-sum p {
+    margin-top: 5px; padding-left: 10px; border-left: 2px solid var(--rule);
+    font-family: var(--serif); font-size: 13px; line-height: 1.55; color: var(--ink-3);
+  }
+
+  body.zh-only .title-en,
+  body.zh-only .lead-title-en { display: none; }
+  body.zh-only .item.untranslated .title-en { display: block; }
+
+  .empty-state {
+    display: none; text-align: center; padding: 48px 20px;
+    background: var(--paper); border: 1px solid var(--rule); color: var(--ink-3); font-size: 14px;
+  }
+  .empty-state.show { display: block; }
+
+  /* ===== Footer ===== */
+  footer {
+    margin-top: 36px; padding-top: 16px; border-top: 2px solid var(--rule-strong);
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 10px; font-size: 12px; color: var(--ink-3);
+  }
+  footer a { color: var(--ink-2); text-decoration: none; }
+  footer a:hover { color: var(--accent); text-decoration: underline; }
+
+  @media (max-width: 820px) {
+    .lead-grid { grid-template-columns: 1fr; }
+    article.item { padding: 14px 16px; }
+    .sec-head { padding: 11px 16px; }
+    .time-pair { font-size: 11px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="topbar" aria-label="版面切换">
+  <div class="topbar-inner">
+    <div class="edition-tabs">
+      <span class="edition-label">近 3 天</span>
+      <a class="ed-tab active" href="../index.html">
+<span class="live-dot" title="今日滚动更新中"></span>今日 11-22 <span class="cnt">4</span>
+      </a>
+      <a class="ed-tab" href="../daily/2026-11-21.html">
+昨日 11-21 <span class="cnt">277</span>
+      </a>
+      <a class="ed-tab" href="../daily/2026-11-20.html">
+前日 11-20 <span class="cnt">304</span>
+      </a>
+    </div>
+    <div class="topbar-right">
+      <a class="archive-link" href="../archive/index.html">历史归档 →</a>
+      <button class="theme-btn" id="themeBtn" type="button">🌙 夜间版</button>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+
+  <header class="masthead">
+    <div class="masthead-kicker">BLOOMBERG · REUTERS · WSJ</div>
+    <h1>Market Dispatch</h1>
+    <div class="dateline">
+      <div class="dateline-left">
+        <span><b>2026 年 11 月 22 日</b> 星期日</span>
+        <span>时区 <span class="mono">Asia/Shanghai</span></span>
+        <span>按新闻发布时间归天</span>
+      </div>
+      <div class="dateline-right">
+        <span>最近更新 <b class="mono">01:17</b></span>
+        <span>共 <b class="mono">4</b> 条 · 要闻 <b class="mono">0</b> 条</span>
+        <button class="batch-toggle ok" id="batchToggle" type="button" aria-expanded="false">
+          当日 1 批 · 全部正常 ▾
+        </button>
+      </div>
+    </div>
+    <div class="batch-drawer" id="batchDrawer">
+      <div><b>当日抓取批次记录</b>（每小时自动运行，24h 回看防遗漏；单源异常不影响其他来源）：</div>
+      <div class="batch-grid">
+        <span class="b-chip">01:16 ✓ +66</span>
+      </div>
+    </div>
+  </header>
+
+
+  <div class="controls-wrap">
+    <div class="cat-bar" id="catBar" role="tablist">
+      <button class="cat-btn active" data-cat="all" type="button">全部栏目 <span class="n">4</span></button>
+      <button class="cat-btn" data-cat="markets" type="button">📈 市场与经济 <span class="n">1</span></button>
+      <button class="cat-btn" data-cat="tech" type="button">💻 科技 <span class="n">1</span></button>
+      <button class="cat-btn" data-cat="world" type="button">🌍 政治与世界 <span class="n">2</span></button>
+      <button class="cat-btn" data-cat="us" type="button">🇺🇸 美国相关 <span class="n">0</span></button>
+      <button class="cat-btn" data-cat="china" type="button">🇨🇳 中国相关 <span class="n">0</span></button>
+    </div>
+
+    <div class="filter-bar">
+      <div class="filter-group">
+        <span class="fg-label">来源</span>
+        <button class="pill-btn active" data-src="all" type="button">全部</button>
+        <button class="pill-btn" data-src="bloomberg" type="button"><span class="src-dot dot-bbg"></span>彭博</button>
+        <button class="pill-btn" data-src="reuters" type="button"><span class="src-dot dot-rtr"></span>路透</button>
+        <button class="pill-btn" data-src="wsj" type="button"><span class="src-dot dot-wsj"></span>WSJ</button>
+
+        <span class="fg-label" style="margin-left:6px">视图</span>
+        <button class="pill-btn star-only" id="starOnlyBtn" type="button">★ 仅看要闻</button>
+        <div class="seg-switch" role="group" aria-label="语言显示">
+          <button class="active" data-lang="both" type="button">中英</button>
+          <button data-lang="zh" type="button">仅中文</button>
+        </div>
+        <button class="pill-btn" id="toggleEnSumBtn" type="button">展开英文摘要</button>
+      </div>
+
+      <div class="status-right">
+        <span id="visibleCount">显示 4 / 4 条</span>
+        <button class="reset-link" id="resetBtn" type="button">重置筛选</button>
+      </div>
+    </div>
+  </div>
+
+  <main class="sections-list" id="sectionsList">
+        <section class="cat-sec" data-cat="markets">
+          <div class="sec-head">
+            <div class="sec-title-wrap">
+              <h3>📈 市场与经济</h3>
+              <span class="sec-en">MARKETS & ECONOMY</span>
+            </div>
+            <div class="sec-meta">
+              <span class="sec-count">1 条</span>
+              <span class="sec-arrow">▾</span>
+            </div>
+          </div>
+          <div class="sec-body">
+            <article id="item-558" class="item untranslated" data-source="wsj" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge wsj">WSJ</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>01:00</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 01:16</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.wsj.com/personal-finance/retirement/retire-in-thailand-6853f4a7?mod=rss_markets_main" target="_blank" rel="noopener noreferrer">What It’s Like to Retire in Thailand ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>It’s hot, humid and costs a bit more than we anticipated. But we love the life we’ve built here.</p>
+              </details>
+            </article>
+          </div>
+        </section>
+        <section class="cat-sec" data-cat="tech">
+          <div class="sec-head">
+            <div class="sec-title-wrap">
+              <h3>💻 科技</h3>
+              <span class="sec-en">TECHNOLOGY & AI</span>
+            </div>
+            <div class="sec-meta">
+              <span class="sec-count">1 条</span>
+              <span class="sec-arrow">▾</span>
+            </div>
+          </div>
+          <div class="sec-body">
+            <article id="item-559" class="item untranslated" data-source="wsj" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge wsj">WSJ</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>00:00</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 01:16</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.wsj.com/tech/personal-tech/cyber-scams-tech-outages-tips-a5500927?mod=rss_Technology" target="_blank" rel="noopener noreferrer">How to Protect Yourself From Scammers Exploiting Outage Chaos ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>When you get an urgent message about a travel or service disruption, the first rule is: Don’t panic.</p>
+              </details>
+            </article>
+          </div>
+        </section>
+        <section class="cat-sec" data-cat="world">
+          <div class="sec-head">
+            <div class="sec-title-wrap">
+              <h3>🌍 政治与世界</h3>
+              <span class="sec-en">WORLD & GEOPOLITICS</span>
+            </div>
+            <div class="sec-meta">
+              <span class="sec-count">2 条</span>
+              <span class="sec-arrow">▾</span>
+            </div>
+          </div>
+          <div class="sec-body">
+            <article id="item-561" class="item untranslated" data-source="wsj" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge wsj">WSJ</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>01:00</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 01:16</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.wsj.com/world/middle-east/the-u-a-e-is-shuttling-oil-past-iran-in-risky-hormuz-operation-9150693e?mod=rss_worldnews" target="_blank" rel="noopener noreferrer">The U.A.E. Is Shuttling Oil Past Iran in Risky Hormuz Operation ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>The high-stakes shuttle service, with U.S. military help, is crucial to breaking Iran’s grip on the waterway.</p>
+              </details>
+            </article>
+            <article id="item-569" class="item untranslated" data-source="reuters" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge rtr">路透</span>
+<span class="tag-warn">未翻译</span><span class="tag-muted">仅标题</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>00:23</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 01:16</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://news.google.com/rss/articles/CBMiwgFBVV95cUxOMEdyaGtabnZRdHhGLWIzeGx0MkhleGZEYlVpTmFySVFYdlUtd3JfamE1YjlXQmwzWW1xTE83UzJRZ2lra1pEWmFsTXZMbDRlUm9CNTllRHdXR0VWRExIaTlQanhkTDFaU2RjU2dCYkI3WDd2WElmSlFfY1pwVkdxVEw0cDBYNGEwTGFLUGFqUTZPMFIxU0Y4Z25pREJEai16RGNfX3JlWXZOZ05hT3liNUJnU2stVlQ5RV9NZmVBUmhlQQ?oc=5" target="_blank" rel="noopener noreferrer">US denies Iranian account that missile damaged F-16 over Gulf ↗</a>
+
+
+            </article>
+          </div>
+        </section>
+      <div class="empty-state" id="emptyState">
+        当前筛选条件下暂无匹配新闻，请尝试切换栏目、来源或关闭「仅看要闻」。
+      </div>
+  </main>
+
+  <footer>
+    <div>Market Dispatch（market-dispatch）· 仅采集公开 RSS 元数据，不保存正文 · 仅供个人学习研究</div>
+    <div>
+<a href="../daily/2026-11-21.html">← 11-21</a>    </div>
+  </footer>
+
+</div>
+
+<script>
+(function () {
+  const root = document.documentElement;
+  const themeBtn = document.getElementById('themeBtn');
+  function applyTheme(t) {
+    root.setAttribute('data-theme', t);
+    themeBtn.textContent = t === 'dark' ? '☀️ 日间版' : '🌙 夜间版';
+    try { localStorage.setItem('md_theme', t); } catch (e) {}
+  }
+  const savedTheme = (() => { try { return localStorage.getItem('md_theme'); } catch (e) { return null; } })();
+  if (savedTheme === 'dark') applyTheme('dark');
+  themeBtn.addEventListener('click', () => {
+    applyTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+  });
+
+  const batchToggle = document.getElementById('batchToggle');
+  const batchDrawer = document.getElementById('batchDrawer');
+  if (batchToggle && batchDrawer) {
+    batchToggle.addEventListener('click', () => {
+      const open = batchDrawer.classList.toggle('open');
+      batchToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+
+  document.querySelectorAll('.sec-head').forEach(head => {
+    head.addEventListener('click', () => {
+      const body = head.nextElementSibling;
+      const arrow = head.querySelector('.sec-arrow');
+      const collapsed = body.classList.toggle('collapsed');
+      if (arrow) arrow.textContent = collapsed ? '▸' : '▾';
+    });
+  });
+
+  const state = { cat: 'all', src: 'all', starOnly: false, enExpanded: false };
+  const items = Array.from(document.querySelectorAll('article.item'));
+  const sections = Array.from(document.querySelectorAll('section.cat-sec'));
+  const visibleCountEl = document.getElementById('visibleCount');
+  const emptyState = document.getElementById('emptyState');
+  const resetBtn = document.getElementById('resetBtn');
+  const leadSection = document.getElementById('leadSection');
+
+  function applyFilters() {
+    let shown = 0;
+    sections.forEach(sec => {
+      const secCat = sec.dataset.cat;
+      const catMatch = state.cat === 'all' || state.cat === secCat;
+      let secShown = 0;
+      sec.querySelectorAll('article.item').forEach(item => {
+        const srcMatch = state.src === 'all' || item.dataset.source === state.src;
+        const starMatch = !state.starOnly || item.dataset.star === '1';
+        const visible = catMatch && srcMatch && starMatch;
+        item.style.display = visible ? '' : 'none';
+        if (visible) { secShown++; shown++; }
+      });
+      sec.style.display = (catMatch && secShown > 0) ? '' : 'none';
+    });
+
+    const isFiltered = state.cat !== 'all' || state.src !== 'all' || state.starOnly;
+    if (leadSection) leadSection.style.display = isFiltered ? 'none' : '';
+    if (emptyState) emptyState.classList.toggle('show', items.length > 0 && shown === 0);
+    if (resetBtn) resetBtn.classList.toggle('show', isFiltered);
+    if (visibleCountEl) visibleCountEl.textContent = `显示 ${shown} / ${items.length} 条`;
+  }
+
+  document.querySelectorAll('#catBar .cat-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('#catBar .cat-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      state.cat = btn.dataset.cat;
+      applyFilters();
+    });
+  });
+
+  document.querySelectorAll('[data-src]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('[data-src]').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      state.src = btn.dataset.src;
+      applyFilters();
+    });
+  });
+
+  const starOnlyBtn = document.getElementById('starOnlyBtn');
+  if (starOnlyBtn) {
+    starOnlyBtn.addEventListener('click', () => {
+      state.starOnly = !state.starOnly;
+      starOnlyBtn.classList.toggle('active', state.starOnly);
+      applyFilters();
+    });
+  }
+
+  document.querySelectorAll('.seg-switch button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.seg-switch button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.body.classList.toggle('zh-only', btn.dataset.lang === 'zh');
+    });
+  });
+
+  const toggleEnSumBtn = document.getElementById('toggleEnSumBtn');
+  if (toggleEnSumBtn) {
+    toggleEnSumBtn.addEventListener('click', () => {
+      state.enExpanded = !state.enExpanded;
+      toggleEnSumBtn.classList.toggle('active', state.enExpanded);
+      toggleEnSumBtn.textContent = state.enExpanded ? '收起英文摘要' : '展开英文摘要';
+      document.querySelectorAll('details.en-sum').forEach(d => {
+        if (d.closest('.untranslated')) return;
+        d.open = state.enExpanded;
+      });
+    });
+  }
+
+  if (resetBtn) {
+    resetBtn.addEventListener('click', () => {
+      state.cat = 'all'; state.src = 'all'; state.starOnly = false;
+      document.querySelectorAll('#catBar .cat-btn').forEach(b => b.classList.toggle('active', b.dataset.cat === 'all'));
+      document.querySelectorAll('[data-src]').forEach(b => b.classList.toggle('active', b.dataset.src === 'all'));
+      if (starOnlyBtn) starOnlyBtn.classList.remove('active');
+      applyFilters();
+    });
+  }
+})();
+</script>
+</body>
+</html>
