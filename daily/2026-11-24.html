@@ -1,0 +1,2385 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Market Dispatch · 2026-11-24（今日）</title>
+<style>
+  :root {
+    --bg: #F6F1E9;
+    --paper: #FFFDF9;
+    --tint: #EFE8DC;
+    --tint-hover: #E7DEC9;
+    --ink: #1B1917;
+    --ink-2: #44403C;
+    --ink-3: #78716C;
+    --rule: #DFD7C8;
+    --rule-strong: #1B1917;
+    --accent: #990F3D;
+    --accent-soft: #F9EBF0;
+    --gold: #9A5B06;
+    --gold-bg: #FCF6E8;
+    --gold-border: #D9A441;
+    --ok: #166534;
+    --ok-bg: #EAF5EE;
+    --err: #B91C1C;
+    --err-bg: #FDECEC;
+    --bbg-bg: #141414; --bbg-fg: #FFFFFF;
+    --rtr-bg: #C74F00; --rtr-fg: #FFFFFF;
+    --wsj-bg: #0A5894; --wsj-fg: #FFFFFF;
+    --serif: Georgia, "Songti SC", "STSong", "Noto Serif CJK SC", "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Segoe UI", sans-serif;
+    --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  }
+
+  [data-theme="dark"] {
+    --bg: #121316;
+    --paper: #191B20;
+    --tint: #23262E;
+    --tint-hover: #2C303A;
+    --ink: #EDE8DF;
+    --ink-2: #BEB7AC;
+    --ink-3: #857F76;
+    --rule: #2D313B;
+    --rule-strong: #C9C0AE;
+    --accent: #E26B8D;
+    --accent-soft: #2D1D24;
+    --gold: #E3AA4F;
+    --gold-bg: #241E14;
+    --gold-border: #8B6523;
+    --ok: #4ADE80;
+    --ok-bg: #14281D;
+    --err: #F87171;
+    --err-bg: #2D1719;
+    --bbg-bg: #363A45; --bbg-fg: #F5F5F5;
+    --rtr-bg: #C74F00; --rtr-fg: #FFFFFF;
+    --wsj-bg: #1B6FB0; --wsj-fg: #FFFFFF;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    transition: background .2s ease, color .2s ease;
+  }
+
+  .container { max-width: 1060px; margin: 0 auto; padding: 0 20px 48px; }
+
+  /* ===== Top Edition Bar ===== */
+  .topbar { border-bottom: 1px solid var(--rule); background: var(--paper); transition: background .2s ease; }
+  .topbar-inner {
+    max-width: 1060px; margin: 0 auto; padding: 8px 20px;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 12px; flex-wrap: wrap; font-size: 13px;
+  }
+  .edition-tabs { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+  .edition-label { color: var(--ink-3); font-size: 12px; margin-right: 6px; letter-spacing: .04em; }
+  .ed-tab {
+    display: inline-flex; align-items: center; gap: 6px; padding: 4px 11px;
+    border-radius: 3px; text-decoration: none; color: var(--ink-2);
+    border: 1px solid transparent; font-family: var(--mono);
+    font-size: 12.5px; font-variant-numeric: tabular-nums; transition: all .15s;
+  }
+  .ed-tab:hover { background: var(--tint); color: var(--ink); }
+  .ed-tab.active { background: var(--ink); color: var(--paper); font-weight: 600; }
+  .ed-tab .cnt { font-size: 11px; opacity: .72; }
+  .live-dot {
+    width: 6px; height: 6px; border-radius: 50%; background: #22C55E;
+    display: inline-block; box-shadow: 0 0 0 2px rgba(34,197,94,.25);
+  }
+  .topbar-right { display: flex; align-items: center; gap: 12px; }
+  .archive-link {
+    color: var(--accent); text-decoration: none; font-weight: 600;
+    font-size: 13px; padding: 4px 8px; border-radius: 3px;
+  }
+  .archive-link:hover { background: var(--accent-soft); }
+  .theme-btn {
+    background: transparent; border: 1px solid var(--rule); color: var(--ink-2);
+    padding: 4px 10px; border-radius: 3px; font-size: 12.5px; cursor: pointer; font-family: var(--sans);
+  }
+  .theme-btn:hover { background: var(--tint); color: var(--ink); }
+
+  /* ===== History / Archive Banner ===== */
+  .history-banner {
+    margin-top: 16px; padding: 9px 16px; background: var(--tint); border: 1px solid var(--rule);
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+    font-size: 12.5px; color: var(--ink-2);
+  }
+  .history-banner a { color: var(--accent); font-weight: 600; text-decoration: none; }
+  .history-banner a:hover { text-decoration: underline; }
+
+  /* ===== Broadsheet Masthead ===== */
+  .masthead { padding: 26px 0 0; text-align: center; }
+  .masthead-kicker {
+    font-family: var(--mono); font-size: 11px; letter-spacing: .24em;
+    text-transform: uppercase; color: var(--ink-3); margin-bottom: 6px;
+  }
+  .masthead h1 {
+    font-family: var(--serif); font-size: clamp(32px, 4.4vw, 46px);
+    font-weight: 700; letter-spacing: .02em; color: var(--ink); line-height: 1.12;
+  }
+  .dateline {
+    margin-top: 16px; border-top: 2px solid var(--rule-strong); border-bottom: 1px solid var(--rule-strong);
+    padding: 8px 4px; display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 10px; font-size: 12.5px; color: var(--ink-2);
+  }
+  .dateline-left, .dateline-right { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+  .dateline b { color: var(--ink); font-weight: 600; }
+  .mono { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+  .batch-toggle {
+    border: 1px solid transparent; padding: 2px 9px; border-radius: 3px;
+    font-size: 12px; cursor: pointer; font-family: var(--sans);
+    display: inline-flex; align-items: center; gap: 5px;
+  }
+  .batch-toggle.ok { background: var(--ok-bg); color: var(--ok); border-color: rgba(22,101,52,.22); }
+  .batch-toggle.bad { background: var(--err-bg); color: var(--err); border-color: rgba(185,28,28,.22); }
+  .batch-toggle:hover { filter: brightness(.96); }
+  .batch-drawer {
+    display: none; background: var(--paper); border-bottom: 1px solid var(--rule);
+    padding: 12px 16px; text-align: left; font-size: 12px; color: var(--ink-2);
+  }
+  .batch-drawer.open { display: block; }
+  .batch-grid {
+    display: flex; flex-wrap: wrap; gap: 6px 10px; margin-top: 6px;
+    font-family: var(--mono); font-variant-numeric: tabular-nums;
+  }
+  .b-chip { padding: 2px 7px; border-radius: 2px; background: var(--ok-bg); color: var(--ok); }
+  .b-chip.bad { background: var(--err-bg); color: var(--err); font-weight: 600; }
+
+  /* ===== Front-Page Lead Briefing ===== */
+  .lead-section {
+    margin-top: 22px; background: var(--paper); border: 1px solid var(--rule);
+    border-top: 3px solid var(--accent); padding: 16px 20px 18px;
+  }
+  .lead-header {
+    display: flex; align-items: baseline; justify-content: space-between;
+    gap: 12px; padding-bottom: 10px; border-bottom: 1px solid var(--rule); margin-bottom: 14px;
+    flex-wrap: wrap;
+  }
+  .lead-header h2 {
+    font-family: var(--serif); font-size: 16px; color: var(--accent);
+    letter-spacing: .04em; display: flex; align-items: center; gap: 6px;
+  }
+  .lead-header .sub { font-size: 12px; color: var(--ink-3); }
+  .lead-grid {
+    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px 20px;
+  }
+  .lead-card {
+    padding: 10px 12px; border: 1px solid var(--rule); background: var(--bg);
+    display: flex; flex-direction: column; justify-content: space-between; gap: 8px;
+  }
+  .lead-meta { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; font-size: 11.5px; }
+  .lead-cat { color: var(--ink-3); font-weight: 600; }
+  .lead-reason {
+    color: var(--gold); background: var(--gold-bg); border: 1px solid var(--gold-border);
+    padding: 0 6px; border-radius: 2px; font-size: 11px;
+  }
+  .lead-title-zh {
+    display: block; font-size: 15px; font-weight: 700; line-height: 1.42;
+    color: var(--ink); text-decoration: none;
+  }
+  .lead-title-zh:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+  .lead-title-en {
+    font-family: var(--serif); font-size: 12.5px; line-height: 1.38;
+    color: var(--ink-3); margin-top: 4px;
+  }
+  .lead-foot {
+    display: flex; align-items: center; justify-content: space-between; font-size: 11.5px;
+    color: var(--ink-3); padding-top: 6px; border-top: 1px dashed var(--rule);
+    font-family: var(--mono); font-variant-numeric: tabular-nums;
+  }
+  .lead-foot a { color: var(--accent); text-decoration: none; font-family: var(--sans); font-weight: 500; }
+  .lead-foot a:hover { text-decoration: underline; }
+
+  /* ===== Sticky Reading Controls ===== */
+  .controls-wrap {
+    position: sticky; top: 0; z-index: 40; margin-top: 20px;
+    background: var(--bg); padding: 10px 0 8px; border-bottom: 1px solid var(--rule);
+  }
+  .cat-bar {
+    display: flex; align-items: center; gap: 4px; overflow-x: auto;
+    padding-bottom: 8px; border-bottom: 1px solid var(--rule); scrollbar-width: none;
+  }
+  .cat-bar::-webkit-scrollbar { display: none; }
+  .cat-btn {
+    border: none; background: transparent; color: var(--ink-2); font-family: var(--sans);
+    font-size: 13.5px; font-weight: 600; padding: 5px 11px; border-radius: 3px;
+    cursor: pointer; white-space: nowrap; display: inline-flex; align-items: center; gap: 5px;
+    transition: all .15s;
+  }
+  .cat-btn:hover { background: var(--tint); color: var(--ink); }
+  .cat-btn.active { background: var(--ink); color: var(--paper); }
+  .cat-btn .n { font-family: var(--mono); font-size: 11.5px; font-weight: 500; opacity: .72; }
+
+  .filter-bar {
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 10px; padding-top: 8px; font-size: 12.5px;
+  }
+  .filter-group { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+  .fg-label { color: var(--ink-3); font-size: 12px; margin-right: 2px; }
+  .pill-btn {
+    background: var(--paper); border: 1px solid var(--rule); color: var(--ink-2);
+    padding: 3px 10px; border-radius: 3px; font-size: 12.5px; cursor: pointer;
+    font-family: var(--sans); display: inline-flex; align-items: center; gap: 5px; transition: all .15s;
+  }
+  .pill-btn:hover { border-color: var(--ink-3); color: var(--ink); }
+  .pill-btn.active { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+  .pill-btn.star-only.active { background: var(--gold); border-color: var(--gold); color: #fff; }
+  .src-dot { width: 7px; height: 7px; border-radius: 50%; display: inline-block; }
+  .dot-bbg { background: var(--bbg-bg); }
+  .dot-rtr { background: var(--rtr-bg); }
+  .dot-wsj { background: var(--wsj-bg); }
+  [data-theme="dark"] .dot-bbg { background: #E5E7EB; }
+
+  .seg-switch {
+    display: inline-flex; border: 1px solid var(--rule); border-radius: 3px;
+    overflow: hidden; background: var(--paper);
+  }
+  .seg-switch button {
+    border: none; background: transparent; color: var(--ink-2);
+    padding: 3px 9px; font-size: 12px; cursor: pointer; font-family: var(--sans);
+  }
+  .seg-switch button.active { background: var(--ink); color: var(--paper); font-weight: 600; }
+  .status-right { display: flex; align-items: center; gap: 10px; color: var(--ink-3); font-size: 12px; font-family: var(--mono); }
+  .reset-link {
+    background: none; border: none; color: var(--accent); cursor: pointer;
+    font-size: 12px; font-family: var(--sans); text-decoration: underline; display: none;
+  }
+  .reset-link.show { display: inline; }
+
+  /* ===== Editorial Sections ===== */
+  .sections-list { margin-top: 22px; display: flex; flex-direction: column; gap: 28px; }
+  section.cat-sec { background: var(--paper); border: 1px solid var(--rule); border-top: 2.5px solid var(--rule-strong); }
+  .sec-head {
+    padding: 12px 22px; border-bottom: 1px solid var(--rule);
+    display: flex; align-items: center; justify-content: space-between;
+    cursor: pointer; user-select: none;
+  }
+  .sec-head:hover { background: var(--tint); }
+  .sec-title-wrap { display: flex; align-items: baseline; gap: 10px; }
+  .sec-head h3 { font-family: var(--serif); font-size: 18px; font-weight: 700; color: var(--ink); letter-spacing: .03em; }
+  .sec-en { font-family: var(--mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); }
+  .sec-meta { display: flex; align-items: center; gap: 10px; font-size: 12px; color: var(--ink-3); font-family: var(--mono); }
+  .sec-body.collapsed { display: none; }
+
+  /* ===== Article Row ===== */
+  article.item { padding: 15px 22px; border-bottom: 1px solid var(--rule); transition: background .12s; }
+  article.item:last-child { border-bottom: none; }
+  article.item:hover { background: rgba(153, 15, 61, .02); }
+  article.item.star { background: var(--gold-bg); border-left: 3.5px solid var(--gold-border); padding-left: 18.5px; }
+  article.item:target { outline: 2px solid var(--accent); outline-offset: -2px; }
+
+  .item-meta {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 10px; flex-wrap: wrap; margin-bottom: 6px;
+  }
+  .meta-left { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; }
+  .badge {
+    display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .03em;
+    padding: 1px 7px; border-radius: 2px; line-height: 1.5;
+  }
+  .badge.bbg { background: var(--bbg-bg); color: var(--bbg-fg); }
+  .badge.rtr { background: var(--rtr-bg); color: var(--rtr-fg); }
+  .badge.wsj { background: var(--wsj-bg); color: var(--wsj-fg); }
+
+  .star-pill { font-size: 11.5px; font-weight: 700; color: var(--gold); }
+  .why-pill { font-size: 11px; color: var(--gold); border: 1px solid var(--gold-border); padding: 0 6px; border-radius: 2px; }
+  .tag-warn { font-size: 11px; background: var(--err-bg); color: var(--err); padding: 0 6px; border-radius: 2px; font-weight: 600; }
+  .tag-cross { font-size: 11px; background: var(--accent-soft); color: var(--accent); padding: 0 6px; border-radius: 2px; font-weight: 600; }
+  .tag-muted { font-size: 11px; background: var(--tint); color: var(--ink-3); padding: 0 6px; border-radius: 2px; }
+
+  .time-pair {
+    display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono);
+    font-size: 11.5px; font-variant-numeric: tabular-nums; color: var(--ink-3); white-space: nowrap;
+  }
+  .time-pair .t-pub { color: var(--ink-2); }
+  .time-pair .t-pub b { color: var(--ink); font-weight: 600; }
+  .time-pair .t-sep { opacity: .45; }
+  .time-pair .t-crt { color: var(--ink-3); }
+
+  .title-zh {
+    display: inline-block; font-size: 16.5px; font-weight: 700; line-height: 1.42;
+    color: var(--ink); text-decoration: none;
+  }
+  .title-zh:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+  .title-zh .ext { font-size: 12.5px; color: var(--ink-3); margin-left: 4px; font-weight: 400; }
+  .title-en {
+    display: block; margin-top: 3px; font-family: var(--serif); font-size: 13.5px;
+    line-height: 1.4; color: var(--ink-3); text-decoration: none;
+  }
+  .title-en:hover { color: var(--ink); text-decoration: underline; }
+  .item.untranslated .title-en { font-size: 16px; font-weight: 600; color: var(--ink); margin-top: 0; }
+
+  .sum-zh { margin-top: 6px; font-size: 14px; line-height: 1.65; color: var(--ink-2); max-width: 82ch; }
+  details.en-sum { margin-top: 6px; max-width: 82ch; }
+  details.en-sum summary {
+    font-size: 12px; color: var(--ink-3); cursor: pointer; user-select: none;
+    list-style: none; display: inline-flex; align-items: center; gap: 4px;
+  }
+  details.en-sum summary::-webkit-details-marker { display: none; }
+  details.en-sum summary::before { content: "▸"; font-size: 11px; transition: transform .15s; }
+  details.en-sum[open] summary::before { transform: rotate(90deg); }
+  details.en-sum summary:hover { color: var(--ink); }
+  details.en-sum p {
+    margin-top: 5px; padding-left: 10px; border-left: 2px solid var(--rule);
+    font-family: var(--serif); font-size: 13px; line-height: 1.55; color: var(--ink-3);
+  }
+
+  body.zh-only .title-en,
+  body.zh-only .lead-title-en { display: none; }
+  body.zh-only .item.untranslated .title-en { display: block; }
+
+  .empty-state {
+    display: none; text-align: center; padding: 48px 20px;
+    background: var(--paper); border: 1px solid var(--rule); color: var(--ink-3); font-size: 14px;
+  }
+  .empty-state.show { display: block; }
+
+  /* ===== Footer ===== */
+  footer {
+    margin-top: 36px; padding-top: 16px; border-top: 2px solid var(--rule-strong);
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 10px; font-size: 12px; color: var(--ink-3);
+  }
+  footer a { color: var(--ink-2); text-decoration: none; }
+  footer a:hover { color: var(--accent); text-decoration: underline; }
+
+  @media (max-width: 820px) {
+    .lead-grid { grid-template-columns: 1fr; }
+    article.item { padding: 14px 16px; }
+    .sec-head { padding: 11px 16px; }
+    .time-pair { font-size: 11px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="topbar" aria-label="版面切换">
+  <div class="topbar-inner">
+    <div class="edition-tabs">
+      <span class="edition-label">近 3 天</span>
+      <a class="ed-tab active" href="../index.html">
+<span class="live-dot" title="今日滚动更新中"></span>今日 11-24 <span class="cnt">89</span>
+      </a>
+      <a class="ed-tab" href="../daily/2026-11-23.html">
+昨日 11-23 <span class="cnt">289</span>
+      </a>
+      <a class="ed-tab" href="../daily/2026-11-22.html">
+前日 11-22 <span class="cnt">178</span>
+      </a>
+    </div>
+    <div class="topbar-right">
+      <a class="archive-link" href="../archive/index.html">历史归档 →</a>
+      <button class="theme-btn" id="themeBtn" type="button">🌙 夜间版</button>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+
+  <header class="masthead">
+    <div class="masthead-kicker">BLOOMBERG · REUTERS · WSJ</div>
+    <h1>Market Dispatch</h1>
+    <div class="dateline">
+      <div class="dateline-left">
+        <span><b>2026 年 11 月 24 日</b> 星期二</span>
+        <span>时区 <span class="mono">Asia/Shanghai</span></span>
+        <span>按新闻发布时间归天</span>
+      </div>
+      <div class="dateline-right">
+        <span>最近更新 <b class="mono">05:08</b></span>
+        <span>共 <b class="mono">89</b> 条 · 要闻 <b class="mono">4</b> 条</span>
+        <button class="batch-toggle ok" id="batchToggle" type="button" aria-expanded="false">
+          当日 1 批 · 全部正常 ▾
+        </button>
+      </div>
+    </div>
+    <div class="batch-drawer" id="batchDrawer">
+      <div><b>当日抓取批次记录</b>（每小时自动运行，24h 回看防遗漏；单源异常不影响其他来源）：</div>
+      <div class="batch-grid">
+        <span class="b-chip">05:06 ✓ +176</span>
+      </div>
+    </div>
+  </header>
+
+  <section class="lead-section" id="leadSection" aria-label="今日要闻头条">
+    <div class="lead-header">
+      <h2>★ 今日要闻头条（4）</h2>
+      <span class="sub">三信号自动研判（标题特征词 / 跨源同事件 / GN 头条） · 点击定位详情</span>
+    </div>
+    <div class="lead-grid">
+      <div class="lead-card">
+        <div>
+          <div class="lead-meta">
+            <span class="badge rtr">路透</span>
+            <span class="lead-cat">科技</span>
+<span class="lead-reason">GN头条</span>          </div>
+          <a class="lead-title-zh" href="#item-1087">Anthropic options post solid debut, trailing SpaceX record</a>
+        </div>
+        <div class="lead-foot">
+          <span>发布 04:38 · 抓取 05:06</span>
+          <a href="https://news.google.com/rss/articles/CBMijwFBVV95cUxQZzZBTkVsVXo2NVo5WmF4NXlRZnpidUVLNE1ZX25XbHFLUm1RamtHODdMRWJYTWJDSVlFRmlfSDI5dGVGVEQ1ZHItNVhoLWFhX0M2eGxVTHdtUExfMUxEc1p2S3ZTVkJuTVd0TUYxXy04UEJnOXFldDE2ZHMzMDEyeXcyMkNpdlpHamVDRmtpVQ?oc=5" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+        </div>
+      </div>
+      <div class="lead-card">
+        <div>
+          <div class="lead-meta">
+            <span class="badge wsj">WSJ</span>
+            <span class="lead-cat">美国相关</span>
+<span class="lead-reason">跨源报道</span>          </div>
+          <a class="lead-title-zh" href="#item-1067">Nvidia Board Reinstates Jensen Huang as CEO</a>
+        </div>
+        <div class="lead-foot">
+          <span>发布 03:42 · 抓取 05:06</span>
+          <a href="https://www.wsj.com/articles/nvidia-board-reinstates-jensen-huang-as-ceo-a6b49914?mod=rss_Technology" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+        </div>
+      </div>
+      <div class="lead-card">
+        <div>
+          <div class="lead-meta">
+            <span class="badge bbg">彭博</span>
+            <span class="lead-cat">美国相关</span>
+<span class="lead-reason">跨源报道</span>          </div>
+          <a class="lead-title-zh" href="#item-1197">Jensen Huang Is Back As Nvidia CEO</a>
+        </div>
+        <div class="lead-foot">
+          <span>发布 03:00 · 抓取 05:06</span>
+          <a href="https://www.bloomberg.com/news/videos/2026-11-23/bloomberg-tech-11-23-2026-video" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+        </div>
+      </div>
+      <div class="lead-card">
+        <div>
+          <div class="lead-meta">
+            <span class="badge rtr">路透</span>
+            <span class="lead-cat">政治与世界</span>
+<span class="lead-reason">标题特征词</span>          </div>
+          <a class="lead-title-zh" href="#item-1081">EXCLUSIVE: US discussing military training for Syrian forces</a>
+        </div>
+        <div class="lead-foot">
+          <span>发布 00:07 · 抓取 05:06</span>
+          <a href="https://news.google.com/rss/articles/CBMikAFBVV95cUxNd2tMTDZEYUhaR0lYVlhOTVpicEV6a3VJN2RSV1pVdXMxRmJwQkFUd1hzNWZEa0pSUkJaQ0l6SVNjM1pfMllVR2hNV2FNb2FZUTNuclJzLTdkenNHU3RncUJKUzRKcWswcTJkRkRQZjBuU0h3dDJBdlV0V25nU2xpQlA5UWFnMkZSZnlFMXRsbmQ?oc=5" target="_blank" rel="noopener noreferrer">原文 ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="controls-wrap">
+    <div class="cat-bar" id="catBar" role="tablist">
+      <button class="cat-btn active" data-cat="all" type="button">全部栏目 <span class="n">89</span></button>
+      <button class="cat-btn" data-cat="markets" type="button">📈 市场与经济 <span class="n">25</span></button>
+      <button class="cat-btn" data-cat="tech" type="button">💻 科技 <span class="n">22</span></button>
+      <button class="cat-btn" data-cat="world" type="button">🌍 政治与世界 <span class="n">20</span></button>
+      <button class="cat-btn" data-cat="us" type="button">🇺🇸 美国相关 <span class="n">17</span></button>
+      <button class="cat-btn" data-cat="china" type="button">🇨🇳 中国相关 <span class="n">5</span></button>
+    </div>
+
+    <div class="filter-bar">
+      <div class="filter-group">
+        <span class="fg-label">来源</span>
+        <button class="pill-btn active" data-src="all" type="button">全部</button>
+        <button class="pill-btn" data-src="bloomberg" type="button"><span class="src-dot dot-bbg"></span>彭博</button>
+        <button class="pill-btn" data-src="reuters" type="button"><span class="src-dot dot-rtr"></span>路透</button>
+        <button class="pill-btn" data-src="wsj" type="button"><span class="src-dot dot-wsj"></span>WSJ</button>
+
+        <span class="fg-label" style="margin-left:6px">视图</span>
+        <button class="pill-btn star-only" id="starOnlyBtn" type="button">★ 仅看要闻</button>
+        <div class="seg-switch" role="group" aria-label="语言显示">
+          <button class="active" data-lang="both" type="button">中英</button>
+          <button data-lang="zh" type="button">仅中文</button>
+        </div>
+        <button class="pill-btn" id="toggleEnSumBtn" type="button">展开英文摘要</button>
+      </div>
+
+      <div class="status-right">
+        <span id="visibleCount">显示 89 / 89 条</span>
+        <button class="reset-link" id="resetBtn" type="button">重置筛选</button>
+      </div>
+    </div>
+  </div>
+
+  <main class="sections-list" id="sectionsList">
+        <section class="cat-sec" data-cat="markets">
+          <div class="sec-head">
+            <div class="sec-title-wrap">
+              <h3>📈 市场与经济</h3>
+              <span class="sec-en">MARKETS & ECONOMY</span>
+            </div>
+            <div class="sec-meta">
+              <span class="sec-count">25 条</span>
+              <span class="sec-arrow">▾</span>
+            </div>
+          </div>
+          <div class="sec-body">
+            <article id="item-1048" class="item untranslated" data-source="wsj" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge wsj">WSJ</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>05:02</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.wsj.com/finance/stocks/i-fell-off-my-chair-investors-marvel-as-huangs-return-sends-stocks-rocketing-98131bc6?mod=rss_markets_main" target="_blank" rel="noopener noreferrer">‘I Fell Off My Chair.’ Investors Marvel as Huang’s Return Sends Stocks Rocketing. ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>The tech-heavy Nasdaq composite roars back from last week’s selloff, adding more than $2 trillion in market value.</p>
+              </details>
+            </article>
+            <article id="item-1157" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>04:22</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/newsletters/2026-11-23/-key-man-risk-meets-too-big-to-fail" target="_blank" rel="noopener noreferrer">‘Key Man Risk’ Meets ‘Too Big to Fail’ ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>The Jentervation!</p>
+              </details>
+            </article>
+            <article id="item-1160" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>04:11</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/videos/2026-11-23/-party-is-back-on-roundhill-s-drew-pettit-video" target="_blank" rel="noopener noreferrer">‘Party Is Back On’: Roundhill’s Drew Pettit ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>Drew Pettit, chief investment strategist at Roundhill Investments, joins Scarlet Fu and Eric Balchunas on “Bloomberg ETF IQ.” They discuss the shocking return of Jensen Huang as CEO of Nvidia. (Source: Bloomberg)</p>
+              </details>
+            </article>
+            <article id="item-1161" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>04:11</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/articles/2026-11-23/brazil-mining-agency-shortfalls-threaten-critical-minerals-push" target="_blank" rel="noopener noreferrer">Brazil Mining Agency Shortfalls Threaten Critical Minerals Push ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>Brazil’s ambition to be a critical minerals powerhouse is running up against problems of its own making: chronic budget and staffing shortages at the country’s mining regulator.</p>
+              </details>
+            </article>
+            <article id="item-1060" class="item untranslated" data-source="wsj" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge wsj">WSJ</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>04:10</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.wsj.com/finance/commodities-futures/gold-rebounds-after-sharpest-weekly-decline-since-march-deaa4b87?mod=rss_markets_main" target="_blank" rel="noopener noreferrer">Gold Futures Rebound as Nvidia News Lifts Markets ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>Gold prices surged after suffering their steepest weekly decline since March, as markets rebounded following Nvidia’s reinstatement of Jensen Huang as CEO.</p>
+              </details>
+            </article>
+            <article id="item-1162" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>03:58</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/articles/2026-11-23/nvidia-s-big-rebound-hammers-leveraged-funds-betting-on-a-fall" target="_blank" rel="noopener noreferrer">Nvidia’s Big Rebound Hammers Leveraged Funds Betting on a Fall ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>For investors betting against Nvidia Corp., Monday’s big rebound turned a lucrative wager into a financial wrecking ball.</p>
+              </details>
+            </article>
+            <article id="item-1163" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>03:56</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/articles/2026-11-23/cftc-awards-multiple-whistleblowers-over-11-million-for-tips" target="_blank" rel="noopener noreferrer">CFTC Awards Multiple Whistleblowers Over $11 Million for Tips ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>The US derivatives regulator doled out more than $11 million in whistleblower awards to 14 people who shared key information to help Commodity Futures Trading Commission staff bring successful enforcement cases.</p>
+              </details>
+            </article>
+            <article id="item-1164" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>03:50</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/videos/2026-11-23/roundhill-s-pettit-discusses-jensen-huang-s-return-video" target="_blank" rel="noopener noreferrer">Roundhill’s Pettit Discusses Jensen Huang’s Return ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>Drew Pettit, chief investment strategist at Roundhill Investments, joins Scarlet Fu and Eric Balchunas on “Bloomberg ETF IQ.” They discuss the shocking return of Jensen Huang as CEO of Nvidia. (Source: Bloomberg)</p>
+              </details>
+            </article>
+            <article id="item-1165" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>03:46</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/videos/2026-11-23/a-great-time-to-diversify-todd-sohn-video" target="_blank" rel="noopener noreferrer">A Great Time To Diversify: Todd Sohn ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>Todd Sohn, chief ETF strategist at Baird Strategas, joins Scarlet Fu and Eric Balchunas on “Bloomberg ETF IQ.” They discuss that Nvidia’s board reinstated Jensen Huang in one of the most startling corporate comebacks in history, sending the stock on its biggest rally in decades. (Source: Bloomberg)</p>
+              </details>
+            </article>
+            <article id="item-1058" class="item untranslated" data-source="wsj" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge wsj">WSJ</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>03:45</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.wsj.com/finance/stocks/stock-futures-rally-as-dust-settles-after-ai-driven-selloff-705ff2c4?mod=rss_markets_main" target="_blank" rel="noopener noreferrer">Nvidia’s Rally Ripples Across Markets ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>U.S. stocks climbed, mostly thanks to Nvidia’s rally following Jensen Huang’s return as chief executive. The Nasdaq added more than 6%.</p>
+              </details>
+            </article>
+            <article id="item-1166" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>03:23</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/videos/2026-11-23/everyone-surprised-by-huang-s-return-proshares-kang-video" target="_blank" rel="noopener noreferrer">Everyone Surprised by Huang’s Return: ProShares’ Kang ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>Inkoo Kang, executive director of tactical products at ProShares, joins Scarlet Fu and Eric Balchunas on “Bloomberg ETF IQ.” They discuss the ProShares Ultra NVDA ETF (ticker: NVDB) and the firm’s new Anthropic ETFs. (Source: Bloomberg)</p>
+              </details>
+            </article>
+            <article id="item-1167" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>03:01</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/articles/2026-11-23/citadel-securities-says-2018-playbook-warns-of-more-market-pain" target="_blank" rel="noopener noreferrer">Citadel Securities Says 2018 Playbook Warns of More Market Pain ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>Strategists at Citadel Securities warned that financial markets are signaling a darkening growth outlook just as the Federal Reserve turns increasingly hawkish, echoing the setup in late 2018 that preceded a sharp selloff in risk assets.</p>
+              </details>
+            </article>
+            <article id="item-1053" class="item untranslated" data-source="wsj" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge wsj">WSJ</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>03:00</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.wsj.com/business/ken-chenault-on-why-ceos-shouldnt-lose-their-nerve-6a26617a?mod=rss_markets_main" target="_blank" rel="noopener noreferrer">Ken Chenault on Why CEOs Shouldn’t Lose Their Nerve ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>The executive known for coolheadedness reflects on leading American Express through 9/11, the rudderless evolution of AI and why every CEO needs a moral red line.</p>
+              </details>
+            </article>
+            <article id="item-1168" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>02:33</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/articles/2026-11-23/houston-hedge-fund-aspire-hires-two-pjm-power-gas-traders" target="_blank" rel="noopener noreferrer">Houston Hedge Fund Aspire Hires Two PJM Power, Gas Traders ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>Aspire Commodities, the hedge fund founded by Adam Sinn, has hired two traders focused on electricity and natural gas in the largest US power grid, where the data center boom is helping drive sharper swings in energy prices.</p>
+              </details>
+            </article>
+            <article id="item-1049" class="item untranslated" data-source="wsj" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge wsj">WSJ</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>02:32</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.wsj.com/finance/stocks/jensen-is-back-but-ais-problems-havent-gone-away-7551770e?mod=rss_markets_main" target="_blank" rel="noopener noreferrer">Jensen Is Back. But AI’s Problems Haven’t Gone Away. ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>The Nvidia CEO’s return is bad on multiple levels, and doesn’t remove serious challenges facing the AI ecosystem in general or the company in particular.</p>
+              </details>
+            </article>
+            <article id="item-1169" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>02:18</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/articles/2026-11-23/us-large-cap-stocks-upgraded-to-most-favorable-at-wells-fargo" target="_blank" rel="noopener noreferrer">US Large-Cap Stocks Upgraded to Most Favorable at Wells Fargo ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>Wells Fargo Investment Institute analysts upgraded US large-cap stocks to its highest rating, after last week’s rout offered investors the opportunity to add equity exposure at more attractive levels.</p>
+              </details>
+            </article>
+            <article id="item-1101" class="item untranslated" data-source="reuters" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge rtr">路透</span>
+<span class="tag-warn">未翻译</span><span class="tag-muted">仅标题</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>01:53</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://news.google.com/rss/articles/CBMiywFBVV95cUxNTEIwNEtiZmRzUElhSzJQTUNtNXJDTGZRelZmcWl3MG43RmdaTGdsWU15ODNLbm9yQkZlM1RwcTJFMENCNWdWRVJodnR6aHZreGZnZzVhLVJ1U0lXanBjUXhfb0JsU3Yzb29kLXhibEk1OUxGRzl4QTNDU3RkVUlfd2xHU1NZTkhRNWlfd0tXSDd4dVp5bXNPZnBJcWVvS2FJS0lheWZHUmJZVnFnM1BiT1ZRclJmX3EzM3VONVJ3SFFOblQwellPdDJmYw?oc=5" target="_blank" rel="noopener noreferrer">Nigeria's SEC approves Dangote refinery's IPO share distribution plan, sources say ↗</a>
+
+
+            </article>
+            <article id="item-1156" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>01:37</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/articles/2026-11-23/goldman-s-trivedi-says-dollar-has-some-fight-left-on-rate-path" target="_blank" rel="noopener noreferrer">Goldman Says Dollar ‘Has Some Fight’ Left on Rates Path ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>The US dollar rally has legs, with rising interest rates spurring the currency further before it weakens “modestly” next year, according to Kamakshya Trivedi at Goldman Sachs Group Inc.</p>
+              </details>
+            </article>
+            <article id="item-1059" class="item untranslated" data-source="wsj" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge wsj">WSJ</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>01:31</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.wsj.com/opinion/government-gets-a-tax-windfall-from-anthropic-790b0571?mod=rss_markets_main" target="_blank" rel="noopener noreferrer">Opinion | Government Gets a Tax Windfall From Anthropic ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>U.S. companies take a large share of the burden.</p>
+              </details>
+            </article>
+            <article id="item-1052" class="item untranslated" data-source="wsj" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge wsj">WSJ</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>01:31</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.wsj.com/business/financial-services-roundup-market-talk-59d5ef65?mod=rss_markets_main" target="_blank" rel="noopener noreferrer">Financial Services Roundup: Market Talk ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>Find insight on bitcoin, Dubai Islamic Bank, Julius Baer and more in the latest Market Talks covering Financial Services.</p>
+              </details>
+            </article>
+            <article id="item-1054" class="item untranslated" data-source="wsj" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge wsj">WSJ</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>01:28</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.wsj.com/business/health-care-roundup-market-talk-d350f360?mod=rss_markets_main" target="_blank" rel="noopener noreferrer">Health Care Roundup: Market Talk ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>Find insight on Bayer, Sanofi and more in the latest Market Talks covering Health Care.</p>
+              </details>
+            </article>
+            <article id="item-1056" class="item untranslated" data-source="wsj" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge wsj">WSJ</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>01:25</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.wsj.com/business/tech-media-telecom-roundup-market-talk-196a238a?mod=rss_markets_main" target="_blank" rel="noopener noreferrer">Tech, Media & Telecom Roundup: Market Talk ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>Find insight on Nvidia, Canadian telecoms and more in the latest Market Talks covering Technology, Media and Telecom.</p>
+              </details>
+            </article>
+            <article id="item-1055" class="item untranslated" data-source="wsj" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge wsj">WSJ</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>01:25</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.wsj.com/business/energy-utilities-roundup-market-talk-39f5dead?mod=rss_markets_main" target="_blank" rel="noopener noreferrer">Energy & Utilities Roundup: Market Talk ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>Find insight on Adnoc Gas, Var Energi and more in the latest Market Talks covering Energy and Utilities.</p>
+              </details>
+            </article>
+            <article id="item-1057" class="item untranslated" data-source="wsj" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge wsj">WSJ</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>01:23</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.wsj.com/business/basic-materials-roundup-market-talk-d9c78f9e?mod=rss_markets_main" target="_blank" rel="noopener noreferrer">Basic Materials Roundup: Market Talk ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>Find insight on Suncor Energy, Bellevue Gold, BHP and more in the latest Market Talks covering Basic Materials.</p>
+              </details>
+            </article>
+            <article id="item-1170" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>00:41</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/articles/2026-11-23/senegal-debt-outlook-key-to-investment-decisions-ebrd-says" target="_blank" rel="noopener noreferrer">Senegal Debt Outlook Key to Investment Decisions, EBRD Says ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>The European Bank for Reconstruction and Development is monitoring Senegal’s debt position as it weighs investments in West Africa, its president said on a visit to the region.</p>
+              </details>
+            </article>
+          </div>
+        </section>
+        <section class="cat-sec" data-cat="tech">
+          <div class="sec-head">
+            <div class="sec-title-wrap">
+              <h3>💻 科技</h3>
+              <span class="sec-en">TECHNOLOGY & AI</span>
+            </div>
+            <div class="sec-meta">
+              <span class="sec-count">22 条</span>
+              <span class="sec-arrow">▾</span>
+            </div>
+          </div>
+          <div class="sec-body">
+            <article id="item-1087" class="item star untranslated" data-source="reuters" data-star="1">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge rtr">路透</span>
+                  <span class="star-pill">★ 要闻</span>
+<span class="why-pill">GN头条</span><span class="tag-warn">未翻译</span><span class="tag-muted">仅标题</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>04:38</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://news.google.com/rss/articles/CBMijwFBVV95cUxQZzZBTkVsVXo2NVo5WmF4NXlRZnpidUVLNE1ZX25XbHFLUm1RamtHODdMRWJYTWJDSVlFRmlfSDI5dGVGVEQ1ZHItNVhoLWFhX0M2eGxVTHdtUExfMUxEc1p2S3ZTVkJuTVd0TUYxXy04UEJnOXFldDE2ZHMzMDEyeXcyMkNpdlpHamVDRmtpVQ?oc=5" target="_blank" rel="noopener noreferrer">Anthropic options post solid debut, trailing SpaceX record ↗</a>
+
+
+            </article>
+            <article id="item-1187" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>04:43</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/articles/2026-11-23/us-to-blacklist-megaspeed-the-firm-at-center-of-nvidia-scandal" target="_blank" rel="noopener noreferrer">US to Blacklist Megaspeed, the Firm at Center of Nvidia Scandal ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>The US plans to add Megaspeed International to a blacklist barring it from buying artificial intelligence chips, targeting a Singapore-based firm at the heart of the scandal that briefly cost Jensen Huang his job as Nvidia Corp. chief executive officer, according to people familiar with the matter.</p>
+              </details>
+            </article>
+            <article id="item-1075" class="item untranslated" data-source="reuters" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge rtr">路透</span>
+<span class="tag-warn">未翻译</span><span class="tag-muted">仅标题</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>03:38</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://news.google.com/rss/articles/CBMiogFBVV95cUxQY290QTRyd09iaGNpaWpuNmlnOHQ2MVZSMm43Q29tS05BSE00ekxCeF9DZ013THRtUzVsTUItS2FIa1R6UzdOQ2FlOFlscXRLVUdfNkhLNS1JZ0FNNTZuOEgxdVVhN2JnaDBYdVFJQXBhSUNxeFBnR0V2XzZLTzZBaEh4NVUxLWRhZjJHOGR5NGVZOXpjWGZjaVFWR0NobElUaUE?oc=5" target="_blank" rel="noopener noreferrer">US lawmakers criticize Nvidia decision to reinstate Huang as CEO ↗</a>
+
+
+            </article>
+            <article id="item-1196" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>03:00</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/articles/2026-11-23/apple-s-new-airpods-max-homepod-mini-2-to-get-product-red-release-for-holidays" target="_blank" rel="noopener noreferrer">Apple’s New AirPods Max, HomePod Mini 2 to Get Product(Red) Release for Holidays ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>Apple Inc. is preparing red versions of its entry-level speaker and high-end headphones, reviving a longstanding Product(RED) partnership that raises money to fight AIDS while giving the company fresh colors to sell during the holiday season.</p>
+              </details>
+            </article>
+            <article id="item-1198" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>02:54</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/videos/2026-11-23/marlowe-hits-1-15b-valuation-with-bet-beyond-nvidia-video" target="_blank" rel="noopener noreferrer">Marlowe Hits $1.15B Valuation With Bet Beyond Nvidia ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>Marlowe, a startup co-founded by two Microsoft vice presidents, has raised $277 million to pursue ways to boost computing power from chips that rival Nvidia’s processors. The seed round, valuing the company at $1.15 billion, was led by venture firm Accel. Co-founder and CEO Dan Lewis joins Ed Ludlow on "Bloomberg Tech." (Source: Bloomberg)</p>
+              </details>
+            </article>
+            <article id="item-1065" class="item untranslated" data-source="wsj" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge wsj">WSJ</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>02:34</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.wsj.com/opinion/nvidias-lesson-set-rules-before-a-crisis-d4ccc369?mod=rss_Technology" target="_blank" rel="noopener noreferrer">Opinion | Nvidia’s Lesson: Set Rules Before a Crisis ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>Fast-moving companies should lock in guardrails so panicked boards don’t oust founders prematurely.</p>
+              </details>
+            </article>
+            <article id="item-1200" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>02:19</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/videos/2026-11-23/nvidia-board-did-not-consult-leadership-on-huang-video" target="_blank" rel="noopener noreferrer">Nvidia Board Did Not Consult Leadership on Huang Decision ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>The surprise move by the board of Nvidia to bring back ousted Chief Executive Officer Jensen Huang was done without consulting the company’s senior leadership, according to people familiar with what happened. Ed Ludlow reports on Bloomberg Television. (Source: Bloomberg)</p>
+              </details>
+            </article>
+            <article id="item-1201" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>02:10</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/articles/2026-11-23/adyen-co-ceo-pieter-van-der-does-to-retire-from-payments-firm" target="_blank" rel="noopener noreferrer">Adyen Co-CEO Pieter van der Does to Retire From Payments Firm ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>Adyen NV said co-founder Pieter van der Does will step down as the Dutch payment company’s co-chief executive officer at the end of the year.</p>
+              </details>
+            </article>
+            <article id="item-1193" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>02:00</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/articles/2026-11-23/anthropic-rolls-out-zero-data-retention-policy-for-advanced-ai" target="_blank" rel="noopener noreferrer">Anthropic Rolls Out Zero Data Retention Policy for Advanced AI ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>Anthropic PBC is releasing a new safety system that lets business customers keep control of their data when using its most capable artificial intelligence models — a stark change from an earlier data-retention policy the company had announced to mitigate potential cyberattacks.</p>
+              </details>
+            </article>
+            <article id="item-1202" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>02:00</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/articles/2026-11-23/zscaler-s-chaudhrys-to-reap-14-5-billion-from-crowdstrike-deal" target="_blank" rel="noopener noreferrer">Zscaler’s Chaudhrys to Reap $14.5 Billion From CrowdStrike Deal ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>The biggest winners of CrowdStrike Holdings Inc.’s $44 billion acquisition of cybersecurity software maker Zscaler Inc. — by far — are the company’s billionaire founder, Jay Chaudhry, and members of his family, who combined own more than a third of the company’s shares, according to regulatory filings.</p>
+              </details>
+            </article>
+            <article id="item-1203" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>01:57</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/articles/2026-11-23/-que-causo-las-fallas-tecnologicas-en-ee-uu-y-por-que-se-esperan-mas" target="_blank" rel="noopener noreferrer">Microsoft, NSA y aerolíneas: qué causó las fallas tecnológicas en EE.UU. ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>Una serie de fallas tecnológicas que comenzó el 11 de noviembre desató una alarma en EE.UU. Problemas que dejaron fuera de servicio sistemas de Microsoft Corp., trastornaron los viajes aéreos e interrumpieron el trabajo de la Agencia de Seguridad Nacional (NSA) llevaron a consumidores a lanzarse a comprar suministros de emergencia, como si se tratara de señales de una catástrofe inminente. Pero los expertos en ciberseguridad advierten que estos incidentes sí podrían ser un anticipo de lo que vie</p>
+              </details>
+            </article>
+            <article id="item-1150" class="item untranslated" data-source="reuters" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge rtr">路透</span>
+<span class="tag-warn">未翻译</span><span class="tag-muted">仅标题</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>01:57</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://news.google.com/rss/articles/CBMioAFBVV95cUxNajRPZ3A2N2ZWTGl1dVlMQTk4OGpNTHh6dG1YbjRpMktzbUhBYUdFaEpJbnhOSnVSZlJUYUpQNDcyRHJQY0NJQW0tSkdtLWtwTWR6SU15TmNyWlp5Y3FNUENDYTRpa3VYNFhvSG03ZEtYU2lQZkRTazhpdXRrS3VZNzBTZnJoWlJKZHJVQkVKc3hnRDZHbmtIY0lwRnlkc0It?oc=5" target="_blank" rel="noopener noreferrer">PODCAST: Huang reinstated, Ukraine hits Russian ship, Black Friday AI (Updated) ↗</a>
+
+
+            </article>
+            <article id="item-1084" class="item untranslated" data-source="reuters" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge rtr">路透</span>
+<span class="tag-warn">未翻译</span><span class="tag-muted">仅标题</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>01:48</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://news.google.com/rss/articles/CBMirgFBVV95cUxQWk01bk9iRUpaaEhTQ1RKTXVXdEQyblBoSjRFb1FBZjBjbzJZdi03REh0RHpKTnFBSnQzRGdoMXNSLWMyVEtQaDBjN2dMVS1zR2otTXhPRzVQeWJaRmZiaXZ6R1dkcUFFSGRYTTRMSWtsWGhEQmhrUmgyaGgtZWRjbjQ5MUl2T3ZuSEhFUDVOY2pNbHRaWG5KMmJydmk3UmZib3djVnV4QXlEcnh2ZUE?oc=5" target="_blank" rel="noopener noreferrer">AI rally set to add $2 trillion to Nasdaq-100 as Huang returns to Nvidia helm ↗</a>
+
+
+            </article>
+            <article id="item-1195" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>01:40</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/articles/2026-11-23/nvidia-s-about-face-on-huang-made-without-consulting-leadership" target="_blank" rel="noopener noreferrer">Nvidia Board Reinstated CEO Without Consulting Management ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>The Nvidia Corp. board’s surprise move to reinstate ousted Chief Executive Officer Jensen Huang was done without consulting the company’s senior leaders, who were informed of the plan at the last minute, according to people familiar with what happened.</p>
+              </details>
+            </article>
+            <article id="item-1066" class="item untranslated" data-source="wsj" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge wsj">WSJ</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>01:33</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.wsj.com/opinion/artificial-intelligence-cant-replace-a-doctor-ba5192c4?mod=rss_Technology" target="_blank" rel="noopener noreferrer">Opinion | Artificial Intelligence Can’t Replace a Doctor ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>That genuine attention and clear roadmap are what ultimately bring patients relief.</p>
+              </details>
+            </article>
+            <article id="item-1079" class="item untranslated" data-source="reuters" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge rtr">路透</span>
+<span class="tag-warn">未翻译</span><span class="tag-muted">仅标题</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>01:07</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://news.google.com/rss/articles/CBMipwFBVV95cUxQWmN5QUFQSGxDSlRyR3gxZzZQczRFSC1SNjFtY0xtMkM4cjhwbnZndkNaSW5JVDNvVVYxMDdObkhjcVZIMVpVZ2FoVFdNZ3NGQU9hckJhZUx6M0dfMERucTNVZk9aamhpRU85TE96c1pEdGUyTlhyZVRMWlNPNUJ1TG1mLTJadHltZ1Utal85WFlTb09aTXF3MTBXNG1TZ0EzeHYzUFNadw?oc=5" target="_blank" rel="noopener noreferrer">VIEW Nvidia reinstates Jensen Huang as CEO, igniting tech surge ↗</a>
+
+
+            </article>
+            <article id="item-1099" class="item untranslated" data-source="reuters" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge rtr">路透</span>
+<span class="tag-warn">未翻译</span><span class="tag-muted">仅标题</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>00:56</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://news.google.com/rss/articles/CBMiqwFBVV95cUxQTEVKTTZyVDYxTGdWYlI3bzFQSU9zSGhiaXpERE5MWHRYSVhZcDhZRDBpekhuODdWYlZCTFJmU1NDYWVzRlpMR2JWZ21xcUMzSmhkX2RoYnhPSmtJRDdqMGRyczN5UElOQV9BdUt5NDItbzlEb29RNmR0eFRWd1V5bkcwUXQ0NG5lWjRkUkw0Y0VRaUV0UXF6V1V4ZkRhdS02X1UtWkRpejVlT2M?oc=5" target="_blank" rel="noopener noreferrer">Rene Haas to remain CEO of chipmaker Arm through 2033 amid Nvidia top job chatter ↗</a>
+
+
+            </article>
+            <article id="item-1100" class="item untranslated" data-source="reuters" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge rtr">路透</span>
+<span class="tag-warn">未翻译</span><span class="tag-muted">仅标题</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>00:53</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://news.google.com/rss/articles/CBMixgFBVV95cUxORW5Dd2o3Ty1RU2Rmbl9tMi1pcS1DUTlFY0x0c1d5czk4R2Z0YXZObUJyRkFTYk1yMlhyYk5YUGIwOFg0dUotVGR1cU15VjhOVVNzYmVxQlVQN1hPeDBPOHdGZ1FjS21BRVdWYkF5azRKdzBWLVh2WnV4YWp5dlFtRFpPSHdZNkx4V2syeHpOOXV0RHBSUnFjRkZEc3RHR2gtUFZuNVVPWm9YOW84VmM5dnpXMGt6OHpNalpiTlBpM1ZIcE1JSlE?oc=5" target="_blank" rel="noopener noreferrer">Amazon to buy Decart's AI chip optimization tech in latest AI talent grab ↗</a>
+
+
+            </article>
+            <article id="item-1098" class="item untranslated" data-source="reuters" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge rtr">路透</span>
+<span class="tag-warn">未翻译</span><span class="tag-muted">仅标题</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>00:44</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://news.google.com/rss/articles/CBMixgFBVV95cUxObnVxU21QWWFOSHYzcW1sajgxS25DUndFTGd6dTh6UzdyaFR5U0QtMWlROWIxZ01IcU0wNG5FLXRaMWZoS1o0dHhEUUFiaDItWFVIbE01S1pTbDZxYVZGN1hMaHlNYXBZck84N3JPaW1xcW5VMHdNeFBHSWZmRVN6MzlHZjdEcl8wTkVERGhBU3M0dVBXSHBFUHNpM1pCc1Q0MV9HTWlveVJSV1hiSEFaWjJDMEI0b2p2bzBIZEdrampIVFlVWEE?oc=5" target="_blank" rel="noopener noreferrer">Virginia, Oregon sue Musk's SpaceX over Grok AI's creation of child sexual abuse images ↗</a>
+
+
+            </article>
+            <article id="item-1088" class="item untranslated" data-source="reuters" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge rtr">路透</span>
+<span class="tag-warn">未翻译</span><span class="tag-muted">仅标题</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>00:39</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://news.google.com/rss/articles/CBMiowFBVV95cUxObDc2T2YtTzVKdktGdmxSZW5iSG5Pcy16ZU9IZDZKUnhYTEJqRmRBY191eHI1QktIeHplc1B0QUM0SmJnN0oxODJUNzI4bVhRQ1ZxOE5PX19ueW92VHdQS3cyVGd4Z1lmcXRqaEtya183QUF0XzJFampRLW9OOVgtZXF1bVFicUlERG9TQy1ra3kwNnNJUlpfc3lLQ0hpdHh3Umtr?oc=5" target="_blank" rel="noopener noreferrer">Nvidia bears face $12.2 billion hit on Huang's surprise return ↗</a>
+
+
+            </article>
+            <article id="item-1076" class="item untranslated" data-source="reuters" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge rtr">路透</span>
+<span class="tag-warn">未翻译</span><span class="tag-muted">仅标题</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>00:39</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://news.google.com/rss/articles/CBMipgFBVV95cUxNZnlVTjVfX19obXNnQmFYcHJyY1VpcHZSOHh1aFJOTHh0eVBZVl9KOG9sWk5TZUlqWVMxSTdMUWVVa1BFeGhhSkZzNXJLSUUtajdRT2xadGhCMG1xOFI3UG9zS0tmbXRhdk05dGU0OEJRcnZ1eVZjWWpmcXNyOTM3ZTk1WVRQNENBMjhzMnpWczQySlJMRmFqc3pDanEtNzNuNllqb1d3?oc=5" target="_blank" rel="noopener noreferrer">Political and corporate leaders react to Huang's return as Nvidia CEO ↗</a>
+
+
+            </article>
+            <article id="item-1063" class="item untranslated" data-source="wsj" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge wsj">WSJ</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>00:09</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.wsj.com/cio-journal/jensen-huang-upends-ai-outlook-once-again-b2bdb17d?mod=rss_Technology" target="_blank" rel="noopener noreferrer">Jensen Huang Upends AI Outlook Once Again ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>Plus, OpenAI scientist proposes common limits on frontier model development.</p>
+              </details>
+            </article>
+          </div>
+        </section>
+        <section class="cat-sec" data-cat="world">
+          <div class="sec-head">
+            <div class="sec-title-wrap">
+              <h3>🌍 政治与世界</h3>
+              <span class="sec-en">WORLD & GEOPOLITICS</span>
+            </div>
+            <div class="sec-meta">
+              <span class="sec-count">20 条</span>
+              <span class="sec-arrow">▾</span>
+            </div>
+          </div>
+          <div class="sec-body">
+            <article id="item-1081" class="item star untranslated" data-source="reuters" data-star="1">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge rtr">路透</span>
+                  <span class="star-pill">★ 要闻</span>
+<span class="why-pill">标题特征词</span><span class="tag-warn">未翻译</span><span class="tag-muted">仅标题</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>00:07</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://news.google.com/rss/articles/CBMikAFBVV95cUxNd2tMTDZEYUhaR0lYVlhOTVpicEV6a3VJN2RSV1pVdXMxRmJwQkFUd1hzNWZEa0pSUkJaQ0l6SVNjM1pfMllVR2hNV2FNb2FZUTNuclJzLTdkenNHU3RncUJKUzRKcWswcTJkRkRQZjBuU0h3dDJBdlV0V25nU2xpQlA5UWFnMkZSZnlFMXRsbmQ?oc=5" target="_blank" rel="noopener noreferrer">EXCLUSIVE: US discussing military training for Syrian forces ↗</a>
+
+
+            </article>
+            <article id="item-1073" class="item untranslated" data-source="reuters" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge rtr">路透</span>
+<span class="tag-warn">未翻译</span><span class="tag-muted">仅标题</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>03:01</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://news.google.com/rss/articles/CBMizgFBVV95cUxPNEhFQnBrZnZEa0dZclBpTkZMV3BBNS1tN3NjeGhINDZKcllFTERwWnR6NlpzM0Q0WTZkbGM3SXpVWGZ2bGFFaW4xV2M4T3BIUE1VUkxMX19wa0RwM0JaTDBEM3l4R1ROZlVwSjE1LWVUYnp6SU40WjMyeFlFZjlJYjV0ZE9LVTZkR0pIblp0cXdzeE5fLTNhbkR3QVFfa3pDU2M4blFEMlI4dm5XUTRDUExwTUpyLXJxU0ZiRjBZcFhQWVBFQ294SllhMld3UQ?oc=5" target="_blank" rel="noopener noreferrer">NATO to send early-warning system aircraft to Poland after missiles incident ↗</a>
+
+
+            </article>
+            <article id="item-1071" class="item untranslated" data-source="wsj" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge wsj">WSJ</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>02:33</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.wsj.com/opinion/marco-rubio-is-hostage-to-a-failing-foreign-policy-d4ddaeca?mod=rss_worldnews" target="_blank" rel="noopener noreferrer">Opinion | Marco Rubio Is Hostage to a Failing Foreign Policy ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>How long can he keep his reputation as a serious person committed to American interests?</p>
+              </details>
+            </article>
+            <article id="item-1103" class="item untranslated" data-source="reuters" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge rtr">路透</span>
+<span class="tag-warn">未翻译</span><span class="tag-muted">仅标题</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>02:31</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://news.google.com/rss/articles/CBMilgFBVV95cUxOcUdmOUFLaEppLU9uMl80V2x1RTg4YWg3VUc5cWZsVzNfUWJBN2pFY3BhTndKanI0U2gzZHMzZVdpeWlkVkdBMkxGZkEtNFYyYmhteTQ5MHM0NnhkN2lfVk1WcDRxZDluQzVXNll2OWhodnVmaG9qNm15SWdweEM4YmxSWXVKd21mNW9uWW82MHUyWlJLTEE?oc=5" target="_blank" rel="noopener noreferrer">CrowdStrike snaps up Zscaler in $44 billion deal as cyber threats mount ↗</a>
+
+
+            </article>
+            <article id="item-1068" class="item untranslated" data-source="wsj" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge wsj">WSJ</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>02:03</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.wsj.com/world/americas/the-mass-exodus-making-cubas-economic-crisis-even-worse-6fed25bd?mod=rss_worldnews" target="_blank" rel="noopener noreferrer">The Mass Exodus Making Cuba’s Economic Crisis Even Worse ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>Watch to learn why the country’s economic woes and fuel shortages could be masking an even bigger issue for its chances of a turnaround.</p>
+              </details>
+            </article>
+            <article id="item-1211" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>01:54</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/articles/2026-11-23/us-intel-helped-nab-mexico-cartel-leader-without-agents-on-site" target="_blank" rel="noopener noreferrer">US Intel Helped Nab Mexico Cartel Leader Without Agents on Site ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>The US provided intelligence leading to the capture of a suspected Mexican drug kingpin, but no US agents took part in the deadly operation, according to Mexico’s government.</p>
+              </details>
+            </article>
+            <article id="item-1213" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>01:38</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/articles/2026-11-23/uk-review-of-disability-benefits-to-shy-away-from-near-term-cuts" target="_blank" rel="noopener noreferrer">UK Review of Disability Benefits to Shy Away From Near-Term Cuts ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>A long-awaited government review into the soaring cost of the welfare payments received by disabled Britons will recommend overhauling the system, without proposing immediate spending cuts.</p>
+              </details>
+            </article>
+            <article id="item-1074" class="item untranslated" data-source="reuters" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge rtr">路透</span>
+<span class="tag-warn">未翻译</span><span class="tag-muted">仅标题</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>01:36</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://news.google.com/rss/articles/CBMiwAFBVV95cUxOVVUwM3E2S25ITGFnMXI3UUZUcHRmTldCaHAzSnpFWDVjaEZXbF9kZV9fcXZOMWZkemxmV1NVYmYyNkhpTkdzUmVtRzkzRHpkcjFnQ0s1RFNpcnRuY095UzN2Z3hiN2l4OW5BM0hmUmNTVUlXQTVlbGpSQnFzNV9ZSTM0WEpWMnNfcHJCT3pmTFUyd2tVT2E0ZHBmN0V2UDh0YVJ4Z3M2ZzhUR0Z3LS16YUZTb1prcWxBLXd0R0RwdVQ?oc=5" target="_blank" rel="noopener noreferrer">Britain says SpaceX restrictions in Ukraine 'dented confidence and trust' ↗</a>
+
+
+            </article>
+            <article id="item-1072" class="item untranslated" data-source="wsj" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge wsj">WSJ</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>01:27</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.wsj.com/world/europe/eu-probes-coca-cola-bottler-citing-antitrust-concerns-7717c957?mod=rss_worldnews" target="_blank" rel="noopener noreferrer">EU Probes Coca-Cola Bottler, Citing Antitrust Concerns ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>The European Commission said it is concerned the company might have abused its dominance in the wholesale supply of soft drinks to supermarkets and retailers in the EU.</p>
+              </details>
+            </article>
+            <article id="item-1214" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>01:26</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/articles/2026-11-23/spain-poll-shows-feijoo-on-track-to-oust-sanchez-as-premier" target="_blank" rel="noopener noreferrer">Spain Poll Shows Feijóo on Track to Oust Sánchez as Premier ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>Final polls ahead of a Nov. 29 election signal that center-right leader Alberto Núñez Feijóo is set to become Spain’s next prime minister, ending Pedro Sánchez’s eight-year term.</p>
+              </details>
+            </article>
+            <article id="item-1215" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>01:21</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/articles/2026-11-23/nato-to-send-awacs-plane-to-poland-after-russian-missiles-crash" target="_blank" rel="noopener noreferrer">NATO to Send AWACS Plane to Poland After Russian Missiles Crash ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>NATO will deploy an airborne warning and control system aircraft to Poland to monitor the country’s eastern region, a deputy defense minister said, after three Russian missiles crashed there last week.</p>
+              </details>
+            </article>
+            <article id="item-1136" class="item untranslated" data-source="reuters" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge rtr">路透</span>
+<span class="tag-warn">未翻译</span><span class="tag-muted">仅标题</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>01:21</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://news.google.com/rss/articles/CBMirgFBVV95cUxNdDFuaFRyaktlcVA5TVR0eXF2QlktZ3ZVU3JkbzZycU8zTU90WEhFSlhuVTc5RTRCdVctYVpuQzZhdUJnN1BlZWdOYkZEQXg5alR6d1BDVWEwMEszRTlRUFB1aG9ueFhHWmZmbkI1dmFSSmNZMVF6VzlhZFpBOG5BaVJ0QlprZnRVRmVIZ2djcXFzM3VrU2VQa3FQelVLU2Qzd2MwT19jTUdkRnVWYmc?oc=5" target="_blank" rel="noopener noreferrer">Europe's STOXX logs strongest day in over six months on tech boost ↗</a>
+
+
+            </article>
+            <article id="item-1091" class="item untranslated" data-source="reuters" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge rtr">路透</span>
+<span class="tag-warn">未翻译</span><span class="tag-muted">仅标题</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>01:04</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://news.google.com/rss/articles/CBMivgFBVV95cUxNYmhqYjlfbVd5U0RGcjlwdHhiTUdDeTQzbXR0cEJVVE5UZUZnSm03RjFnUHk1bVhaYWcxeTlFczdLa3djYnd0c3djWTVUWHVwb3lSWlAwWHFuZ0tiUnNOSlR6dVhzdGRUZEMzMUZqUXFvdENpYklCU0lqWjBpTVdKVGZZRTZRRVFvaGJSajUzWHpPOC0wTGFwaERQaElFZkl4ZW1Ba184TkhnUnZkSzdHM3NPRHg1ZEdsNW01VHdn?oc=5" target="_blank" rel="noopener noreferrer">California attorney general says Huang reinstatement changes nothing ↗</a>
+
+
+            </article>
+            <article id="item-1210" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>01:00</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/articles/2026-11-23/burnham-s-uk-government-explores-free-trade-deal-with-thailand" target="_blank" rel="noopener noreferrer">UK’s Burnham Explores Free Trade Deal With Thailand ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>The UK is exploring whether to negotiate a free trade agreement with Thailand, in what would be the first new set of talks since Andy Burnham became prime minister.</p>
+              </details>
+            </article>
+            <article id="item-1151" class="item untranslated" data-source="reuters" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge rtr">路透</span>
+<span class="tag-warn">未翻译</span><span class="tag-muted">仅标题</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>00:51</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://news.google.com/rss/articles/CBMiswFBVV95cUxPaTNjdlBtR2k2WGZjVFhHN1Q2dkcySlNlMlhLbTBUcHlveFpETHBnazN1Vy1fU2hvTjAzUWpTZVQ5UG9ERUNpbEZ5MG5fTkNVbF95eFNkYkhSWTNkYkJ3Mk90dlZLQlNOLUx1T081aWF3dEU3Tkd2R1Bwa3BYWFh1ano4eUY3dGdZS1FOR2lnYnFxWU5DNjNjbUw0QnZJMEpaVUJTQ1Nyb3E5WUFpTzRVZVMyVQ?oc=5" target="_blank" rel="noopener noreferrer">EU opens antitrust investigation into Coca-Cola bottler CCEP ↗</a>
+
+
+            </article>
+            <article id="item-1153" class="item untranslated" data-source="reuters" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge rtr">路透</span>
+<span class="tag-warn">未翻译</span><span class="tag-muted">仅标题</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>00:45</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://news.google.com/rss/articles/CBMiqwFBVV95cUxORmZoM2ctX3Fod2Q1MDRlYnV5cUQwSmJNb1ZmVHhpaFJ1cThuLTFCU3c2SXpXU1cyVnY0VzMyMDNzTDd3eVBaV3ppeVBBYjNIUXRxSE1kTGk3cXI3TjZXd1U5Wm85T21pMGxvcGZKb2xxZG5ieVVNZmNzWWlkVXVWZGQ1Vjl4VzVQdlQ4VGNpdFBnSDNnSnRkb0dBT3F2emJhMHVXNzBkNTBVSXc?oc=5" target="_blank" rel="noopener noreferrer">'Iron Felix', architect of Bolshevik 'Terror', honoured with Moscow plaque ↗</a>
+
+
+            </article>
+            <article id="item-1216" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>00:31</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/articles/2026-11-23/uk-s-burnham-says-unthinkable-to-rejoin-eu-without-referendum" target="_blank" rel="noopener noreferrer">Burnham Says ‘Unthinkable’ to Join EU Without UK Referendum ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>Prime Minister Andy Burnham said it would be “unthinkable” for Britain to re-join the European Union without a referendum, the clearest indication he’s given yet about how his Labour administration could steer any decision on the UK’s future ties with the bloc.</p>
+              </details>
+            </article>
+            <article id="item-1077" class="item untranslated" data-source="reuters" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge rtr">路透</span>
+<span class="tag-warn">未翻译</span><span class="tag-muted">仅标题</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>00:26</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://news.google.com/rss/articles/CBMiqAFBVV95cUxPb1A2RHl1RS1IaFcyWmlES0xYNW1lbnM5VlhwWVU5ajZhRVVBa0Mydi1OZG4tS0tCYVJKX1JiOUtmWlNTZVJmTGRTRlFtZTRXRTRxcXB1aGMya2JhWm41UXE5Y2pxTlFDNzVSQ2MyV0RPZzNoYlZtazdMX3RYRnB6VFFsaEFnTGI5RFk4TnczUE9aTXFqcGNxZ0psd1JUczRBNi1LSkpnVk8?oc=5" target="_blank" rel="noopener noreferrer">EU Commission proposes ban on Russian athletes, ex-fighters in new Russia sanctions package ↗</a>
+
+
+            </article>
+            <article id="item-1078" class="item untranslated" data-source="reuters" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge rtr">路透</span>
+<span class="tag-warn">未翻译</span><span class="tag-muted">仅标题</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>00:13</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://news.google.com/rss/articles/CBMiqgFBVV95cUxOS3hoekpkTmwxcjE1NnNid3RFSXVsVGtob3A3dFNKVjRNZzVnaXMxRnV6N3pIellLeVdQRHNjUVpMR0R3aUpWaFV1MHBWRWljclZQbTdKakEzcUZ5cTBFNE5xVTlWSFNzTXlWN2tqRlpvbnk1M2RuUWRxclZMNmw2a01laUM0c09QNHRSY0c4amtsQS1XeV8zV3JCb2VFUzMwRUNqYVhrTHVIQQ?oc=5" target="_blank" rel="noopener noreferrer">Moscow accuses Estonia of hostile actions on 'verge of triggering open war' ↗</a>
+
+
+            </article>
+            <article id="item-1217" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>00:00</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/articles/2026-11-23/new-hacked-data-puts-russian-death-toll-in-ukraine-near-500-000" target="_blank" rel="noopener noreferrer">New Hacked Data Puts Russian Death Toll in Ukraine Near 500,000 ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>New data from a trove of hacked documents shows that at least 470,000 people on the Russian side have died as a result of President Vladimir Putin’s war on Ukraine, a higher figure than previously reported.</p>
+              </details>
+            </article>
+          </div>
+        </section>
+        <section class="cat-sec" data-cat="us">
+          <div class="sec-head">
+            <div class="sec-title-wrap">
+              <h3>🇺🇸 美国相关</h3>
+              <span class="sec-en">US POLITICS & POLICY</span>
+            </div>
+            <div class="sec-meta">
+              <span class="sec-count">17 条</span>
+              <span class="sec-arrow">▾</span>
+            </div>
+          </div>
+          <div class="sec-body">
+            <article id="item-1067" class="item star untranslated" data-source="wsj" data-star="1">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge wsj">WSJ</span>
+                  <span class="star-pill">★ 要闻</span>
+<span class="why-pill">跨源报道</span><span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>03:42</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.wsj.com/articles/nvidia-board-reinstates-jensen-huang-as-ceo-a6b49914?mod=rss_Technology" target="_blank" rel="noopener noreferrer">Nvidia Board Reinstates Jensen Huang as CEO ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>President Trump acknowledged involvement in efforts to bring back the chip maker’s longtime leader, who had resigned following revelations of extramarital affairs.</p>
+              </details>
+            </article>
+            <article id="item-1197" class="item star untranslated" data-source="bloomberg" data-star="1">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+                  <span class="star-pill">★ 要闻</span>
+<span class="why-pill">跨源报道</span><span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>03:00</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/videos/2026-11-23/bloomberg-tech-11-23-2026-video" target="_blank" rel="noopener noreferrer">Jensen Huang Is Back As Nvidia CEO ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>Bloomberg’s Ed Ludlow breaks down the day's top story: Nvidia reinstating Jensen Huang as CEO, less than two weeks after his ouster. His return follows backing from the US government and President Trump, who has publicly supported Huang and says he does not believe his return poses a national security risk. (Source: Bloomberg)</p>
+              </details>
+            </article>
+            <article id="item-1204" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>04:38</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/videos/2026-11-23/what-to-expect-when-huang-comes-before-congress-video" target="_blank" rel="noopener noreferrer">What to Expect When Huang Comes Before Congress ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>Bloomberg Contributor Patrick McHenry, a former Republican Rep. from North Carolina, talks about what to expect when Nvidia CEO Jensen Huang appears before Congress on Dec. 3. (Source: Bloomberg)</p>
+              </details>
+            </article>
+            <article id="item-1085" class="item untranslated" data-source="reuters" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge rtr">路透</span>
+<span class="tag-warn">未翻译</span><span class="tag-muted">仅标题</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>04:31</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://news.google.com/rss/articles/CBMiiAFBVV95cUxOd19EYmc4X2wzaW5zXzZ5VXZ1cUFJbS1OYzJsZ2VSTVRnMkQteWdiN3Z0dTBlNmltdll6Vy1RWnpxVUthOF9XX3g0YmVvNWdXODJUMGpSeXdldVdYQWE3N2hCQXU3RExXSDViSWI3S2xHNVZFc0NUVmh5bGRhem5aUzdDa29xb1hH?oc=5" target="_blank" rel="noopener noreferrer">Huang returns as Nvidia CEO after Trump intervention in abrupt board reversal ↗</a>
+
+
+            </article>
+            <article id="item-1190" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>04:30</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/videos/2026-11-23/big-take-jensen-huang-is-back-video" target="_blank" rel="noopener noreferrer">Big Take: Jensen Huang Is Back ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>On this episode of the Big Take podcast, Sarah Holder sits down with Odd Lots’ co-host Joe Weisenthal and AI policy editor Michael Shepard on US President Donald Trump’s stunning intervention. (Source: Bloomberg)</p>
+              </details>
+            </article>
+            <article id="item-1205" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>04:08</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/videos/2026-11-23/balance-of-power-early-edition-11-23-2026-video" target="_blank" rel="noopener noreferrer">Nvidia Rehires Huang Amid Trump Push ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>On the early edition of Balance of Power, Bloomberg Washington Correspondents Joe Mathieu and Kailey Leinz discuss Nvidia reinstating Jensen Huang as CEO. On today’s show, Arbroath Group Managing Partner Christopher Smart, Rep. Sharice Davids (D-KS), Stonecourt Capital Partner Rick Davis, The Watchdog Report Publisher Kurt Bardella and former Republican Congressman Patrick McHenry. (Source: Bloomberg)</p>
+              </details>
+            </article>
+            <article id="item-1206" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>03:53</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/articles/2026-11-23/trump-halts-detonation-in-iowa-puts-onus-on-incoming-governor" target="_blank" rel="noopener noreferrer">Trump Halts Detonation in Iowa, Puts Onus on Incoming Governor ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>A controlled detonation of hazardous materials stored at an Army facility in Iowa is on hold pending an appellate court decision and the agreement of the state’s incoming Democratic governor, President Donald Trump said Monday, warning that the delay raises the risk of “a large, spontaneous explosion.”</p>
+              </details>
+            </article>
+            <article id="item-1207" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>03:51</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/videos/2026-11-23/nvidia-at-heart-of-natsec-ai-future-says-smart-video" target="_blank" rel="noopener noreferrer">Nvidia at 'Heart' of National Security, AI Future, Says Christopher Smart ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>Christopher Smart, founder of Arbroath Group and former special assistant to the president at the National Economic Council during the Obama Administration, said that Trump's push to reinstate Jensen Huang as the CEO of Nvidia shows that the company is at the heart of the future of US national security and AI innovation, as well as holding up a major piece of the US economy. Smart said there are high stakes for the AI trade and that if the AI build out starts to unravel the US would be 'talking about a recession pretty quickly.' (Source: Bloomberg)</p>
+              </details>
+            </article>
+            <article id="item-1061" class="item untranslated" data-source="wsj" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge wsj">WSJ</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>03:46</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.wsj.com/politics/policy/nvidia-ceo-trump-vance-jensen-huang-bdec91c3?mod=rss_Technology" target="_blank" rel="noopener noreferrer">Trump Asked Vance to Help Persuade Nvidia to Bring Back Jensen Huang ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>The vice president worked over the weekend to help coax the chip maker’s board to reinstate its former CEO.</p>
+              </details>
+            </article>
+            <article id="item-1122" class="item untranslated" data-source="reuters" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge rtr">路透</span>
+<span class="tag-warn">未翻译</span><span class="tag-muted">仅标题</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>03:23</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://news.google.com/rss/articles/CBMisgFBVV95cUxPam9EWkNKUkVWckNXeXJpWmh0OEhTcy1reWhiOWRkUHllZWZtc1V0N0l1UWJLMEtjSUR5V3F6YXlJdXRYaTZyQ0Z6ZGp2UjJnc1FfSExfaUNtblB5eUg4WG9QQm9XdUxPTmdMb3diZGl5LU53c2l4aXdXaTkyaUJnNVprM1Y3UWdjMjd6M0dLc2RmbXY5ZUFPaWwwRXR2SXZreTdZMmM2M2MtVFJqelI2MmxB?oc=5" target="_blank" rel="noopener noreferrer">Trump saw Nvidia's Huang as protector of open-weight AI models, sources say ↗</a>
+
+
+            </article>
+            <article id="item-1093" class="item untranslated" data-source="reuters" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge rtr">路透</span>
+<span class="tag-warn">未翻译</span><span class="tag-muted">仅标题</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>02:50</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://news.google.com/rss/articles/CBMizgFBVV95cUxOOFF4ZmFWRTMwallWSHh0VWVnX2lmeDNOZV9DekZTSmk1T0FWQjZCa3Z6dkZ0ZDVtelZLRnBVWjV5WHdYZmdPWWptb09iZ3VSdS0yTDdnU3FYUWx5cWJEaVFaR0gzYWJmbHhsaUZJd1hKQ3M5cGRqZGlfQTZWYm9iYi00RGUyRlV1YkdBcmJwVWpYeUdJenlyR29tODEzekswMzZzSEJWNHF4b2pWYlYtVWEtdGVIcjF1ZVNheUFlSHkwUENLVFUzTFlRdHA0UQ?oc=5" target="_blank" rel="noopener noreferrer">White House moves to potentially replace blocked Trump judicial nominee, source says ↗</a>
+
+
+            </article>
+            <article id="item-1124" class="item untranslated" data-source="reuters" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge rtr">路透</span>
+<span class="tag-warn">未翻译</span><span class="tag-muted">仅标题</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>02:47</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://news.google.com/rss/articles/CBMipwFBVV95cUxQbGxaOWZ5OU45Qk5pWkpJYzRKeFQ2SzRRQkxMcnNFMlZQR3JwLTF5RV9WR2IxT2JyVzdnd0daQWdma1JCTjRuTWZDZUtieWgxazB6eGN2WjlmTHNNaW5VMnFwZkh1MjVvaGh4OE92ZmQ0cUtJOGNzVUszMHZRY3NhVkVEaXJqTml5UFVxaHN6aE5NMGhPVjIwa0RFMHF1UEZFM3A1MVZpYw?oc=5" target="_blank" rel="noopener noreferrer">Trump to target Gavin Newsom in speech at Justice Department ↗</a>
+
+
+            </article>
+            <article id="item-1209" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>02:42</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/articles/2026-11-23/huang-s-return-followed-unprecedented-intervention-by-trump" target="_blank" rel="noopener noreferrer">Huang’s Return Followed Unprecedented Intervention by Trump ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>President Donald Trump and his AI-friendly allies believed only Jensen Huang could revive Nvidia Corp.’s fortunes and reverse a massive stock-market slide. So they went to work to reinstate the beleaguered tech titan.</p>
+              </details>
+            </article>
+            <article id="item-1086" class="item untranslated" data-source="reuters" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge rtr">路透</span>
+<span class="tag-warn">未翻译</span><span class="tag-muted">仅标题</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>02:14</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://news.google.com/rss/articles/CBMiqgFBVV95cUxNc3l1T3NpNEY5eFRTQ0xVT2tBNjQyS3JFaUF3SmQydUpCY0RaZEFZWDgyaUdhTUR2R2xzamVmcTJjeHFzRDN2eVpEVjVneE5QWHc0ZXlrSWc3T0gwSFlUY1k4ZjYzbm1GbWVxWVdxYW1XU1daZWNCZkVGeUFRRkxZQnpJS1JpZHY1UGRYVTExM29fbTRmbkpOU3hWUVl6Y1BPUjQxZzlOQ2sxUQ?oc=5" target="_blank" rel="noopener noreferrer">Trump says he assured Nvidia that Jensen Huang posed no national security threat ↗</a>
+
+
+            </article>
+            <article id="item-1188" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>02:11</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/videos/2026-11-23/opinion-huang-s-nvidia-return-is-a-bad-precedent-video" target="_blank" rel="noopener noreferrer">Huang’s Nvidia return is a bad precedent ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>With the backing of President Donald Trump, Nvidia has reinstated Jensen Huang as CEO, less than two weeks after he was ousted due to scandals surrounding his alleged extramarital affairs. This sets a new precedent for government control over business, Bloomberg Opinion columnist Parmy Olson says. (Correction: A previous version of this video incorrectly characterized Huang’s departure from Nvidia. He resigned.) (Source: Bloomberg)</p>
+              </details>
+            </article>
+            <article id="item-1212" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>01:11</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/articles/2026-11-23/jensen-huang-will-testify-publicly-before-us-senators-next-week" target="_blank" rel="noopener noreferrer">Jensen Huang Will Testify Publicly Before Senators Next Week ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>Newly reinstated Nvidia Corp. chief executive officer Jensen Huang will testify publicly before a powerful Senate committee on Dec. 3, according to a statement from the panel’s chairman.</p>
+              </details>
+            </article>
+            <article id="item-1129" class="item untranslated" data-source="reuters" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge rtr">路透</span>
+<span class="tag-warn">未翻译</span><span class="tag-muted">仅标题</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>00:06</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://news.google.com/rss/articles/CBMiqwFBVV95cUxQa3pYc1MzQXZDVUNIbmZKWjQxRXBNeWtHRlllMWc2TWVNSkJuU2dIUS1MQkxseVVRam11MERTY1JucUxKNGhjdUlyQml3WFpucGljS2I5dnNDY05jd3NmeG85bkdZNmplNzltOC1waVFJaUdvWEYxNDVncmFKWXNGUTJBQmFDWW1pT2VOS3VFLWQwR0VwVS1ST1F2Y1VlVkJ4NG9xaDRrRnZIbWM?oc=5" target="_blank" rel="noopener noreferrer">Trump tells CNBC he was represented at Nvidia board, spoke to Huang ↗</a>
+
+
+            </article>
+          </div>
+        </section>
+        <section class="cat-sec" data-cat="china">
+          <div class="sec-head">
+            <div class="sec-title-wrap">
+              <h3>🇨🇳 中国相关</h3>
+              <span class="sec-en">CHINA & GREATER CHINA</span>
+            </div>
+            <div class="sec-meta">
+              <span class="sec-count">5 条</span>
+              <span class="sec-arrow">▾</span>
+            </div>
+          </div>
+          <div class="sec-body">
+            <article id="item-1186" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>04:52</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/articles/2026-11-23/jensen-huang-s-return-to-nvidia-is-welcomed-by-markets-trump-big-take-podcast" target="_blank" rel="noopener noreferrer">Jensen Huang’s Return to Nvidia Is Welcomed by Markets, Trump: Big Take Podcast ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>Nvidia shares leapt more than 30% on the news — even as corporate and federal investigations into Huang’s affair with an alleged Chinese spy are ongoing.</p>
+              </details>
+            </article>
+            <article id="item-1189" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>04:33</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/videos/2026-11-23/huang-tells-staff-he-will-be-better-ceo-second-time-video" target="_blank" rel="noopener noreferrer">Huang Tells Staff He Will Be Better CEO 'Second Time Around' ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>Bloomberg's Ed Ludlow said that newly reinstated Nvidia CEO Jensen Huang received a warm welcome as he returned to the company and thanked staff for a second chance after he was ousted over allegations of multiple affairs, including one with a suspected Chinese spy. Ludlow said that despite the mood at Nvidia, the return is not 'euphoric' for everyone and many people have serious questions and concerns about Huang's tenure and the structure of the Nvidia going forward. (Source: Bloomberg)</p>
+              </details>
+            </article>
+            <article id="item-1191" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>04:14</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/videos/2026-11-23/-jensen-trade-is-ai-trade-says-patrick-mchenry-video" target="_blank" rel="noopener noreferrer">'Jensen Trade is AI Trade,' Says Patrick McHenry ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>Former Republican representative from North Carolina Patrick McHenry said that even if the Trump administration has already absolved Jensen Huang of any wrongdoing in his affair with an alleged Chinese spy, Congressional investigations could reveal details that change the public posture around the company and help other governments put pressure on the chipmaker. McHenry said that Jensen Huang peers with Elon Musk in terms of market impact and how his actions dictate the future of AI. (Source: Bloomberg)</p>
+              </details>
+            </article>
+            <article id="item-1194" class="item untranslated" data-source="bloomberg" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge bbg">彭博</span>
+<span class="tag-warn">未翻译</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>03:32</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://www.bloomberg.com/news/videos/2026-11-23/lawmakers-demand-answers-as-huang-returns-to-nvidia-video" target="_blank" rel="noopener noreferrer">Lawmakers Demand Answers As Huang Returns to Nvidia ↗</a>
+
+
+              <details class="en-sum" open>
+                <summary>英文原摘要（翻译未完成自动展开）</summary>
+                <p>Democrat Representative from Kansas Sharice Davids said that she wants to make sure that there are 'no gray areas' when it comes to national security and AI competition with China, as Nvidia's board reinstates Jensen Huang as CEO amid allegations of an affair with a suspected Chinese spy. Huang is scheduled to appear in front of multiple committees and Davids said that 'serious unanswered questions' remain about his conduct. (Source: Bloomberg)</p>
+              </details>
+            </article>
+            <article id="item-1080" class="item untranslated" data-source="reuters" data-star="0">
+              <div class="item-meta">
+                <div class="meta-left">
+                  <span class="badge rtr">路透</span>
+<span class="tag-warn">未翻译</span><span class="tag-muted">仅标题</span>                </div>
+                <div class="time-pair" title="新闻发布时间（published_at）与入库时间（created_at）">
+                  <span class="t-pub">发布 <b>01:44</b></span>
+                  <span class="t-sep">·</span>
+                  <span class="t-crt">抓取 05:06</span>
+                </div>
+              </div>
+
+              <a class="title-en" href="https://news.google.com/rss/articles/CBMiuwFBVV95cUxNVTRDX1g3YlY5UEgxMzJ3OTdhU0VUdU1ubmRRXzZwaDVibmRycVllN2hQSUhyeEFfNWpwc1VWQ1hKR3NSeTVmZHpSQ1hLeW5pUFpoNW15MGljX1BXUkdRX0hxeEdUMzkyNFVFYzlpb2ZNN09IN1FDXzIxblBEVjgtS3hlNTZRcnRWN2ZQOW8tYmtKeXlwTDI0bW9rSXpJZ2cxcU9wazcyMGZ1RFFaM01SRUd3QkYwN000dVFJ?oc=5" target="_blank" rel="noopener noreferrer">Trump thinks China will buy another 250 Boeing airplanes ↗</a>
+
+
+            </article>
+          </div>
+        </section>
+      <div class="empty-state" id="emptyState">
+        当前筛选条件下暂无匹配新闻，请尝试切换栏目、来源或关闭「仅看要闻」。
+      </div>
+  </main>
+
+  <footer>
+    <div>Market Dispatch（market-dispatch）· 仅采集公开 RSS 元数据，不保存正文 · 仅供个人学习研究</div>
+    <div>
+<a href="../daily/2026-11-23.html">← 11-23</a>    </div>
+  </footer>
+
+</div>
+
+<script>
+(function () {
+  const root = document.documentElement;
+  const themeBtn = document.getElementById('themeBtn');
+  function applyTheme(t) {
+    root.setAttribute('data-theme', t);
+    themeBtn.textContent = t === 'dark' ? '☀️ 日间版' : '🌙 夜间版';
+    try { localStorage.setItem('md_theme', t); } catch (e) {}
+  }
+  const savedTheme = (() => { try { return localStorage.getItem('md_theme'); } catch (e) { return null; } })();
+  if (savedTheme === 'dark') applyTheme('dark');
+  themeBtn.addEventListener('click', () => {
+    applyTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+  });
+
+  const batchToggle = document.getElementById('batchToggle');
+  const batchDrawer = document.getElementById('batchDrawer');
+  if (batchToggle && batchDrawer) {
+    batchToggle.addEventListener('click', () => {
+      const open = batchDrawer.classList.toggle('open');
+      batchToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+
+  document.querySelectorAll('.sec-head').forEach(head => {
+    head.addEventListener('click', () => {
+      const body = head.nextElementSibling;
+      const arrow = head.querySelector('.sec-arrow');
+      const collapsed = body.classList.toggle('collapsed');
+      if (arrow) arrow.textContent = collapsed ? '▸' : '▾';
+    });
+  });
+
+  const state = { cat: 'all', src: 'all', starOnly: false, enExpanded: false };
+  const items = Array.from(document.querySelectorAll('article.item'));
+  const sections = Array.from(document.querySelectorAll('section.cat-sec'));
+  const visibleCountEl = document.getElementById('visibleCount');
+  const emptyState = document.getElementById('emptyState');
+  const resetBtn = document.getElementById('resetBtn');
+  const leadSection = document.getElementById('leadSection');
+
+  function applyFilters() {
+    let shown = 0;
+    sections.forEach(sec => {
+      const secCat = sec.dataset.cat;
+      const catMatch = state.cat === 'all' || state.cat === secCat;
+      let secShown = 0;
+      sec.querySelectorAll('article.item').forEach(item => {
+        const srcMatch = state.src === 'all' || item.dataset.source === state.src;
+        const starMatch = !state.starOnly || item.dataset.star === '1';
+        const visible = catMatch && srcMatch && starMatch;
+        item.style.display = visible ? '' : 'none';
+        if (visible) { secShown++; shown++; }
+      });
+      sec.style.display = (catMatch && secShown > 0) ? '' : 'none';
+    });
+
+    const isFiltered = state.cat !== 'all' || state.src !== 'all' || state.starOnly;
+    if (leadSection) leadSection.style.display = isFiltered ? 'none' : '';
+    if (emptyState) emptyState.classList.toggle('show', items.length > 0 && shown === 0);
+    if (resetBtn) resetBtn.classList.toggle('show', isFiltered);
+    if (visibleCountEl) visibleCountEl.textContent = `显示 ${shown} / ${items.length} 条`;
+  }
+
+  document.querySelectorAll('#catBar .cat-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('#catBar .cat-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      state.cat = btn.dataset.cat;
+      applyFilters();
+    });
+  });
+
+  document.querySelectorAll('[data-src]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('[data-src]').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      state.src = btn.dataset.src;
+      applyFilters();
+    });
+  });
+
+  const starOnlyBtn = document.getElementById('starOnlyBtn');
+  if (starOnlyBtn) {
+    starOnlyBtn.addEventListener('click', () => {
+      state.starOnly = !state.starOnly;
+      starOnlyBtn.classList.toggle('active', state.starOnly);
+      applyFilters();
+    });
+  }
+
+  document.querySelectorAll('.seg-switch button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.seg-switch button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.body.classList.toggle('zh-only', btn.dataset.lang === 'zh');
+    });
+  });
+
+  const toggleEnSumBtn = document.getElementById('toggleEnSumBtn');
+  if (toggleEnSumBtn) {
+    toggleEnSumBtn.addEventListener('click', () => {
+      state.enExpanded = !state.enExpanded;
+      toggleEnSumBtn.classList.toggle('active', state.enExpanded);
+      toggleEnSumBtn.textContent = state.enExpanded ? '收起英文摘要' : '展开英文摘要';
+      document.querySelectorAll('details.en-sum').forEach(d => {
+        if (d.closest('.untranslated')) return;
+        d.open = state.enExpanded;
+      });
+    });
+  }
+
+  if (resetBtn) {
+    resetBtn.addEventListener('click', () => {
+      state.cat = 'all'; state.src = 'all'; state.starOnly = false;
+      document.querySelectorAll('#catBar .cat-btn').forEach(b => b.classList.toggle('active', b.dataset.cat === 'all'));
+      document.querySelectorAll('[data-src]').forEach(b => b.classList.toggle('active', b.dataset.src === 'all'));
+      if (starOnlyBtn) starOnlyBtn.classList.remove('active');
+      applyFilters();
+    });
+  }
+})();
+</script>
+</body>
+</html>
